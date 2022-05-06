@@ -6,7 +6,8 @@ Release versions of APH can be downloaded from [https://acr.app](https://acr.app
 
 
 Note to other developers.
-- It is not possible to provide reproduceable builds as APH needs to be signed with the same key ACR Phone is signed with.
+- It is not possible to provide reproducible builds as APH needs to be signed with the same key ACR Phone is signed with.
 - APH put together in around a week.
 - Do not expect trendy architectural implementations.
+- Never mind the spelling mistakes.
 - Might accept pull requests.
