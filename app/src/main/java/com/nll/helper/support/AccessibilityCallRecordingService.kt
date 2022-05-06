@@ -1,0 +1,370 @@
+package com.nll.helper.support
+
+import android.accessibilityservice.AccessibilityService
+import android.app.PendingIntent
+import android.content.ComponentName
+import android.content.Context
+import android.content.Intent
+import android.graphics.Color
+import android.os.Build
+import android.os.Bundle
+import android.provider.Settings
+import android.text.TextUtils
+import android.util.Log
+import android.view.KeyEvent
+import android.view.accessibility.AccessibilityEvent
+import android.widget.Toast
+import androidx.core.app.NotificationCompat
+import androidx.lifecycle.LiveData
+import com.nll.helper.LiveEvent
+import com.nll.helper.MainActivity
+import com.nll.helper.R
+import com.nll.helper.Util
+import com.nll.helper.recorder.CLog
+import com.nll.helper.update.UpdateChecker
+import com.nll.helper.update.UpdateResult
+import com.nll.helper.update.downloader.AppVersionData
+import com.nll.helper.update.downloader.UpdateActivity
+import io.karn.notify.Notify
+import io.karn.notify.entities.Payload
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+
+
+class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope {
+    private val job = Job()
+    override val coroutineContext = Dispatchers.IO + job
+
+    /**
+     *
+     * As per
+     * https://developer.android.com/guide/components/activities/background-starts
+     * https://developer.android.com/about/versions/oreo/background
+     *
+     * Since client connects to server with AIDL bound service, helper app is excluded from background restrictions
+     * as long as client app is in the background. In our case, since our app is bound by system telecom service
+     * we are safe
+     *
+     * We however still have option to use foreground service
+     * Just switch actAsForegroundService to TRUE AND EDIT MANIFEST to add
+     * android:foregroundServiceType="phoneCall|microphone"
+     * to AccessibilityCallRecordingService
+     */
+    private val actAsForegroundService = false
+
+    private fun getChannel(context: Context) = Payload.Alerts(
+        channelKey = "helper_notification",
+        lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
+        channelName = context.getString(R.string.accessibility_service_name),
+        channelDescription = context.getString(R.string.accessibility_service_name),
+        channelImportance = Notify.IMPORTANCE_MIN,
+        showBadge = false
+
+    )
+
+    private fun startAsForegroundServiceWithNotification(context: Context) {
+
+        val launchIntent = Intent(context, MainActivity::class.java)
+        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val alertPayload = getChannel(context)
+
+        val notification = Notify.with(context)
+            .alerting(alertPayload.channelKey) {
+                lockScreenVisibility = alertPayload.lockScreenVisibility
+                channelName = alertPayload.channelName
+                channelDescription = alertPayload.channelDescription
+                channelImportance = alertPayload.channelImportance
+            }
+            .header {
+                icon = R.drawable.ic_helper_notification2
+                showTimestamp = false
+            }
+            .meta {
+                group = "helper_notification"
+                sticky = true
+                cancelOnClick = false
+                clickIntent = pendingOpenIntent
+            }
+            .content {
+                text = context.getString(R.string.helper_service_notification)
+            }.asBuilder()
+
+        startForeground(Util.notificationId, notification.build())
+    }
+
+    override fun onKeyEvent(event: KeyEvent): Boolean {
+        return super.onKeyEvent(event)
+    }
+
+
+    override fun onCreate() {
+        super.onCreate()
+        Log.i(logTag, "onCreate()")
+        checkUpdates()
+
+    }
+
+    private fun checkUpdates() {
+        launch {
+            Log.i(logTag, "onCreate() -> Check for updates")
+            UpdateChecker.checkUpdate(applicationContext).let { updateResult ->
+                if (CLog.isDebug()) {
+                    CLog.log(logTag, "onVersionUpdateResult -> updateResult: $updateResult")
+                }
+                when (updateResult) {
+                    is UpdateResult.Required -> {
+
+                        if (updateResult.forceUpdate) {
+                            showUpdateNotification(applicationContext, updateResult)
+                        }
+                    }
+                    is UpdateResult.NotRequired -> {
+                        if (CLog.isDebug()) {
+                            CLog.log(logTag, "onVersionUpdateResult -> NotRequired")
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun showUpdateNotification(context: Context, updateResult: UpdateResult.Required) {
+        val launchIntent = Intent(context, UpdateActivity::class.java).apply {
+            AppVersionData(updateResult.remoteAppVersion.downloadUrl, updateResult.remoteAppVersion.versionCode, updateResult.remoteAppVersion.whatsNewMessage)
+                .toIntent(this)
+        }
+        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val alertPayload = getChannel(context)
+
+        Notify.with(context)
+            .alerting(alertPayload.channelKey) {
+                lockScreenVisibility = alertPayload.lockScreenVisibility
+                channelName = alertPayload.channelName
+                channelDescription = alertPayload.channelDescription
+                channelImportance = alertPayload.channelImportance
+            }
+            .header {
+                icon = R.drawable.ic_info_24dp
+                showTimestamp = true
+            }
+            .meta {
+                group = "helper_update_notification"
+                sticky = true
+                cancelOnClick = true
+                clickIntent = pendingOpenIntent
+            }
+            .content {
+                title = context.getString(R.string.new_version_found)
+                text = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty {  context.getString(R.string.forced_update_message_generic) }
+            }.show(Util.updateNotificationId)
+    }
+
+
+    override fun onServiceConnected() {
+        Log.i(logTag, "onServiceConnected()")
+
+        isRunning = true
+
+        if (actAsForegroundService) {
+            startAsForegroundServiceWithNotification(applicationContext)
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            /**
+             * Send AccessibilityServicesChangedEvent As soon as system binds to this service
+             * On Android 11 onChange sent by Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES content URI are delayed around 4-5 seconds. We want to make sure observers of ContentObservers#accessibilityServicesChangedEvent pickup changes as quick as possible
+             *
+             * NOTE: This will cause  observers to load data twice! Once this posted, and then again when we receive actual change for Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+             * However, it should not be an issue as this process does not happen often.
+             *
+             */
+            Log.i(logTag, "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)")
+            sendAccessibilityServicesChangedEvent(true)
+        }
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.i(logTag, "onStartCommand()")
+
+        isRunning = true
+        sendAccessibilityServicesChangedEvent(true)
+        return super.onStartCommand(intent, flags, startId)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.i(logTag, "onDestroy()")
+
+        isRunning = false
+        sendAccessibilityServicesChangedEvent(false)
+        job.cancel()
+
+    }
+
+
+    override fun onAccessibilityEvent(event: AccessibilityEvent) {
+        Log.i(logTag, "event: $event")
+
+    }
+
+    override fun onInterrupt() {
+        Log.i(logTag, "onInterrupt()")
+
+    }
+
+
+
+    companion object {
+        private const val logTag: String = "CR_AccessibilityCallRecordingService"
+
+        //Do not integrate to isHelperServiceEnabled() as running service might not be stopped instantly when user switches it off in Accessibility settings
+        private var isRunning = false
+
+        //https://stackoverflow.com/a/63214655
+        private fun addHighlightInTheList(context: Context, intent: Intent): Intent {
+            intent.apply {
+                //Important as we call this from non activity classes
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+
+                val showArgs = context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
+                val extraFragmentKeyArg = ":settings:fragment_args_key"
+                putExtra(extraFragmentKeyArg, showArgs)
+                val bundle = Bundle().apply {
+                    putString(extraFragmentKeyArg, showArgs)
+                }
+                putExtra(":settings:show_fragment_args", bundle)
+            }
+            return intent
+        }
+
+        private fun getDefaultOpenAccessibilitySettingsIntent(context: Context): Intent {
+            return addHighlightInTheList(context, Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+        }
+
+        private fun openSamsungIntentBelowAndroidR(context: Context) {
+            //This Does not work on Android 11+ there is no such action. We have tried with         setClassName("com.samsung.accessibility", "com.samsung.accessibility.core.winset.activity.SubSettings") but cannot start it.
+            //We get java.lang.SecurityException: Permission Denial: starting Intent { flg=0x10000000 cmp=com.samsung.accessibility/.core.winset.activity.SubSettings } from ProcessRecord{a0cc8de 32732:com.nll.cb/u0a358} (pid=32732, uid=10358) not exported from uid 1000
+            val samsungDeepLink = addHighlightInTheList(context, Intent("com.samsung.accessibility.installed_service"))
+            return try {
+                context.startActivity(samsungDeepLink)
+            } catch (e: Exception) {
+                context.startActivity(getDefaultOpenAccessibilitySettingsIntent(context))
+            }
+
+
+        }
+
+        fun openHelperServiceSettingsIfNeeded(context: Context, openWithoutCheckingIfEnabled: Boolean): Boolean {
+            Log.i(logTag, "openHelperServiceSettingsIfNeeded()")
+
+            if (!isHelperServiceEnabled(context) || openWithoutCheckingIfEnabled) {
+                val isSamsungAndBelowAndroidR = Build.MANUFACTURER.uppercase() == "SAMSUNG" && Build.VERSION.SDK_INT < Build.VERSION_CODES.R
+
+                if (isSamsungAndBelowAndroidR) {
+                    openSamsungIntentBelowAndroidR(context)
+                } else {
+                    context.startActivity(getDefaultOpenAccessibilitySettingsIntent(context))
+                }
+
+                return true
+            }
+
+            return false
+        }
+
+        /**
+         * https://stackoverflow.com/a/40568194
+         *
+         * Based on [com.android.settingslib.accessibility.AccessibilityUtils.getEnabledServicesFromSettings]
+         * @see [AccessibilityUtils](https://github.com/android/platform_frameworks_base/blob/d48e0d44f6676de6fd54fd8a017332edd6a9f096/packages/SettingsLib/src/com/android/settingslib/accessibility/AccessibilityUtils.java.L55)
+         */
+        fun isHelperServiceEnabled(context: Context): Boolean {
+            val expectedComponentName = ComponentName(context, AccessibilityCallRecordingService::class.java)
+            val enabledServicesSetting: String = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+                ?: return false
+            val colonSplitter = TextUtils.SimpleStringSplitter(':')
+            colonSplitter.setString(enabledServicesSetting)
+            while (colonSplitter.hasNext()) {
+                val componentNameString: String = colonSplitter.next()
+                val enabledService = ComponentName.unflattenFromString(componentNameString)
+                if (enabledService != null && enabledService == expectedComponentName) return true
+            }
+            return false
+
+        }
+
+        fun startHelperServiceIfIsNotRunning(context: Context) {
+            Log.i(logTag, "startHelperServiceIfIsNotRunning -> isRunning: $isRunning")
+
+            if (!isRunning) {
+                context.startService(Intent(context, AccessibilityCallRecordingService::class.java))
+            }
+        }
+
+        fun postEnableHelperServiceNotificationAndToast(context: Context, showToast: Boolean) {
+            if (showToast) {
+                Toast.makeText(context, R.string.accessibility_service_toast, Toast.LENGTH_SHORT).show()
+            }
+            showHelperServiceNotEnabledNotification(context)
+
+        }
+
+        private val accessibilityServicesChangedEventLiveData = LiveEvent<Boolean>()
+        fun sendAccessibilityServicesChangedEvent(value: Boolean) {
+            //To UI. We can't seem to get update from flow in viewmodel!
+            accessibilityServicesChangedEventLiveData.postValue(value)
+        }
+
+        fun observeAccessibilityServicesChangesLiveData(): LiveData<Boolean> = accessibilityServicesChangedEventLiveData
+
+        private fun showHelperServiceNotEnabledNotification(context: Context) {
+            val notificationChannel = Payload.Alerts(
+                channelKey = "cb_enable_call_recording_helper",
+                lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
+                channelName = context.getString(R.string.accessibility_service_name),
+                channelImportance = Notify.IMPORTANCE_HIGH,
+                showBadge = false
+
+            )
+
+            val launchIntent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            }
+            val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+
+
+            Notify.with(context)
+                .alerting(notificationChannel.channelKey) {
+                    lockScreenVisibility = notificationChannel.lockScreenVisibility
+                    channelName = notificationChannel.channelName
+                    channelImportance = notificationChannel.channelImportance
+                }
+
+                .meta {
+                    category = NotificationCompat.CATEGORY_ERROR
+                    group = "cb_enable_call_recording_notifications"
+                    clickIntent = pendingOpenIntent
+                }
+
+                .header {
+                    icon = R.drawable.ic_warning_24
+                    headerText = context.getString(R.string.accessibility_service_name)
+                    color = Color.RED
+                    showTimestamp = true
+
+                }
+
+                .content {
+                    title = context.getString(R.string.accessibility_service_name)
+                    text = context.getString(R.string.accessibility_service_notification)
+
+                }
+
+                .show(notificationChannel.channelKey.hashCode())
+        }
+
+
+    }
+}

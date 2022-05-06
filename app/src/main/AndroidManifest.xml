@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <queries>
+        <package android:name="com.nll.cb" />
+    </queries>
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <permission
+        android:name="com.nll.helper.permission"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:name="com.nll.helper.App"
+        android:icon="@mipmap/ic_helper_launcher"
+        android:label="@string/app_name_helper"
+        android:roundIcon="@mipmap/ic_helper_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ACRPhoneHelper">
+        <activity
+            android:name=".update.downloader.UpdateActivity"
+            android:label="@string/new_version_found"
+            android:configChanges="locale|orientation|layoutDirection|keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize"
+            android:exported="false" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
+            android:name="com.nll.helper.ServerContentProvider"
+            android:authorities="com.nll.helper.ServerContentProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:protectionLevel="signature"
+            tools:ignore="ExportedContentProvider"/>
+
+        <activity
+            android:name="com.nll.helper.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.nll.helper.server.RemoteService"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.nll.helper.permission">
+            <intent-filter>
+                <action android:name="com.nll.helper.RemoteService" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
+
+
+
+        <service
+            android:name="com.nll.helper.support.AccessibilityCallRecordingService"
+            android:exported="true"
+
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/helper_call_recording_accessibility_service" />
+        </service>
+
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="${applicationId}.support.AccessibilityChangeObserverInitiator"
+                android:value="androidx.startup" />
+        </provider>
+
+
+    </application>
+
+</manifest>

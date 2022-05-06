@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="Theme.ACRPhoneHelper" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+
+        <item name="colorPrimary">#1976d2</item>
+        <item name="colorPrimaryVariant">#1976d2</item>
+        <item name="colorOnPrimary">#ffffff</item>
+
+        <item name="colorSecondary">#1976d2</item>
+        <item name="colorSecondaryVariant">#1976d2</item>
+        <item name="colorOnSecondary">#000000</item>
+
+        <item name="android:statusBarColor">#1976d2</item>
+
+    </style>
+</resources>

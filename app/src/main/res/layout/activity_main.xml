@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="@dimen/activity_padding"
+    tools:context="com.nll.helper.MainActivity">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_default_16dp"
+        app:layout_constraintBottom_toTopOf="@+id/accessibilityServiceDisabledCard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/accessibilityServiceStatus"
+                style="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/padding_default_16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/accessibility_service_name"
+                app:drawableEndCompat="@drawable/ic_empty_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableEndCompat="@drawable/ic_green_checked_24dp" />
+
+            <TextView
+                android:id="@+id/audioRecordPermissionStatus"
+                style="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/padding_default_16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/audio_record_permission"
+                app:drawableEndCompat="@drawable/ic_empty_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableEndCompat="@drawable/ic_green_checked_24dp" />
+
+            <TextView
+                android:id="@+id/acrPhoneInstallationStatus"
+                style="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/padding_default_16dp"
+                android:maxLines="1"
+                android:text="@string/app_name"
+                app:drawableEndCompat="@drawable/ic_empty_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableEndCompat="@drawable/ic_green_checked_24dp" />
+
+
+            <TextView
+                android:id="@+id/connectionBetweenAppsStatus"
+                style="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="@dimen/padding_default_16dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                app:drawableEndCompat="@drawable/ic_empty_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:drawableEndCompat="@drawable/ic_green_checked_24dp"
+                tools:text="APH - ACR Phone connection to be replaced" />
+
+            <TextView
+                android:id="@+id/accessibilityServiceInfo"
+                style="?textAppearanceCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3dp"
+                android:text="@string/accessibility_service_desc" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/accessibilityServiceDisabledCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_default_16dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/installAcrPhone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_12dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accessibilityServiceCardTitle"
+                style="?textAppearanceSubtitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/accessibility_service_snack" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/accessibilityServiceCardMessage"
+                style="?textAppearanceBody2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:autoLink="all"
+
+                android:text="@string/accessibility_service_toast" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/accessibilityServiceCardActionButton"
+                style="?buttonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/enable" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/installAcrPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_default_16dp"
+        android:visibility="gone"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/webSiteLink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_12dp">
+
+            <com.google.android.material.textview.MaterialTextView
+                style="?textAppearanceSubtitle2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/warning" />
+
+            <com.google.android.material.textview.MaterialTextView
+                style="?textAppearanceBody2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_8dp"
+                android:autoLink="all"
+                android:text="@string/acr_phone_not_installed" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/installMainAppCardActionButton"
+                style="?buttonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:text="@string/install" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/webSiteLink"
+        style="?textAppearanceCaption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
+        android:text="@string/helper_web_site_link"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
