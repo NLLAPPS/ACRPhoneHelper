@@ -9,7 +9,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 
 object UpdateChecker {
-    private val logTag = "UpdateChecker"
+    private const val logTag = "UpdateChecker"
 
 
     suspend fun checkUpdate(context: Context): UpdateResult = withContext(Dispatchers.IO) {

@@ -47,17 +47,14 @@ enum class Encoder(val id: Int) {
         private fun isOnePlus() = Build.MANUFACTURER.equals("ONEPLUS", ignoreCase = true)
 
         /**
-         * Return AndroidMediaRecorder since we cannot use native fix.
-         * This also helps issues with our MediaCodec implementation.
+         * Return AndroidMediaRecorder
          * We seem to get a lot ANRs with MediaCodec
          */
-        private fun getDefaultEncoder() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        private fun getDefaultEncoder() = AndroidMediaRecorder.also {
             CLog.log(logTag, "getDefaultEncoder -> Android 10 and above. Returning AndroidMediaRecorder")
-            AndroidMediaRecorder
-        } else {
-            CLog.log(logTag, "getDefaultEncoder -> Below Android10. Returning MediaCodec")
-            MediaCodec
         }
+
+
 
     }
 }

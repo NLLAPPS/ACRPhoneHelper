@@ -72,11 +72,8 @@ class UpdateActivity : AppCompatActivity() {
                         val packageInfo = FileDownloader.getPackageInfoFromApk(this@UpdateActivity, targetFile)
                         if (packageInfo != null) {
                             val installedVersion = getVersionCode()
-                            val downloadedApkVersion = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                            val downloadedApkVersion =
                                 packageInfo.longVersionCode
-                            } else {
-                                packageInfo.versionCode.toLong()
-                            }
                             if (CLog.isDebug()) {
                                 CLog.log(logTag, "onCreate() -> downloadedApkVersion: $downloadedApkVersion, installedVersion: $installedVersion")
                             }
@@ -123,9 +120,7 @@ class UpdateActivity : AppCompatActivity() {
 
             } else {
                 Toast.makeText(this, R.string.cloud2_internet_conn_required, Toast.LENGTH_LONG).show()
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
-                    extTryStartActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY), getString(R.string.no_url_handle))
-                }
+                extTryStartActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY), getString(R.string.no_url_handle))
             }
 
         }
@@ -154,11 +149,7 @@ class UpdateActivity : AppCompatActivity() {
     @Suppress("DEPRECATION")
     private fun getVersionCode(): Long {
         return try {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).longVersionCode
-            } else {
-                applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).versionCode.toLong()
-            }
+            applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).longVersionCode
         } catch (e: Exception) {
             CLog.logPrintStackTrace(e)
             0L
@@ -251,11 +242,8 @@ class UpdateActivity : AppCompatActivity() {
 
     private fun validateAndInstallDownloadedApk(downloadedApk: File, packageInfo: PackageInfo) {
 
-        val downloadedApkVersion = if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        val downloadedApkVersion =
             packageInfo.longVersionCode
-        } else {
-            packageInfo.versionCode.toLong()
-        }
         val isNewOrSameVersion = downloadedApkVersion >= getVersionCode()
         if (CLog.isDebug()) {
             CLog.log(logTag, "validateAndInstallDownloadedApk() -> isNewOrSameVersion $isNewOrSameVersion")
@@ -291,15 +279,13 @@ class UpdateActivity : AppCompatActivity() {
         } else {
 
 
-            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ) {
-                if (!packageManager.canRequestPackageInstalls()) {
-                    Toast.makeText(this, R.string.update_downloader_enable_install_unknown_apps, Toast.LENGTH_LONG).show()
-                    val permissionIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
-                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                    }
-                    startActivity(permissionIntent)
-                    return
+            if (!packageManager.canRequestPackageInstalls()) {
+                Toast.makeText(this, R.string.update_downloader_enable_install_unknown_apps, Toast.LENGTH_LONG).show()
+                val permissionIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
+                startActivity(permissionIntent)
+                return
             }
 
             val installIntent = Intent(Intent.ACTION_VIEW).apply {
