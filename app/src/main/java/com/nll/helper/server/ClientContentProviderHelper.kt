@@ -7,13 +7,8 @@ import com.nll.helper.recorder.CLog
 
 /**
  *
- * Server files should be within app-recorder and copied to acr module app-helper-client.
- *
- * Spent a day trying to move client files to its own module like server
- *
- * Had to include server files and consequently included manifest declarations for the server
- *
- * Spend 3 hour figuring out ACR PHone was actually connection to itself because server files were packaged!!
+ *These are commands/requests server (APH) sends to client (ACR Phone) and expects response
+ * Client should implement a Content provider just like ServerContentProvider and respond to these commands/requests
  *
  */
 object ClientContentProviderHelper {
@@ -36,7 +31,12 @@ object ClientContentProviderHelper {
         CLog.log(logTag, "askToClientToConnect()")
 
         /**
-         * Make sure we handle crash as user may not have main app installed
+         * Make sure we handle crash as user may not have main app installed.
+         * Client in response calls attempts to connect by creating instance of
+         * IRemoteService_Proxy(context.applicationContext, IRemoteService.SERVICE_INTENT)
+         *
+         * Our client implementation uses coroutines, fo instantiating IRemoteService_Proxy also attempts to connect.
+         * See https://github.com/josesamuel/remoter#kotlin-support-with-suspend-functions
          */
         try {
             context.contentResolver.call(Uri.parse("content://$clientAuthority"), clientMethodAskToConnect, null, null)
