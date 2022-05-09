@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Skakel asb installering van onbekende bron aan</string>
     <string name="update_downloader_install_app">Installeer</string>
     <string name="update_downloader_download_completed">Aflaai voltooi</string>
     <string name="update_downloader_downloading">Laai tans af, wag asb…</string>
     <string name="update_download_manually">Daar was en fout. Wil jy probeer om handmatig af te laai?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Wat\'s nuut</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Geen inligting verskaf</string>
+    <string name="update_download_no_whats_new">Wat\'s nuut</string>
+    <string name="update_download_no_version_notes">Geen inligting verskaf</string>
     <string name="update_downloader_miu_optimazation_warning">Jou foon verhoed dalk sylaai. Probeer installeer, laai af en installeer met die stelsellêerbestuurder as dit misluk</string>
 </resources>

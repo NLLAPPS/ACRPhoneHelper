@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Kapcsolja be az ismeretlen forrásból származó telepíthetőséget</string>
     <string name="update_downloader_install_app">Telepítés</string>
     <string name="update_downloader_download_completed">A letöltés befejeződött</string>
     <string name="update_downloader_downloading">Letöltés. Kis türelmet...</string>
     <string name="update_download_manually">Hiba történt. Megpróbálja manuálisan letölteni?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Újdonságok</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Nincs információ</string>
+    <string name="update_download_no_whats_new">Újdonságok</string>
+    <string name="update_download_no_version_notes">Nincs információ</string>
     <string name="update_downloader_miu_optimazation_warning">Lehetséges, hogy telefonja megakadályozza a Sideloading-et. Próbálja meg letölteni és manuálisan telepíteni a rendszer fájlkezelőjével</string>
 </resources>

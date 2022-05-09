@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_install_app">安装</string>
+    <string name="update_downloader_download_completed">下载完成</string>
+    <string name="update_downloader_downloading">下载中，请稍候...</string>
+    <string name="update_download_no_whats_new">新功能</string>
+</resources>
