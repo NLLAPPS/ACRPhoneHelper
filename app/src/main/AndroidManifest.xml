@@ -71,6 +71,7 @@
 
         <activity
             android:name="com.nll.helper.MainActivity"
+            android:configChanges="locale|orientation|layoutDirection|keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
