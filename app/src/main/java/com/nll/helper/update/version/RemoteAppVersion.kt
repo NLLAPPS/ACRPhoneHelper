@@ -5,7 +5,7 @@ import org.json.JSONObject
 Expected Json response format is
 {
   "versionCode": 1,
-  "downloadUrl": "https://play.google.com/store/apps/details?id=com.nll.cb",
+  "downloadUrl": "https://acr.app/aph.apk",
   "whatsNewMessage": "",
   "forceUpdate": false
 }

@@ -5,12 +5,11 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import com.nll.helper.Constants
 import com.nll.helper.MainActivity
 import com.nll.helper.R
-import com.nll.helper.Util
 import com.nll.helper.recorder.*
 import com.nll.helper.server.IRecorderBridge
 import com.nll.helper.server.RemoteResponseCodes
@@ -29,7 +28,7 @@ class RecorderBridge : IRecorderBridge {
     override fun startRecording(context: Context, encoder: Int, recordingFile: String, audioChannels: Int, encodingBitrate: Int, audioSamplingRate: Int, audioSource: Int, mediaRecorderOutputFormat: Int, mediaRecorderAudioEncoder: Int, recordingGain: Int, serverRecorderListener: ServerRecorderListener): Int {
 
         return if (needsAudioRecordPermission(context)) {
-            Log.i(logTag, "startRecording() -> needsAudioRecordPermission")
+            CLog.log(logTag, "startRecording() -> needsAudioRecordPermission")
             showNeedsAudioRecordPermissionNotification(context)
             //Return stopped as we have not yet started and anything else would result error warning on in call screen where user cannot resume recording
             RemoteResponseCodes.RECORDING_STOPPED
@@ -37,7 +36,7 @@ class RecorderBridge : IRecorderBridge {
             val realRecordingFile = CacheFileProvider.provideCacheFile(context, recordingFile)
             val recorderConfig = RecorderConfig.fromPrimitives(encoder, realRecordingFile, audioChannels, encodingBitrate, audioSamplingRate, audioSource, mediaRecorderOutputFormat, mediaRecorderAudioEncoder, recordingGain, serverRecorderListener)
 
-            Log.i(logTag, "startRecording() -> is recorder null ${recorder == null}, is recorder recording ${recorder?.getState() == ServerRecordingState.Recording}")
+            CLog.log(logTag, "startRecording() -> is recorder null ${recorder == null}, is recorder recording ${recorder?.getState() == ServerRecordingState.Recording}")
 
             /**
              * Just in case we have a dangling recorder.
@@ -66,24 +65,24 @@ class RecorderBridge : IRecorderBridge {
     }
 
     override fun stopRecording() {
-        Log.i(logTag, "stopRecording()")
+        CLog.log(logTag, "stopRecording()")
         recorder?.stopRecording()
         recorder = null
     }
 
     override fun pauseRecording() {
-        Log.i(logTag, "pauseRecording()")
+        CLog.log(logTag, "pauseRecording()")
         recorder?.pauseRecording()
 
     }
 
     override fun resumeRecording() {
-        Log.i(logTag, "resumeRecording()")
+        CLog.log(logTag, "resumeRecording()")
         recorder?.resumeRecording()
     }
 
     override fun showNeedsAudioRecordPermissionNotification(context: Context) {
-        Log.i(logTag, "showNeedsAudioRecordPermissionNotification()")
+        CLog.log(logTag, "showNeedsAudioRecordPermissionNotification()")
         val launchIntent = Intent(context, MainActivity::class.java)
         val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val alertPayload = getChannel(context)
@@ -108,7 +107,7 @@ class RecorderBridge : IRecorderBridge {
             .content {
                 title = context.getString(R.string.audio_record_permission)
                 text = context.getString(R.string.call_rec_permissions_message)
-            }.show(Util.permissionNotificationId)
+            }.show(Constants.permissionNotificationId)
     }
 
     private fun getChannel(context: Context) = Payload.Alerts(

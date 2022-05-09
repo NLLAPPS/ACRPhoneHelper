@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cloud2_internet_conn_required">Conexiune Internet necesară pentru a completa această solicitare</string>
+</resources>

@@ -1,8 +1,8 @@
 package com.nll.helper
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
+import com.nll.helper.recorder.CLog
 import com.nll.helper.server.RemoteService
 import com.nll.helper.support.AccessibilityCallRecordingService
 import kotlinx.coroutines.flow.launchIn
@@ -20,19 +20,19 @@ class MainActivityViewModel(app: Application) : AndroidViewModel(app) {
 
 
     init {
-        Log.i(logTag, "init()")
+        CLog.log(logTag, "init()")
 
 
         val isEnabledOnInit = AccessibilityCallRecordingService.isHelperServiceEnabled(app)
         _accessibilityServicesChanged.postValue(isEnabledOnInit)
 
         AccessibilityCallRecordingService.observeAccessibilityServicesChangesLiveData().observeForever { isEnabled ->
-            Log.i(logTag, "observeAccessibilityServicesChangesLiveData() -> isEnabled: $isEnabled")
+            CLog.log(logTag, "observeAccessibilityServicesChangesLiveData() -> isEnabled: $isEnabled")
             _accessibilityServicesChanged.postValue(isEnabled)
         }
 
         RemoteService.observeClientConnectionCount().onEach { connectionCount ->
-            Log.i(logTag, "observeClientConnectionCount() -> connectionCount: $connectionCount")
+            CLog.log(logTag, "observeClientConnectionCount() -> connectionCount: $connectionCount")
             _clientConnected.postValue(connectionCount > 0)
         }.launchIn(viewModelScope)
     }

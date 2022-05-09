@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone đã bị sự cố</string>
+    <string name="crash_dialog_text">Đã xảy ra lỗi khiến ACR Phone bị sự cố và dừng.\nVui lòng giúp chúng tôi khắc phục điều này bằng cách gửi cho chúng tôi dữ liệu lỗi, tất cả những gì bạn phải làm là nhấn \'OK\' và gửi báo cáo này qua email.</string>
+    <string name="permission_all_required">Tất cả các quyền được yêu cầu cho chức năng đầy đủ</string>
+    <string name="permissions_title">Yêu cầu cấp quyền</string>
+    <string name="send">Gửi</string>
+    <string name="cancel">Huỷ</string>
+    <string name="app_crash_notification_channel">Thông báo sự cố</string>
+    <string name="warning">Cảnh báo!</string>
+
+
+    <string name="new_version_found">Có phiên bản mới</string>
+    <string name="no_url_handle">Không thể tìm thấy bất kỳ ứng dụng nào để mở liên kết này</string>
+    <string name="url_error">Không thể phân tích liên kết này</string>
+
+
+    <string name="enable">Bật</string>
+
+
+    <string name="call_rec_permissions_message">Nhấn vào Cho phép để xem và cấp các quyền cần thiết để ghi âm cuộc gọi</string>
+
+
+    <string name="accessibility_service_name">Trợ giúp Ghi âm Cuộc gọi</string>
+    <string name="accessibility_service_desc">Dịch vụ này được sử dụng để truy cập âm thanh cuộc gọi. Không thể ghi âm cuộc gọi khi nó bị tắt. Để hạn chế quyền truy cập vào dữ liệu của bạn, ứng dụng giới hạn khả năng quan sát đối với các sự kiện riêng và không yêu cầu bất kỳ khả năng nào\n\nMột số điện thoại có thể báo cáo dịch vụ là không hoạt động. Hãy thử tắt và bật lại nếu điều này xảy ra.</string>
+    <string name="accessibility_service_notification">Nhấn vào đây để bật Trình trợ giúp ghi âm cuộc gọi</string>
+    <string name="accessibility_service_toast">Vui lòng bật Trình trợ giúp ghi âm cuộc gọi trên màn hình Dịch vụ trợ năng đã cài đặt</string>
+    <string name="accessibility_service_snack">Trình trợ giúp ghi âm cuộc gọi chưa được bật</string>
+
+
+    <string name="download">Tải xuống</string>
+
+
+    <string name="acr_phone_not_installed">Phiên bản Cửa hàng Google Play của ACR Điện thoại chưa được cài đặt hoặc phải được cập nhật. Ứng dụng này chỉ có thể được sử dụng cùng với phiên bản ACR Phone tương thích</string>
+    <string name="install">Cài đặt</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Phải tiếp tục chạy cho chức năng ghi âm cuộc gọi của ACR Phone</string>
+    <string name="forced_update_message_generic">Ứng dụng này phải được cập nhật để hoạt động chính xác</string>
+    <string name="audio_record_permission">Quyền ghi âm thanh</string>
+</resources>

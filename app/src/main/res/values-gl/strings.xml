@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone fallou</string>
+    <string name="crash_dialog_text">Produciuse un erro que causou que ACR Phone fallase e se detivese.\nPor favor, axúdenos a solucionalo enviándonos os datos do erro, só ten que premer \"Si\" e enviar este informe por correo electrónico.</string>
+    <string name="permission_all_required">Son necesarios todos os permisos para obter funcionalidade completa</string>
+    <string name="permissions_title">Solicitude de permiso</string>
+    <string name="send">Enviar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="app_crash_notification_channel">Notificación de fallo</string>
+    <string name="warning">Aviso!</string>
+
+
+    <string name="new_version_found">Atopouse unha nova versión</string>
+    <string name="no_url_handle">Non se atopou ningunha aplicación para abrir esta ligazón</string>
+    <string name="url_error">Non é posible analizar esta ligazón</string>
+
+
+    <string name="enable">Activar</string>
+
+
+    <string name="call_rec_permissions_message">Toque \"Permitir\" para ver e conceder os permisos necesarios para a gravación de chamadas</string>
+
+
+    <string name="accessibility_service_name">Asistente de Gravación de Chamadas</string>
+    <string name="accessibility_service_desc">Este servizo úsase para acceder ao audio das chamadas. Se está desactivado o audio non poderá ser gravado. Para restrinxir o acceso aos seus datos, a aplicación limítase a observar os seus propios eventos e non solicita ningunha competencia.\n\nPode que algúns teléfonos indiquen que o servizo non funciona. Se isto pasa, intente desactivando e reactivando o servizo.</string>
+    <string name="accessibility_service_notification">Tocar aquí para activar o Asistente de Gravación de Chamadas</string>
+    <string name="accessibility_service_toast">Por favor, active o Asistente de Gravación de Chamadas na pantalla de Servizos de Accesibilidade Instalados</string>
+    <string name="accessibility_service_snack">O Asistente de Gravación de Chamadas non está activado</string>
+
+
+    <string name="download">Descargar</string>
+
+
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Vui lòng bật cài đặt không rõ nguồn gốc</string>
+    <string name="update_downloader_install_app">Cài đặt</string>
+    <string name="update_downloader_download_completed">Tải xuống đã hoàn tất</string>
+    <string name="update_downloader_downloading">Đang tải xuống vui lòng đợi…</string>
+    <string name="update_download_manually">Đã có lỗi xảy ra. Bạn có muốn thử tải xuống theo cách thủ công không?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Có gì mới</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Không có thông tin được cung cấp</string>
+    <string name="update_downloader_miu_optimazation_warning">Điện thoại của bạn có thể đang ngăn phụ tải. Thử cài đặt, tải xuống và cài đặt thủ công bằng trình quản lý tệp hệ thống nếu không thành công</string>
+</resources>

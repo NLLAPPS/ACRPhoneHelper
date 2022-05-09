@@ -28,13 +28,9 @@ interface IRemoteService {
                                 mediaRecorderOutputFormat: Int,
                                 mediaRecorderAudioEncoder: Int,
                                 recordingGain: Int) : Int
-    @Oneway
     suspend fun stopRecording()
-    @Oneway
     suspend fun pauseRecording()
-    @Oneway
     suspend fun resumeRecording()
-    @Oneway
     suspend fun registerClientProcessDeath(@ParamIn clientDeathListener: IBinder)
     @Oneway
     fun registerListener(listener: IRemoteServiceListener)

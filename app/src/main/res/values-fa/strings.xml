@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone خراب شد</string>
+    <string name="crash_dialog_text">هنگام خرابی و توقف ACR Phone خطایی روی داد.\nلطفاً با ارسال اطلاعات خطا برای رفع این مشکل به ما کمک کنید ، فقط کافی است روی \"تأیید\" ضربه بزنید و این گزارش را از طریق ایمیل ارسال کنید.</string>
+    <string name="permission_all_required">برای عملکرد کامل ، همه مجوزها لازم است</string>
+    <string name="permissions_title">درخواست مجوز</string>
+    <string name="send">ارسال</string>
+    <string name="cancel">لغو</string>
+    <string name="app_crash_notification_channel">اعلان خرابی</string>
+    <string name="warning">هشدار</string>
+
+
+    <string name="new_version_found">نسخه جدید پیدا شد</string>
+    <string name="no_url_handle">برای باز کردن این پیوند نمی توانید هیچ برنامه ای پیدا کنید</string>
+    <string name="url_error">تجزیه این پیوند امکان پذیر نیست</string>
+
+
+    <string name="enable">فعال کردن</string>
+
+
+    <string name="call_rec_permissions_message">برای مشاهده و اعطای مجوزهای لازم برای ضبط تماس ، روی «مجاز» ضربه بزنید</string>
+
+
+    <string name="accessibility_service_name">مکالمه ضبط تماس</string>
+    <string name="accessibility_service_desc">این سرویس برای دسترسی به صدای تماس استفاده می شود. وقتی صدا غیرفعال باشد ، هیچ فراخوانی ضبط نمی شود. برای محدود کردن دسترسی به داده های شما ، برنامه مشاهده به وقایع خاص خود را محدود می کند و هیچ گونه قابلیتی نیاز نیست. ممکن است برخی از تلفن ها سرویس را گزارش دهند که کار نمی کند. اگر این اتفاق افتاد ، دوباره آن را غیرفعال و فعال کنید.</string>
+    <string name="accessibility_service_notification">برای فعال کردن راهنمای ضبط تماس ، روی اینجا ضربه بزنید</string>
+    <string name="accessibility_service_toast">لطفاً راهنمای ضبط تماس را در صفحه خدمات دسترسی قابل نصب نصب کنید</string>
+    <string name="accessibility_service_snack">راهنمای ضبط تماس فعال نیست</string>
+
+
+</resources>

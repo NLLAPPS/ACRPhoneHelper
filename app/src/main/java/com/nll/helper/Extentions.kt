@@ -47,6 +47,7 @@ fun Int.extHumanReadableByteCount(si: Boolean): String {
     val pre = (if (si) "kMGTPE" else "KMGTPE")[exp - 1] + if (si) "" else "i"
     return String.format(Locale.getDefault(), "%.1f %sB", this / unit.toDouble().pow(exp.toDouble()), pre)
 }
+
 fun Activity.extOpenAppDetailsSettings() {
     Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
         data = Uri.fromParts("package", packageName, null)

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone-ը վթարվեց</string>
+    <string name="crash_dialog_text">Վրեպի պատճառով ACR Phone-ը վթարվեց և փակվեց։\nԽնդրում ենք, որ մեզ օգնեք, որ խնդիրը կարգավորենք։ Սեղմեք «Լավ» և ուղարկեք վրեպի զեկույցը էլ. փոստով։</string>
+    <string name="permission_all_required">Բոլոր թույլտվությունները անհրաժեշտ են ամբողջական ֆունկցիոնալության համար</string>
+    <string name="permissions_title">Թույլտվության Հարցում</string>
+    <string name="send">Ուղարկել</string>
+    <string name="cancel">Չեղարկել</string>
+    <string name="app_crash_notification_channel">Վթարի ծանուցում</string>
+    <string name="warning">Ուշադրություն.</string>
+
+
+    <string name="new_version_found">Հասանելի է նոր տարբերակ</string>
+    <string name="no_url_handle">Չհաջողվեց գտնել հավելված այս հղումը բացելու համար</string>
+    <string name="url_error">Հղումը չի ճանաչվում</string>
+
+
+    <string name="enable">Միացնել</string>
+
+
+    <string name="call_rec_permissions_message">Հպեք «Թույլատրել» կոճգամը, որպեսզի տեսնեք և տաք ձայնագրմանը անհրաժեշտ թույլտվությունները</string>
+
+
+    <string name="accessibility_service_name">Զանգերի Ձայնագրման Օգնական</string>
+    <string name="accessibility_service_notification">Հպեք, որպեսզի պատրաստվել զանգերի ձայնագրմանը</string>
+    <string name="accessibility_service_toast">Միացրեք «Զանգերի Ձայնագրման Օգնականը» Տեղադրված Մատչելիության Ծառայություններ էկրանում</string>
+    <string name="accessibility_service_snack">Զանգերի Ձայնագրման Օգնականը միացված չէ</string>
+
+
+    <string name="download">Ներբեռնել</string>
+
+
+</resources>

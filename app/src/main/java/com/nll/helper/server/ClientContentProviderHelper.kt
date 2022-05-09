@@ -2,7 +2,7 @@ package com.nll.helper.server
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
+import com.nll.helper.recorder.CLog
 
 
 /**
@@ -33,7 +33,7 @@ object ClientContentProviderHelper {
 
     //Ignore can be private!
     fun askToClientToConnect(context: Context) {
-        Log.i(logTag, "askToClientToConnect()")
+        CLog.log(logTag, "askToClientToConnect()")
 
         /**
          * Make sure we handle crash as user may not have main app installed
@@ -48,7 +48,7 @@ object ClientContentProviderHelper {
     //Ignore can be private!
     fun getClientVersionData(context: Context): ClientVersionData? {
 
-        Log.i(logTag, "getClientVersionData()")
+        CLog.log(logTag, "getClientVersionData()")
         /**
          * Make sure we handle crash as user may not have helper installed
          */
@@ -59,10 +59,10 @@ object ClientContentProviderHelper {
         }
         return if (cmdResult != null) {
             val clientVersionData = ClientVersionData.fromBundle(cmdResult)
-            Log.i(logTag, "getClientVersionData() -> clientVersionData: $clientVersionData")
+            CLog.log(logTag, "getClientVersionData() -> clientVersionData: $clientVersionData")
             clientVersionData
         } else {
-            Log.i(logTag, "getClientVersionData() -> clientVersionData: null")
+            CLog.log(logTag, "getClientVersionData() -> clientVersionData: null")
             null
         }
 

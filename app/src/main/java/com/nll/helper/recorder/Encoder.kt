@@ -1,7 +1,6 @@
 package com.nll.helper.recorder
 
 import android.os.Build
-import android.util.Log
 
 enum class Encoder(val id: Int) {
     MediaCodec(1), AndroidMediaRecorder(2);
@@ -20,7 +19,7 @@ enum class Encoder(val id: Int) {
             return when (id) {
                 0 -> {
                     if (forceAndroidMediaRecorder()) {
-                        Log.i(logTag, "fromIdOrDefault -> forceAndroidMediaRecorder() is true. Returning AndroidMediaRecorder")
+                        CLog.log(logTag, "fromIdOrDefault -> forceAndroidMediaRecorder() is true. Returning AndroidMediaRecorder")
 
                         AndroidMediaRecorder
                     } else {
@@ -29,7 +28,7 @@ enum class Encoder(val id: Int) {
                 }
                 else -> {
                     val encoder = map[id] ?: getDefaultEncoder()
-                    Log.i(logTag, "fromIdOrDefault -> User changed -> Returning $encoder")
+                    CLog.log(logTag, "fromIdOrDefault -> User changed -> Returning $encoder")
 
                     encoder
                 }
@@ -52,8 +51,13 @@ enum class Encoder(val id: Int) {
          * This also helps issues with our MediaCodec implementation.
          * We seem to get a lot ANRs with MediaCodec
          */
-        private fun getDefaultEncoder() = AndroidMediaRecorder
-
+        private fun getDefaultEncoder() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            CLog.log(logTag, "getDefaultEncoder -> Android 10 and above. Returning AndroidMediaRecorder")
+            AndroidMediaRecorder
+        } else {
+            CLog.log(logTag, "getDefaultEncoder -> Below Android10. Returning MediaCodec")
+            MediaCodec
+        }
 
     }
 }

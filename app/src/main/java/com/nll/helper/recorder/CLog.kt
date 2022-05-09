@@ -4,7 +4,7 @@ import com.nll.helper.BuildConfig
 
 object CLog {
     private const val logTag = "CLog"
-    private var _debug = BuildConfig.DEBUG
+    private var _debug = true//BuildConfig.DEBUG
 
 
     fun isDebug() = _debug

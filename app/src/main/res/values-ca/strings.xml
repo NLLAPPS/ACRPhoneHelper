@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone ha fallat</string>
+    <string name="crash_dialog_text">S\'ha produït un error que ha causat que ACR Phone hagi fallat i s\'hagi aturat.\nSi us plau, ajuda\'ns a solucionar aquest problema enviant-nos informació sobre aquest error, tot el que has de fer és clicar \"OK\" i enviar-nos aquest informe mitjançant correu electrònic.</string>
+    <string name="permission_all_required">Es requereixen tots els permisos per una funcionalitat completa</string>
+    <string name="permissions_title">Sol·licitud de permís</string>
+    <string name="send">Envia</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="app_crash_notification_channel">Notificació de fallada</string>
+    <string name="warning">Atenció!</string>
+
+
+    <string name="new_version_found">S\'ha trobat una nova versió</string>
+    <string name="no_url_handle">No s\'ha trobat cap aplicació per obrir aquest enllaç</string>
+    <string name="url_error">No s\'ha pogut analitzar aquest enllaç</string>
+
+
+    <string name="enable">Activa</string>
+
+
+    <string name="call_rec_permissions_message">Toca \"Permet\" per veure i concedir els permisos necessaris per a l\'enregistrament de trucades</string>
+
+
+    <string name="accessibility_service_name">Assistent d\'Enregistrament de Trucades</string>
+    <string name="accessibility_service_desc">Aquest servei s\'utilitza per accedir a l\'àudio de la trucada. No s\'enregistrarà cap trucada quan estigui desactivat. Per tal de limitar l\'accés a les teves dades personals, l\'aplicació es limita a observar els seus propis esdeveniments i no requereix cap competència\n\nAlguns telèfons poden indicar que el servei no funciona. Si passa això, prova de desactivar-lo i tornar-lo a activar.</string>
+    <string name="accessibility_service_notification">Toca aquí per activar l\'Assistent d\'Enregistrament de Trucades</string>
+    <string name="accessibility_service_toast">Si us plau, activa l\'Assistent d\'Enregistrament de Trucades a la pantalla de Serveis d\'Accessibilitat Instal·lats</string>
+    <string name="accessibility_service_snack">L\'Assistent d\'Enregistrament de Trucades no està activat</string>
+
+
+    <string name="download">Baixa</string>
+
+
+    <string name="acr_phone_not_installed">L\'ACR Phone de Google Play Store no està instal·lat, o bé necessita actualitzar-se. Aquesta aplicació només es pot utilitzar conjuntament amb una versió compatible de l\'ACR Phone.</string>
+    <string name="install">Instal·lar</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">S\'ha de continuar executant per poder enregistrar trucades amb l\'ACR Phone</string>
+    <string name="forced_update_message_generic">Cal actualitzar l\'aplicació per poder funcionar correctament</string>
+    <string name="audio_record_permission">Permís d\'enregistrament d\'àudio</string>
+</resources>

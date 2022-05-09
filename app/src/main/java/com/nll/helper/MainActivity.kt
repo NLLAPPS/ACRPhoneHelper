@@ -7,9 +7,7 @@ import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -28,6 +26,7 @@ import com.nll.helper.update.UpdateResult
 import com.nll.helper.update.downloader.AppVersionData
 import com.nll.helper.update.downloader.UpdateActivity
 import kotlinx.coroutines.launch
+
 
 class MainActivity : AppCompatActivity() {
     private val logTag = "CR_MainActivity"
@@ -62,51 +61,55 @@ class MainActivity : AppCompatActivity() {
         binding.connectionBetweenAppsStatus.text = String.format("%s ⬌ %s", getString(R.string.app_name_helper), getString(R.string.app_name))
 
         viewModel.observeAccessibilityServicesChanges().observe(this) { isEnabled ->
-                onAccessibilityChanged(isEnabled)
+            onAccessibilityChanged(isEnabled)
+        }
+        viewModel.observeClientConnected().observe(this) { isConnected ->
+            CLog.log(logTag, "observeClientConnected() -> isConnected: $isConnected")
+            onClientConnected(isConnected)
+        }
+        binding.accessibilityServiceCardActionButton.setOnClickListener {
+            CLog.log(logTag, "accessibilityServiceCardActionButton()")
+            val openWithoutCheckingIfEnabled = openHelperServiceSettingsIfNeededClickCount > 0
+            val opened = AccessibilityCallRecordingService.openHelperServiceSettingsIfNeeded(this, openWithoutCheckingIfEnabled)
+            if (opened) {
+                openHelperServiceSettingsIfNeededClickCount = 0
+            } else {
+                openHelperServiceSettingsIfNeededClickCount++
             }
-            viewModel.observeClientConnected().observe(this) { isConnected ->
-                Log.i(logTag, "observeClientConnected() -> isConnected: $isConnected")
-                onClientConnected(isConnected)
-            }
-            binding.accessibilityServiceCardActionButton.setOnClickListener {
-                Log.i(logTag, "accessibilityServiceCardActionButton()")
-                val openWithoutCheckingIfEnabled = openHelperServiceSettingsIfNeededClickCount > 0
-                val opened = AccessibilityCallRecordingService.openHelperServiceSettingsIfNeeded(this, openWithoutCheckingIfEnabled)
-                if (opened) {
-                    openHelperServiceSettingsIfNeededClickCount = 0
-                } else {
-                    openHelperServiceSettingsIfNeededClickCount++
-                }
-            }
+        }
 
-            binding.installMainAppCardActionButton.setOnClickListener {
-                Log.i(logTag, "installMainAppCardActionButton() -> setOnClickListener")
-                openPlayStore()
-            }
+        binding.installMainAppCardActionButton.setOnClickListener {
+            CLog.log(logTag, "installMainAppCardActionButton() -> setOnClickListener")
+            openPlayStore()
+        }
 
-            //Not that there could be only one job per addRepeatingJob
-            //MUST BE STARTED as RESUMED creates loop when user manually denied permision from the settings
-            lifecycleScope.launch {
-                repeatOnLifecycle(Lifecycle.State.STARTED) {
-                    Log.i(logTag, "lifecycleScope() -> STARTED")
-                    checkMainApp()
-                    checkForAudioRecordPermission()
-                    //checkAccessibilityServiceState()
-                }
+        //Not that there could be only one job per addRepeatingJob
+        //MUST BE STARTED as RESUMED creates loop when user manually denied permission from the settings
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                CLog.log(logTag, "lifecycleScope() -> STARTED")
+                checkMainApp()
+                checkForAudioRecordPermission()
+                //checkAccessibilityServiceState()
             }
+        }
 
-            lifecycleScope.launch {
-                //Update check
-                onVersionUpdateResult(UpdateChecker.checkUpdate(this@MainActivity))
-            }
-
+        lifecycleScope.launch {
+            //Update check
+            onVersionUpdateResult(UpdateChecker.checkUpdate(this@MainActivity))
+        }
 
 
     }
 
-
+    //Test
+    /*showUpdateMessage(UpdateResult.Required(RemoteAppVersion("{\n" +
+            "                                                                          \"versionCode\": 1,\n" +
+            "                                                                          \"downloadUrl\": \"https://acr.app/aph.apk\",\n" +
+            "                                                                          \"whatsNewMessage\": \"\",\n" +
+            "                                                                          \"forceUpdate\": true\n" +
+            "                                                                        }"), true))*/
     private fun onVersionUpdateResult(updateResult: UpdateResult) {
-
         if (CLog.isDebug()) {
             CLog.log(logTag, "onVersionUpdateResult -> updateResult: $updateResult")
         }
@@ -128,7 +131,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAccessibilityChanged(isEnabled: Boolean) {
-        Log.i(logTag, "onAccessibilityChanged -> isEnabled: $isEnabled")
+        CLog.log(logTag, "onAccessibilityChanged -> isEnabled: $isEnabled")
 
         binding.accessibilityServiceDisabledCard.isVisible = isEnabled.not()
         binding.accessibilityServiceStatus.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft(
@@ -155,7 +158,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun onClientConnected(isConnected: Boolean) {
         if (!isConnected) {
-            Log.i(logTag, "onClientConnected() -> isConnected is false. Calling checkMainApp()")
+            CLog.log(logTag, "onClientConnected() -> isConnected is false. Calling checkMainApp()")
             checkMainApp()
         }
         binding.connectionBetweenAppsStatus.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft(
@@ -175,7 +178,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             false
         }
-        Log.i(logTag, "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating")
+        CLog.log(logTag, "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating")
 
         binding.installAcrPhone.isVisible = !isAcrPhoneInstalled
         if (isAcrPhoneInstalled && !askedClientToConnect) {
@@ -226,13 +229,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
-        Log.i(logTag, "onNewIntent() -> intent: $intent")
+        CLog.log(logTag, "onNewIntent() -> intent: $intent")
         onAccessibilityChanged(AccessibilityCallRecordingService.isHelperServiceEnabled(this))
     }
 
     //Prevent close on back
     override fun onBackPressed() {
-        Log.i(logTag, "onBackPressed()")
+        CLog.log(logTag, "onBackPressed()")
         moveTaskToBack(true)
     }
 

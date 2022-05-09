@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phoneがクラッシュしました</string>
+    <string name="crash_dialog_text">ACR Phoneのクラッシュおよび停止の原因となるエラーがありました。\nエラーデータを送信してこの修正をお手伝いください。「OK」をタップしてこのレポートをメールで送信するだけです。</string>
+    <string name="permission_all_required">全機能を使うには、すべての許可が必要です</string>
+    <string name="permissions_title">許可リクエスト</string>
+    <string name="send">送信</string>
+    <string name="cancel">キャンセル</string>
+    <string name="app_crash_notification_channel">クラッシュ通知</string>
+    <string name="warning">警告！</string>
+
+
+    <string name="new_version_found">新しいバージョンが見つかりました</string>
+    <string name="no_url_handle">このリンクを開くアプリが見つかりません</string>
+    <string name="url_error">このリンクを解析できません</string>
+
+
+    <string name="enable">有効にする</string>
+
+
+    <string name="call_rec_permissions_message">[許可] をタップして、通話録音に必要な許可を表示して付与します</string>
+
+
+    <string name="accessibility_service_name">通話録音ヘルパーに電話する</string>
+    <string name="accessibility_service_desc">このサービスは、通話音声へのアクセスに使われます。無効にすると、通話音声を録音できません。データへのアクセスを制限するため、アプリは監視を独自のイベントに制限し、機能を要求しません。\n\n一部の電話のサービスが機能していないと報告する場合があります。これが発生した場合、一旦無効後再度有効にしてみてください。</string>
+    <string name="accessibility_service_notification">通話録音ヘルパーを有効にするには、ここをタップしてください</string>
+    <string name="accessibility_service_toast">インストールされているユーザー補助サービス画面で通話録音ヘルパーを有効にしてください</string>
+    <string name="accessibility_service_snack">通話録音ヘルパーが有効になっていません</string>
+
+
+    <string name="download">ダウンロード</string>
+
+
+</resources>

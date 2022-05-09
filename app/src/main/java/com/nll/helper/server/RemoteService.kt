@@ -2,8 +2,8 @@ package com.nll.helper.server
 
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
 import androidx.lifecycle.LifecycleService
+import com.nll.helper.recorder.CLog
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlin.properties.Delegates
@@ -32,24 +32,24 @@ class RemoteService : LifecycleService() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.i(logTag, "onCreate()")
+        CLog.log(logTag, "onCreate()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(logTag, "onDestroy()")
+        CLog.log(logTag, "onDestroy()")
     }
 
     override fun onBind(intent: Intent): IBinder {
         super.onBind(intent)
-        Log.i(logTag, "onBind()")
+        CLog.log(logTag, "onBind()")
         connectionCount++
         return remoteServiceStub
     }
 
     override fun onUnbind(intent: Intent): Boolean {
         connectionCount--
-        Log.i(logTag, "onUnbind()")
+        CLog.log(logTag, "onUnbind()")
         return super.onUnbind(intent)
     }
 

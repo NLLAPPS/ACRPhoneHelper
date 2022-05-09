@@ -10,16 +10,12 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils
-import android.util.Log
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LiveData
-import com.nll.helper.LiveEvent
-import com.nll.helper.MainActivity
-import com.nll.helper.R
-import com.nll.helper.Util
+import com.nll.helper.*
 import com.nll.helper.recorder.CLog
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
@@ -31,7 +27,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-
 
 class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope {
     private val job = Job()
@@ -91,7 +86,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 text = context.getString(R.string.helper_service_notification)
             }.asBuilder()
 
-        startForeground(Util.notificationId, notification.build())
+        startForeground(Constants.notificationId, notification.build())
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
@@ -101,14 +96,14 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
     override fun onCreate() {
         super.onCreate()
-        Log.i(logTag, "onCreate()")
+        CLog.log(logTag, "onCreate()")
         checkUpdates()
 
     }
 
     private fun checkUpdates() {
         launch {
-            Log.i(logTag, "onCreate() -> Check for updates")
+            CLog.log(logTag, "onCreate() -> Check for updates")
             UpdateChecker.checkUpdate(applicationContext).let { updateResult ->
                 if (CLog.isDebug()) {
                     CLog.log(logTag, "onVersionUpdateResult -> updateResult: $updateResult")
@@ -158,12 +153,12 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             .content {
                 title = context.getString(R.string.new_version_found)
                 text = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty {  context.getString(R.string.forced_update_message_generic) }
-            }.show(Util.updateNotificationId)
+            }.show(Constants.updateNotificationId)
     }
 
 
     override fun onServiceConnected() {
-        Log.i(logTag, "onServiceConnected()")
+        CLog.log(logTag, "onServiceConnected()")
 
         isRunning = true
 
@@ -180,13 +175,13 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
              * However, it should not be an issue as this process does not happen often.
              *
              */
-            Log.i(logTag, "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)")
+            CLog.log(logTag, "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)")
             sendAccessibilityServicesChangedEvent(true)
         }
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        Log.i(logTag, "onStartCommand()")
+        CLog.log(logTag, "onStartCommand()")
 
         isRunning = true
         sendAccessibilityServicesChangedEvent(true)
@@ -195,7 +190,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.i(logTag, "onDestroy()")
+        CLog.log(logTag, "onDestroy()")
 
         isRunning = false
         sendAccessibilityServicesChangedEvent(false)
@@ -205,12 +200,12 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        Log.i(logTag, "event: $event")
+        CLog.log(logTag, "event: $event")
 
     }
 
     override fun onInterrupt() {
-        Log.i(logTag, "onInterrupt()")
+        CLog.log(logTag, "onInterrupt()")
 
     }
 
@@ -226,7 +221,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         private fun addHighlightInTheList(context: Context, intent: Intent): Intent {
             intent.apply {
                 //Important as we call this from non activity classes
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
 
                 val showArgs = context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
                 val extraFragmentKeyArg = ":settings:fragment_args_key"
@@ -257,7 +252,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         }
 
         fun openHelperServiceSettingsIfNeeded(context: Context, openWithoutCheckingIfEnabled: Boolean): Boolean {
-            Log.i(logTag, "openHelperServiceSettingsIfNeeded()")
+            CLog.log(logTag, "openHelperServiceSettingsIfNeeded()")
 
             if (!isHelperServiceEnabled(context) || openWithoutCheckingIfEnabled) {
                 val isSamsungAndBelowAndroidR = Build.MANUFACTURER.uppercase() == "SAMSUNG" && Build.VERSION.SDK_INT < Build.VERSION_CODES.R
@@ -296,7 +291,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         }
 
         fun startHelperServiceIfIsNotRunning(context: Context) {
-            Log.i(logTag, "startHelperServiceIfIsNotRunning -> isRunning: $isRunning")
+            CLog.log(logTag, "startHelperServiceIfIsNotRunning -> isRunning: $isRunning")
 
             if (!isRunning) {
                 context.startService(Intent(context, AccessibilityCallRecordingService::class.java))

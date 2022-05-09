@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone קרס</string>
+    <string name="crash_dialog_text">היתה שגיאה שגרמה ל-ACR Phone לקרוס ולעצור. \n אנא עזרו לנו לתקן זאת על ידי שליחת מידע על השגיאה, כל אשר עליך לעשות זה ללחוץ על ה-\'OK\' ולשלוח את הדו\"ח במייל.</string>
+    <string name="permission_all_required">כל ההרשאות חיוניות עבור ביצוע מלא</string>
+    <string name="permissions_title">בקשת הרשאה</string>
+    <string name="send">שלח/י</string>
+    <string name="cancel">בטל/י</string>
+    <string name="app_crash_notification_channel">התראת קריסה</string>
+    <string name="warning">אזהרה!</string>
+
+
+    <string name="new_version_found">נמצאה גירסה חדשה</string>
+    <string name="no_url_handle">לא נמצא יישום מתאים לפתיחת קישור זה</string>
+    <string name="url_error">לא ניתן לנתח את הקישור הזה</string>
+
+
+    <string name="enable">לְאַפשֵׁר</string>
+
+
+    <string name="call_rec_permissions_message">הקש על אישור כדי לראות ולהעניק הרשאות נדרשות להקלטת שיחות</string>
+
+
+    <string name="accessibility_service_name">עוזר הקלטת שיחות</string>
+    <string name="accessibility_service_desc">שירות זה משמש לגישה לאודיו של שיחה. לא ניתן להקליט אודיו של שיחה כשהוא מושבת. על מנת להגביל את הגישה לנתונים שלך, האפליקציה מגבילה את התצפית לאירועים שלה ואינה מבקשת יכולת כלשהי. טלפונים מסוימים עשויים לדווח כי השירות אינו פועל. נסה להשבית ולהפעיל אותו שוב אם זה קורה.</string>
+    <string name="accessibility_service_notification">הקש כאן כדי להפעיל עוזר להקלטת שיחות</string>
+    <string name="accessibility_service_toast">אנא הפעל עוזר להקלטת שיחות במסך שירותי נגישות מותקנים</string>
+    <string name="accessibility_service_snack">עוזר הקלטת שיחות אינו מופעל</string>
+
+
+    <string name="download">הורד</string>
+
+
+</resources>

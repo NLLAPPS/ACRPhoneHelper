@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Veuillez activer l\'installation de sources inconnues</string>
+    <string name="update_downloader_install_app">Installer</string>
+    <string name="update_downloader_download_completed">Téléchargement terminé</string>
+    <string name="update_downloader_downloading">Téléchargement en cours, veuillez patienter</string>
+    <string name="update_download_manually">Il y a eu et une erreur. Voulez-vous essayer de télécharger manuellement ?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Nouveautés</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Aucune information fournie</string>
+    <string name="update_downloader_miu_optimazation_warning">Il se peut que votre téléphone empêche la mise à côté. Essayez d\'installer, de télécharger et d\'installer manuellement avec le gestionnaire de fichiers du système en cas d\'échec</string>
+</resources>

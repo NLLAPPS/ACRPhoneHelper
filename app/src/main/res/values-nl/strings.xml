@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone is gecrasht</string>
+    <string name="crash_dialog_text">Er is een fout opgetreden waardoor ACR Phone crashte en stopte.\nHelp ons dit op te lossen door ons foutgegevens te sturen, je hoeft alleen maar op \'OK\' te tikken en dit rapport per e-mail te verzenden.</string>
+    <string name="permission_all_required">Alle bevoegdheden zijn vereist voor volledige functionaliteit</string>
+    <string name="permissions_title">Machtigingsverzoek</string>
+    <string name="send">Verzenden</string>
+    <string name="cancel">Annuleren</string>
+    <string name="app_crash_notification_channel">Crash melding</string>
+    <string name="warning">Waarschuwing!</string>
+
+
+    <string name="new_version_found">Nieuwe versie gevonden</string>
+    <string name="no_url_handle">Kan geen enkele app vinden om deze link te openen</string>
+    <string name="url_error">Kan deze link niet parsen</string>
+
+
+    <string name="enable">Inschakelen</string>
+
+
+    <string name="call_rec_permissions_message">Tik op Toestaan om de vereiste machtigingen voor oproepopname te bekijken en te geven</string>
+
+
+    <string name="accessibility_service_name">Oproep Opname Helper</string>
+    <string name="accessibility_service_desc">Deze service wordt gebruikt om toegang te krijgen tot de audio van een telefoongesprek. Er kan geen audio worden opgenomen wanneer deze uitgeschakeld is. Om de toegang tot uw gegevens te beperken, beperkt de app waarnemingen tot zijn eigen gebeurtenissen\n\nSommige telefoons kunnen aangeven dat ze niet werken. Probeer dit uit te schakelen en weer in te schakelen als dit gebeurt.</string>
+    <string name="accessibility_service_notification">Tik hier om de Oproep Opname Helper in te schakelen</string>
+    <string name="accessibility_service_toast">Schakel de Oproep Opname Helper in op Geïnstalleerde Toegankelijkheid Services scherm</string>
+    <string name="accessibility_service_snack">Oproep Opname Helper is niet ingeschakeld</string>
+
+
+    <string name="download">Download</string>
+
+
+    <string name="acr_phone_not_installed">Google Play Store versie ACR Phone is niet geïnstalleerd of moet worden bijgewerkt. Deze app kan alleen samen met een compatibele versie van de ACR Phone gebruikt worden</string>
+    <string name="install">Installeren</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Moet actief blijven voor gespreksopnamefunctie van ACR Phone</string>
+    <string name="forced_update_message_generic">Deze app moet worden bijgewerkt om correct te kunnen functioneren</string>
+    <string name="audio_record_permission">Audio-opname rechten</string>
+</resources>

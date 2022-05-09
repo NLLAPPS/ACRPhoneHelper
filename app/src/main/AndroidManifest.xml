@@ -7,6 +7,22 @@
     </queries>
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+
+
+    <!-- TODO watch https://issuetracker.google.com/issues/209652486
+    once bug is fixed we can use
+
+        android:protectionLevel="signature|knownSigner" android:knownCerts="@array/app_helper_known_certs"
+
+     to allow debug and release build signatures together.
+
+     Reason:
+    https://developer.android.com/reference/android/R.attr#knownCerts
+     So that app-helper and app-helper client can talk to each other when one of them is debug build.
+     Otherwise release builds cannot talk to debug builds.
+
+     -->
     <permission
         android:name="com.nll.helper.permission"
         android:protectionLevel="signature" />
@@ -42,6 +58,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
+
+
 
         <provider
             android:name="com.nll.helper.ServerContentProvider"
@@ -95,7 +113,7 @@
             android:exported="false"
             tools:node="merge">
             <meta-data
-                android:name="${applicationId}.support.AccessibilityChangeObserverInitiator"
+                android:name="com.nll.helper.support.AccessibilityChangeObserverInitiator"
                 android:value="androidx.startup" />
         </provider>
 

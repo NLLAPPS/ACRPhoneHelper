@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ඒසීආර් පෝන් බිඳ වැටී ඇත</string>
+    <string name="crash_dialog_text">ඒසීආර් පෝන් බිඳ වැටී හා නතර වීමට හේතුවන දෝෂයක් ඇති විය.\nඅපට දෝෂ දත්ත එවීම මගින් මෙය නිවැරදි කිරීමට උදව් කරන්න, ඔබ කළ යුතු දේ නම් \'හරි\' මත තට්ටු කර වි-තැපෑලෙන් මෙම වාර්තාව එවීමයි.</string>
+    <string name="permission_all_required">පූර්ණ ක්‍රියාකාරිත්වයට සියළු අවසර ඇවැසිය</string>
+    <string name="permissions_title">අවසරය ඉල්ලීම</string>
+    <string name="send">යවන්න</string>
+    <string name="cancel">අවලංගු</string>
+    <string name="app_crash_notification_channel">බිඳවැටීමේ දැනුම්දීම</string>
+    <string name="warning">අවවාදයයි!</string>
+
+
+    <string name="new_version_found">නව අනුවාදයක් හමු විය</string>
+    <string name="no_url_handle">මෙම සබැඳිය විවෘත කිරීමට කිසිදු යෙදුමක් හමු නොවිණි</string>
+
+
+    <string name="enable">සබල කරන්න</string>
+
+
+    <string name="call_rec_permissions_message">ඇමතුම් පටිගත කිරීමට ඇවැසි අවසර දැක ලබා දීමට ඉඩදෙන්න මත තට්ටු කරන්න</string>
+
+
+    <string name="accessibility_service_name">ඇමතුම් පටිගත උපකාරකය</string>
+    <string name="accessibility_service_desc">ඇමතුමේ හඬට ප්‍රවේශ වීමට මෙම සේවාව භාවිතා කරයි. එය අබල කර ඇති විට ඇමතුමේ හඬ පටිගත කළ නොහැකිය. ඔබගේ දත්ත වෙත ප්‍රවේශය සීමා කිරීමට, යෙදුම එහිම සිදුවීම් සීමා කරගන්නා අතර කිසිම ශක්‍යතාවක් ඉල්ලන්නේ නැත\n\nසමහර දුරකථන මෙය වැඩ නොකරන බව වාර්තා කළ හැකිය. මෙය සිදුවන්නේ නම් එය අබල කර යළි සබල කිරීමට උත්සාහ කරන්න.</string>
+    <string name="accessibility_service_notification">ඇමතුම් පටිගත උපකාරකය සබල කිරීමට මෙහි තට්ටු කරන්න</string>
+    <string name="accessibility_service_toast">ස්ථාපිත ප්‍රවේශ්‍යතා සේවා තිරයෙහි ඇමතුම් පටිගත උපකාරකය සබල කරන්න</string>
+    <string name="accessibility_service_snack">ඇමතුම් පටිගත උපකාරකය සබල කර නැත</string>
+
+
+    <string name="download">බාගන්න</string>
+
+
+</resources>

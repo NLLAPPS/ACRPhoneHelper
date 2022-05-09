@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phoneda nosozlik yuz berdi</string>
+    <string name="permissions_title">Ruxsat so‘rovi</string>
+    <string name="send">Yuborish</string>
+    <string name="cancel">Bekor qilish</string>
+    <string name="warning">Diqqat!</string>
+
+
+</resources>

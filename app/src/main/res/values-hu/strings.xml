@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Az ACR Phone összeomlott</string>
+    <string name="crash_dialog_text">Egy hiba miatt az ACR Phone összeomlott.\nKérjük segítsen a hibajavításban, riport küldésével! Csak nyomjon az OK gombra a riport emailben való küldéséhez! </string>
+    <string name="permission_all_required">Minden engedély megadására szükség van a működéshez</string>
+    <string name="permissions_title">Engedély kérés</string>
+    <string name="send">Küldés</string>
+    <string name="cancel">Mégse</string>
+    <string name="app_crash_notification_channel">Összeomlási jelzés</string>
+    <string name="warning">Figyelem!</string>
+
+
+    <string name="new_version_found">Új verzió található</string>
+    <string name="no_url_handle">Nem található alkalmazás a link megnyitásához</string>
+    <string name="url_error">Nem sikerült értelmezni a linket</string>
+
+
+    <string name="enable">Engedélyez</string>
+
+
+    <string name="call_rec_permissions_message">Érintse meg az Engedélyezés gombot a hívásrögzítéshez szükséges engedélyek megtekintéséhez és megadásához</string>
+
+
+    <string name="accessibility_service_name">Call Recording Helper</string>
+    <string name="accessibility_service_desc">Ez a szolgáltatás a híváshang elérésére szolgál. A hívás hangja nem rögzíthető, ha ez le van tiltva. Az adatokhoz való hozzáférés korlátozása érdekében az alkalmazás saját eseményeire korlátozza a megfigyelést, és nem kér semmilyen lehetőséget.\n\nEgyes telefonok jelezhetik, hogy a szolgáltatás nem működik. Ha ez történik, próbálja meg letiltani, majd újra engedélyezni a szolgáltatást.</string>
+    <string name="accessibility_service_notification">Koppintson ide a Call Recording Helper engedélyezéséhez</string>
+    <string name="accessibility_service_toast">Engedélyezze a Call Recording Helper funkciót a Telepített kisegítő lehetőségeknél</string>
+    <string name="accessibility_service_snack">A Call Recording Helper nincs engedélyezve</string>
+
+
+    <string name="download">Letöltés</string>
+
+
+    <string name="install">Telepítés</string>
+</resources>

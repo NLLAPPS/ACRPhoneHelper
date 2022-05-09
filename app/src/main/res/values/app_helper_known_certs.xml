@@ -1,0 +1,22 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- TODO watch https://issuetracker.google.com/issues/209652486
+    once bug is fixed we can use
+
+        android:protectionLevel="signature|knownSigner" android:knownCerts="@array/app_helper_known_certs"
+
+     to allow debug and release build signatures together.
+
+     Reason:
+    https://developer.android.com/reference/android/R.attr#knownCerts
+     So that app-helper and app-helper client can talk to each other when one of them is debug build.
+     Otherwise release builds cannot talk to debug builds.
+
+     -->
+    <string-array name="app_helper_known_certs" translatable="false">
+        <!-- Our debug signing key SHA 256-->
+        <item>AB0539F2CC3149FE986EEF9B46525BF117972FF4BA6592749296D21078A552BD</item>
+        <!-- Our release signing key SHA 256-->
+        <item>56158AAD73625E513FBFEEEBE1C4F04D7A992822D8C4916A8257EE19B4ACD8B5</item>
+    </string-array>
+</resources>

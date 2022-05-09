@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone jooksis kokku</string>
+    <string name="crash_dialog_text">ACRTelefon-i kokkujooksmise ja seiskamise tõttu ilmnes tõrge. \nPalun aidake meil see parandada, saates meile tõrkeandmed. Teil tuleb vaid toksata \"OK\" ja saata see aruanne e-kirjaga.</string>
+    <string name="permission_all_required">Kõigi funktsioonide kasutamiseks on vaja kõiki õigusi</string>
+    <string name="permissions_title">Luba nõutud</string>
+    <string name="send">Saada</string>
+    <string name="cancel">Katkesta</string>
+    <string name="app_crash_notification_channel">Kokkujooksmise teade</string>
+    <string name="warning">Hoiatus!</string>
+
+
+    <string name="new_version_found">Leitud uus versioon</string>
+    <string name="no_url_handle">Selle lingi avamiseks ei leia ühtegi rakendust</string>
+    <string name="url_error">Seda linki ei saa töödelda</string>
+
+
+    <string name="enable">Luba</string>
+
+
+    <string name="call_rec_permissions_message">Puudutage valikut \"Luba\", et näha ja anda kõne salvestamiseks vajalikke õigusi</string>
+
+
+    <string name="accessibility_service_name">Kõnesalvesti abimees</string>
+    <string name="accessibility_service_desc">Seda teenust kasutatakse kõne helile juurdepääsu saamiseks. Keelatud kõne heli ei saa salvestada kui see on keelatud. Teie andmetele juurdepääsu piiramiseks piirdub rakendus vaatlemise oma sündmustega\n\nMõned telefonid võivad teatada, et teenus ei tööta. Kui see juhtub, proovige see uuesti keelata ja lubada.</string>
+    <string name="accessibility_service_notification">Kõne salvestamise abistaja lubamiseks puudutage siin</string>
+    <string name="accessibility_service_toast">Lubage kõne salvestamise abimees installitud juurdepääsetavusteenuste ekraanil</string>
+    <string name="accessibility_service_snack">Kõnesalvestamise abimees pole lubatud</string>
+
+
+    <string name="download">Lae alla</string>
+
+
+</resources>

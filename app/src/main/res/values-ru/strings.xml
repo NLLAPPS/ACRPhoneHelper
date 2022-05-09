@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Программа ACR Phone завершена с ошибкой</string>
+    <string name="crash_dialog_text">Произошла ошибка при сбое и остановке работы ACR Phone.\nПожалуйста, помогите нам исправить это, отправив нам данные об ошибке. Все что вам надо сделать чтобы отправить этот отчет по электронной почте, только нажать \'OK\'.</string>
+    <string name="permission_all_required">Все права необходимы для полной функциональности</string>
+    <string name="permissions_title">Запрос разрешения</string>
+    <string name="send">Отправить</string>
+    <string name="cancel">Отменить</string>
+    <string name="app_crash_notification_channel">Уведомление об ошибке</string>
+    <string name="warning">Внимание!</string>
+
+
+    <string name="new_version_found">Найдена новая версия</string>
+    <string name="no_url_handle">Не удается найти приложение для открытия ссылки</string>
+    <string name="url_error">Не удалось определить ссылку</string>
+
+
+    <string name="enable">Включить</string>
+
+
+    <string name="call_rec_permissions_message">Нажать на кнопку Разрешения для просмотра и предоставления необходимых разрешений для записи звонка</string>
+
+
+    <string name="accessibility_service_name">Помощник записи вызовов</string>
+    <string name="accessibility_service_desc">Этот сервис используется для доступа к звуку вызовов. Звук звонков не может быть записан, если он отключен. Чтобы ограничить доступ к вашим данным, приложение ограничивает наблюдение за собственными событиями и не запрашивает никаких возможностей\n\nНекоторые телефоны могут сообщать об ошибках в работе службы. Попробуйте отключить и снова включить его, если это произойдет.</string>
+    <string name="accessibility_service_notification">Нажмите здесь, чтобы включить поддержку записи вызовов</string>
+    <string name="accessibility_service_toast">Пожалуйста, включите \"Помощник записи звонков\" на экране \"Услуги специальных возможностей\"</string>
+    <string name="accessibility_service_snack">Помощник записи вызовов не включен</string>
+
+
+    <string name="download">Загрузить</string>
+
+
+    <string name="acr_phone_not_installed">Версия ACR телефона Google Play Store не установлена или должна быть обновлена. Это приложение можно использовать только вместе с совместимой версией ACR Phone</string>
+    <string name="install">Установить</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Выполняется для работы функции записи вызовов ACR телефона</string>
+    <string name="forced_update_message_generic">Приложение должно быть обновлено для правильной работы</string>
+    <string name="audio_record_permission">Права на запись аудио</string>
+</resources>

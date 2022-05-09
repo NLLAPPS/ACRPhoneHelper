@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Telefon çöktü</string>
+    <string name="crash_dialog_text">Beklenmeyen bir hata ACR\'nin çökmesine neden oldu. Lütfen bu hatayı bize bildirerek giderilmesine yardımcı olun</string>
+    <string name="permission_all_required">Tam işlevsellik için tüm izinler gereklidir</string>
+    <string name="permissions_title">İzin Talebi</string>
+    <string name="send">Yolla</string>
+    <string name="cancel">İptal</string>
+    <string name="app_crash_notification_channel">Çökme bildirimi</string>
+    <string name="warning">Uyarı!</string>
+
+
+    <string name="new_version_found">Yeni versiyon bulundu</string>
+    <string name="no_url_handle">Bu bağlantıyı açmak için herhangi bir uygulama bulunamıyor</string>
+    <string name="url_error">Bu bağlantı ayrıştırılamıyor</string>
+
+
+    <string name="enable">Etkinleştir</string>
+
+
+    <string name="call_rec_permissions_message">Arama ses kaydı için gerekli izinleri görmek ve vermek için İzin Ver\'e dokunun</string>
+
+
+    <string name="accessibility_service_name">Arama Kaydı Yardımcısı</string>
+    <string name="accessibility_service_desc">Bu hizmet, arama sırasında sese erişmek için kullanılır. Devre dışı bırakıldığında hiçbir arama sesi kaydedilemez. Verilerinize erişimi sınırlandırmak için uygulama, gözlemi kendi etkinlikleriyle sınırlar ve herhangi bir kabiliyet talep etmez\n\nBazı telefonlar hizmetin çalışmadığını bildirebilir. Böyle bir durumda devre dışı bırakıp tekrar etkinleştirmeyi deneyin.</string>
+    <string name="accessibility_service_notification">Arama Kaydı Yardımcısı\'nı etkinleştirmek için buraya dokunun</string>
+    <string name="accessibility_service_toast">Lütfen Yüklü Erişilebilirlik Hizmetleri ekranında Aram Kaydı Yardımcısı\'nı etkinleştirin</string>
+    <string name="accessibility_service_snack">Arama Kaydı Yardımcısı etkin değil</string>
+
+
+    <string name="download">İndir</string>
+
+
+    <string name="acr_phone_not_installed">ACR Telefon\'un Google Play Store sürümü kurulu değil veya güncellenmesi gerekiyor. Bu uygulama yalnızca uyumlu bir ACR Telefon sürümüyle birlikte kullanılabilir</string>
+    <string name="install">Install</string>
+    <string name="helper_service_notification">ACR Phone\'un arama kaydetme işlevi için çalışır durumda tutulmalıdır</string>
+    <string name="forced_update_message_generic">Bu uygulamanın düzgün çalışması için güncellenmesi gerekmektedir</string>
+    <string name="audio_record_permission">Ses kaydı izni</string>
+</resources>

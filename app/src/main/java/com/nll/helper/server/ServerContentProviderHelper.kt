@@ -2,7 +2,7 @@ package com.nll.helper.server
 
 import android.content.Context
 import android.net.Uri
-import android.util.Log
+import com.nll.helper.recorder.CLog
 
 /**
  *
@@ -45,7 +45,7 @@ object ServerContentProviderHelper {
     //Ignore can be private!
     fun getServerVersionData(context: Context): ServerVersionData? {
 
-        Log.i(logTag, "getServerVersionData()")
+        CLog.log(logTag, "getServerVersionData()")
         /**
          * Make sure we handle crash as user may not have helper installed
          */
@@ -56,10 +56,10 @@ object ServerContentProviderHelper {
         }
         return if (cmdResult != null) {
             val serverVersionData = ServerVersionData.fromBundle(cmdResult)
-            Log.i(logTag, "getServerVersionData() -> serverVersionData: $serverVersionData")
+            CLog.log(logTag, "getServerVersionData() -> serverVersionData: $serverVersionData")
             serverVersionData
         } else {
-            Log.i(logTag, "getServerVersionData() -> serverVersionData: null")
+            CLog.log(logTag, "getServerVersionData() -> serverVersionData: null")
             null
         }
 
@@ -71,7 +71,7 @@ object ServerContentProviderHelper {
         val serverVersionData = getServerVersionData(context)
         val isInstalled = serverVersionData != null
         return if (isInstalled) {
-            Log.i(logTag, "startUIIfInstalled()")
+            CLog.log(logTag, "startUIIfInstalled()")
             try {
                 context.startActivity(context.packageManager.getLaunchIntentForPackage(serverPackageName))
             } catch (e: Exception) {
@@ -85,7 +85,7 @@ object ServerContentProviderHelper {
 
     fun isHelperServiceEnabled(context: Context): Boolean {
         return if (shouldUpdateIsHelperServiceEnabled()) {
-            Log.i(logTag, "isHelperServiceEnabled() -> Cache expired. Real Update")
+            CLog.log(logTag, "isHelperServiceEnabled() -> Cache expired. Real Update")
             /**
              * Make sure we handle crash as user may not have helper installed
              */
@@ -98,13 +98,13 @@ object ServerContentProviderHelper {
             isHelperServiceEnabled = cmdResult != null
             isHelperServiceEnabled
         } else {
-            Log.i(logTag, "isHelperServiceEnabled() -> Cache valid. Return casched value")
+            CLog.log(logTag, "isHelperServiceEnabled() -> Cache valid. Return casched value")
             isHelperServiceEnabled
         }
     }
 
     fun startHelperServiceIfIsNotRunning(context: Context): Boolean {
-        Log.i(logTag, "startHelperServiceIfIsNotRunning()")
+        CLog.log(logTag, "startHelperServiceIfIsNotRunning()")
         /**
          * Make sure we handle crash as user may not have helper installed
          */
@@ -117,7 +117,7 @@ object ServerContentProviderHelper {
     }
 
     fun deleteCacheFile(context: Context, recordingName: String): Boolean {
-        Log.i(logTag, "deleteCacheFile()")
+        CLog.log(logTag, "deleteCacheFile()")
         /**
          * Make sure we handle crash as user may not have helper installed
          */

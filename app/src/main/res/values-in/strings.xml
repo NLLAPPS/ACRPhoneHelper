@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone crash</string>
+    <string name="crash_dialog_text">Ada kesalahan yang membuat ACR Phone crash dan berhenti.\nHarap bantu kami membenahinya dengan mengirimkan data kesalahan, yang perlu anda lakukan hanyalah menyentuh \'OK\' dan mengirim laporan ini melalui email.</string>
+    <string name="permission_all_required">Semua perizinan diperlukan untuk fungsionalitas penuh</string>
+    <string name="permissions_title">Permintaan Perizinan</string>
+    <string name="send">Kirim</string>
+    <string name="cancel">Batal</string>
+    <string name="app_crash_notification_channel">Pemberitahuan crash</string>
+    <string name="warning">Perhatian!</string>
+
+
+    <string name="new_version_found">Versi baru ditemukan</string>
+    <string name="no_url_handle">Tidak dapat menemukan apl untuk membuka tautan ini</string>
+    <string name="url_error">Tidak dapat mengurai tautan ini</string>
+
+
+    <string name="enable">Aktifkan</string>
+
+
+    <string name="call_rec_permissions_message">Ketuk Izinkan untuk melihat dan memberi izin yang dibutuhkan perekam panggilan</string>
+
+
+</resources>

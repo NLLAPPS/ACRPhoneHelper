@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone har kraschat</string>
+    <string name="crash_dialog_text">Det uppstod ett fel så ACR Phone kraschade.\nHjälp oss gärna genom att trycka på \"OK\" och skicka in rapporten med felloggen till oss via e-post.</string>
+    <string name="permission_all_required">Alla behörigheter krävs för full funktionalitet</string>
+    <string name="permissions_title">Behörighetsbegäran</string>
+    <string name="send">Skicka</string>
+    <string name="cancel">Avbryt</string>
+    <string name="app_crash_notification_channel">Kraschavisering</string>
+    <string name="warning">Varning!</string>
+
+
+    <string name="new_version_found">Hittade ny version</string>
+    <string name="no_url_handle">Kan inte hitta någon app för att öppna den här länken</string>
+    <string name="url_error">Det gick inte att analysera den här länken</string>
+
+
+    <string name="enable">Aktivera</string>
+
+
+    <string name="call_rec_permissions_message">Tryck på Tillåt för att bevilja nödvändiga behörigheter för samtalsinspelning</string>
+
+
+    <string name="accessibility_service_name">Samtalsinspelningshjälpare</string>
+    <string name="accessibility_service_desc">Denna tjänst används för att komma åt samtalsljud. Inget samtalsljud kan spelas in när det är inaktiverat.\n\nVissa telefoner kan rapportera att tjänsten inte fungerar. Prova då att inaktivera och aktivera den igen för att se om det hjälper.</string>
+    <string name="accessibility_service_notification">Tryck här för att aktivera samtalsinspelningshjälpare</string>
+    <string name="accessibility_service_toast">Aktivera samtalsinspelningshjälparen på tillgänglighetstjänstskärmen</string>
+    <string name="accessibility_service_snack">Samtalsinspelningshjälpare är inaktiverad</string>
+
+
+    <string name="download">Ladda ner</string>
+
+
+    <string name="acr_phone_not_installed">Google Play Butikens version av ACR Phone är inte installerad eller måste uppdateras. Appen kan endast användas tillsammans med en kompatibel version av ACR Phone</string>
+    <string name="install">Installera</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Måste hållas igång för samtalsinspelningsfunktion av ACR Phone ska fungera</string>
+    <string name="forced_update_message_generic">Appen måste uppdateras för att fungera korrekt</string>
+    <string name="audio_record_permission">Behörighet för ljudinspelning</string>
+</resources>

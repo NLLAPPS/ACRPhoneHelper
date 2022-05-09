@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone è andato in crash</string>
+    <string name="crash_dialog_text">Si è verificato un errore che ha causato il crash di ACR Phone e l\'arresto.\nAiutaci a risolvere questo problema inviandoci dati di errore, tutto quello che devi toccare \'OK\' e inviare questo rapporto via email.</string>
+    <string name="permission_all_required">Tutti i permessi sono richiesti per la funzionalità completa</string>
+    <string name="permissions_title">Richiesta permesso</string>
+    <string name="send">Invia</string>
+    <string name="cancel">Annulla</string>
+    <string name="app_crash_notification_channel">Notifica crash</string>
+    <string name="warning">Attenzione!</string>
+
+
+    <string name="new_version_found">Nuova versione trovata</string>
+    <string name="no_url_handle">Non riesco a trovare nessuna applicazione per aprire questo link</string>
+    <string name="url_error">Impossibile analizzare questo link</string>
+
+
+    <string name="enable">Abilita</string>
+
+
+    <string name="call_rec_permissions_message">Tocca Consenti di vedere e concedere le autorizzazioni richieste per la registrazione delle chiamate</string>
+
+
+    <string name="accessibility_service_name">Call Recording Aiuto</string>
+    <string name="accessibility_service_desc">Questo servizio viene utilizzato per accedere all\'audio della chiamata. Non è possibile registrare l\'audio delle chiamate quando è disabilitato. Per limitare l\'accesso ai tuoi dati, app limita l\'osservazione ai propri eventi e non richiede alcuna funzionalità\n\nAlcuni telefoni potrebbero segnalare il servizio come non funzionante. Prova a disabilitare e abilitarlo di nuovo se questo accade.</string>
+    <string name="accessibility_service_notification">Tocca qui per abilitare l\'aiuto della registrazione delle chiamate</string>
+    <string name="accessibility_service_toast">Abilitare l\'Helper di registrazione delle chiamate nella schermata Servizi di accessibilità installati</string>
+    <string name="accessibility_service_snack">Call Recording Helper non è abilitato</string>
+
+
+    <string name="download">Scarica</string>
+
+
+    <string name="acr_phone_not_installed">Google Play Store versione ACR Phone non è installato o deve essere aggiornato. Questa app può essere utilizzata solo insieme a una versione compatibile di ACR Phone</string>
+    <string name="install">Installa</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Deve essere mantenuto in esecuzione per la funzionalità di registrazione delle chiamate del ACR Phone</string>
+    <string name="forced_update_message_generic">Questa app deve essere aggiornata per funzionare correttamente</string>
+    <string name="audio_record_permission">Autorizzazione registrazione audio</string>
+</resources>

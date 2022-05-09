@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone užlūžo</string>
+    <string name="crash_dialog_text">Įvyko klaida, dėl kurios ACR Phone užlūžo ir nustojo veikti.\nPadėkite mums ateityje išvengti panašių klaidų, viskas, ką turėtumėte padaryti, tau spustelėti \'OK\' ir nusiųsti šią ataskaitą el. paštu.</string>
+    <string name="permission_all_required">Pilnam funkcionavimui reikalingi visi leidimai</string>
+    <string name="permissions_title">Leidimo užklausa</string>
+    <string name="send">Siųsti</string>
+    <string name="cancel">Atšaukti</string>
+    <string name="app_crash_notification_channel">Pranešimas apie klaidą</string>
+    <string name="warning">Įspėjimas!</string>
+
+
+    <string name="new_version_found">Rasta nauja versija</string>
+    <string name="no_url_handle">Nerasta programa nuorodai atidaryti</string>
+    <string name="url_error">Klaida nuskaitant nuorodą</string>
+
+
+    <string name="enable">Įjungti</string>
+
+
+    <string name="call_rec_permissions_message">Spustelkite ant Leisti norint pamatyti bei suteikti reikalingus leidimus skambučių įrašymui</string>
+
+
+    <string name="accessibility_service_name">Skambučio Įrašymo Pagalbininkas</string>
+
+
+</resources>

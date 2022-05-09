@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Naməlum mənbələrin quraşdırılmasını aktiv edin</string>
+    <string name="update_downloader_install_app">Quraşdır</string>
+    <string name="update_downloader_download_completed">Endirmə tamamlandı</string>
+    <string name="update_downloader_downloading">Endirilir, zəhmət olmasa gözləyin...</string>
+    <string name="update_download_manually">Xəta baş verdi. Əl ilə endirməyə cəhd etmək istərdinizmi?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Yeniliklər</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Məlumat verilməyib</string>
+    <string name="update_downloader_miu_optimazation_warning">Telefonunuz yandan yükləməyə mane ola bilər. Əgər uğursuz olarsa, sistem fayl meneceri ilə quraşdırmağa, endirməyə və əl ilə quraşdırmağa cəhd edin</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Το ACR Phone κατέρρευσε</string>
+    <string name="crash_dialog_text">Παρουσιάστηκε σφάλμα προκαλώντας κατάρρευση και διακοπή λειτουργίας του ACR Phone.\nΠαρακαλώ βοηθήστε μας να διορθώσουμε αυτό στέλνοντας μας δεδομένα σφάλματος, το μόνο που πρέπει να κάνετε είναι να πατήσετε \'ΟΚ\' και να στείλετε αυτή την αναφορά μέσω email.</string>
+    <string name="permission_all_required">Όλα τα δικαιώματα απαιτούνται για την πλήρη λειτουργικότητα</string>
+    <string name="permissions_title">Απαιτείται Άδεια</string>
+    <string name="send">Αποστολή</string>
+    <string name="cancel">Ακύρωση</string>
+    <string name="app_crash_notification_channel">Crash notification</string>
+    <string name="warning">Προειδοποίηση!</string>
+
+
+    <string name="new_version_found">Βρέθηκε νέα έκδοση</string>
+    <string name="no_url_handle">Δεν είναι δυνατή η εύρεση εφαρμογής για το άνοιγμα αυτού του συνδέσμου</string>
+    <string name="url_error">Δεν είναι δυνατή η ανάλυση αυτού του συνδέσμου</string>
+
+
+    <string name="enable">Ενεργοποίηση</string>
+
+
+    <string name="call_rec_permissions_message">Πατήστε το κουμπί Επιτρέπω για να δείτε και να παραχωρήσετε τις απαιτούμενες άδειες για καταγραφή κλήσεων</string>
+
+
+    <string name="accessibility_service_name">Βοηθός καταγραφής κλήσεων</string>
+    <string name="accessibility_service_desc">Αυτή η υπηρεσία χρησιμοποιείται για πρόσβαση στον ήχο κλήσεων. Δεν είναι δυνατή η εγγραφή ήχου κλήσης όταν είναι απενεργοποιημένη. Για να περιορίσετε την πρόσβαση στα δεδομένα σας, η εφαρμογή περιορίζει την παρατήρηση στα δικά της συμβάντα και δεν απαιτεί καμία δυνατότητα \n\nΟρισμένα τηλέφωνα ενδέχεται να αναφέρουν ότι η υπηρεσία δεν λειτουργεί. Δοκιμάστε να το απενεργοποιήσετε και να το ενεργοποιήσετε ξανά εάν συμβεί αυτό.</string>
+    <string name="accessibility_service_notification">Πατήστε εδώ για να ενεργοποιήσετε το Βοηθό καταγραφής κλήσεων</string>
+    <string name="accessibility_service_toast">Ενεργοποιήστε το Βοηθό καταγραφής κλήσεων στην οθόνη Υπηρεσίες εγκατεστημένης προσβασιμότητας</string>
+    <string name="accessibility_service_snack">Ο βοηθός καταγραφής κλήσεων δεν είναι ενεργοποιημένος</string>
+
+
+    <string name="download">Λήψη</string>
+
+
+</resources>

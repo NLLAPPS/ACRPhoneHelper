@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone se srušio</string>
+    <string name="crash_dialog_text">Došlo je do greške zbog čega se ACR telefon srušio i zaustavio.\nMolimo vas da nam pomognete da to popravimo tako što ćete nam poslati podatke o pogrešci, sve što trebate je dodirnuti \'U redu\' i poslati ovaj izvještaj e-poštom.</string>
+    <string name="permission_all_required">Sve dozvole su potrebne za punu funkcionalnost</string>
+    <string name="permissions_title">Zahtjev za dozvolu</string>
+    <string name="send">Poslati</string>
+    <string name="cancel">Otkaži</string>
+    <string name="app_crash_notification_channel">Obavijest o padu aplikacije</string>
+    <string name="warning">Upozorenje!</string>
+
+
+    <string name="new_version_found">Nova verzija pronađena</string>
+    <string name="no_url_handle">Nije moguće pronaći aplikaciju za otvaranje ove URL veze</string>
+    <string name="url_error">Nije moguće raščlaniti ovu vezu</string>
+
+
+    <string name="enable">Omogući</string>
+
+
+    <string name="call_rec_permissions_message">Dodirnite Dozvoli da biste vidjeli i odobrili potrebne dozvole za snimanje poziva</string>
+
+
+    <string name="accessibility_service_name">Pomoćnik za Snimanje Poziva</string>
+    <string name="accessibility_service_desc">Ova usluga se koristi za pristup zvuku poziva. Nijedan zvuk poziva ne može se snimiti kad je onemogućen. Da bi ograničili pristup vašim podacima, aplikacija ograničava promatranje na vlastite događaje i ne zahtijeva nikakve mogućnosti.\n\nNeki telefoni mogu prijaviti da usluga ne radi. Pokušajte ga onemogućiti i ponovo omogućiti ako se to dogodi.</string>
+    <string name="accessibility_service_notification">Dodirnite ovdje da omogućite Pomoćnika za Snimanje Poziva</string>
+    <string name="accessibility_service_toast">Molimo omogućite Pomoćnika za Snimanje Poziva na zaslonu Instalirane Usluge Pristupačnosti</string>
+    <string name="accessibility_service_snack">Pomoćnik za Snimanje Poziva nije omogućen</string>
+
+
+    <string name="download">Preuzimanje</string>
+
+
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone ha fallado</string>
+    <string name="crash_dialog_text">Hubo un error causando que ACR Phone fallara y se detuviera.\nPor favor, ayúdenos a solucionar esto enviándonos los datos de error, todo lo que tiene que hacer es pulsar \"OK\" y enviar este informe por correo electrónico.</string>
+    <string name="permission_all_required">Se requieren todos los permisos para funcionalidad completa</string>
+    <string name="permissions_title">Solicitud de permiso</string>
+    <string name="send">Enviar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="app_crash_notification_channel">Notificación de error</string>
+    <string name="warning">¡Advertencia!</string>
+
+
+    <string name="new_version_found">Nueva versión encontrada</string>
+    <string name="no_url_handle">No se puede encontrar ninguna aplicación para abrir este enlace</string>
+    <string name="url_error">No se puede leer este enlace</string>
+
+
+    <string name="enable">Activar</string>
+
+
+    <string name="call_rec_permissions_message">Toque en Permitir para ver y conceder los permisos necesarios para la grabación de llamadas</string>
+
+
+    <string name="accessibility_service_name">Asistente de grabación de llamadas</string>
+    <string name="accessibility_service_desc">Este servicio se utiliza para acceder al audio de las llamadas. No se puede grabar audio de llamadas cuando está deshabilitado. Para limitar el acceso a sus datos, la aplicación limita la observación a sus propios eventos y no solicita ninguna capacidad\n\nAlgunos teléfonos pueden informar que el servicio no funciona. Intente deshabilitarlo y habilitarlo nuevamente si esto sucede.</string>
+    <string name="accessibility_service_notification">Pulsa aquí para activar el Asistente de Grabación de Llamadas</string>
+    <string name="accessibility_service_toast">Por favor, activa el Ayudante de Grabación de Llamadas en la pantalla de Servicios de Accesibilidad Instalados</string>
+    <string name="accessibility_service_snack">El Asistente de Grabación de Llamadas no está activado</string>
+
+
+    <string name="download">Descargar</string>
+
+
+    <string name="acr_phone_not_installed">La versión ACR Phone de Google Play Store no está instalada o debe ser actualizada. Esta aplicación sólo puede utilizarse junto con una versión compatible del teléfono ACR</string>
+    <string name="install">Instalar</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Debe seguir ejecutándose para la grabación de llamadas de ACR Phone</string>
+    <string name="forced_update_message_generic">Esta aplicación debe ser actualizada para funcionar correctamente</string>
+    <string name="audio_record_permission">Permiso de grabación de audio</string>
+</resources>

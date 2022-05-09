@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone se srušio</string>
+    <string name="crash_dialog_text">Došlo je do greške zbog čega se ACR Phone srušio i zaustavio.\nPomozite nam da to popravimo tako što ćete nam poslati podatke o grešci, potrebno je samo da dodirnete \'OK\' i ovaj izveštaj pošaljete e-poštom.</string>
+    <string name="permission_all_required">Sve dozvole su potrebne za punu funkcionalnost</string>
+    <string name="permissions_title">Potrebne dozvole</string>
+    <string name="send">Pošalji</string>
+    <string name="cancel">Otkaži</string>
+    <string name="app_crash_notification_channel">Obaveštenje o padu aplikacije</string>
+    <string name="warning">Upozorenje!</string>
+
+
+</resources>

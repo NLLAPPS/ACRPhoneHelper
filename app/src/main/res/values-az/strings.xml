@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone qəzaya uğrayıb</string>
+    <string name="crash_dialog_text">ACR Phone-un qəzaya uğramasına və dayanmasına səbəb olan xəta oldu.\nLütfən səhv məlumatları göndərməklə onu düzəltməyə kömək edin, sadəcə \'OK\' vurun və bu hesabatı e-poçtla göndərin.</string>
+    <string name="permission_all_required">Tam işləmə üçün bütün icazələr tələb olunur</string>
+    <string name="permissions_title">İcazə istəyi</string>
+    <string name="send">Göndər</string>
+    <string name="cancel">İmtina</string>
+    <string name="app_crash_notification_channel">Qəza xəbərdarlığı</string>
+    <string name="warning">Xəbərdarlıq!</string>
+
+
+    <string name="new_version_found">Yeni versiya tapıldı</string>
+    <string name="no_url_handle">Bu linki açmaq üçün heç bir tətbiq tapılmadı</string>
+    <string name="url_error">Bu linki analiz etmək olmur</string>
+
+
+    <string name="enable">Aktiv</string>
+
+
+    <string name="call_rec_permissions_message">Zəng qeydləri üçün lazımi icazələri görmək və vermək üçün İcazə ver-ə toxunun</string>
+
+
+    <string name="accessibility_service_name">Zəng qeydi köməkçisi</string>
+    <string name="accessibility_service_desc">Bu xidmət zəng səslərinə daxil olmaq üçün istifadə olunur. Bağlı olduqda heç bir səs qeydi edilə bilməz. Verilərinizə girişi məhdudlaşdırmaq üçün tətbiqetmə hadisələri ilə müşahidəçiliyi məhdudlaşdırır və hər hansı bir qabiliyyət tələb etmir\n\nBəzi telefonlar xidməti işləmədiyini bildirə bilər. Bu baş verərsə, onu söndürməyə və yenidən işə salmağa çalışın.</string>
+    <string name="accessibility_service_notification">Zəng Qeyd Köməkçisini aktiv etmək üçün bura toxunun</string>
+    <string name="accessibility_service_toast">Lütfən Yüklənmiş Əlçatan Xidmətləri ekranında Zəng Qeyd Köməkçisini aktiv edin</string>
+    <string name="accessibility_service_snack">Zəng Qeydi Köməkçisi aktiv edilməyib</string>
+
+
+    <string name="download">Endir</string>
+
+
+    <string name="acr_phone_not_installed">ACR Telefonun Google Play Mağaza versiyası quraşdırılmayıb və ya yenilənməlidir. Bu proqram yalnız ACR Telefonunun uyğun versiyası ilə birlikdə istifadə edilə bilər</string>
+    <string name="install">Quraşdır</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">ACR Telefonunun zəng yazma funksiyası üçün işlək vəziyyətdə saxlanılmalıdır</string>
+    <string name="forced_update_message_generic">Bu proqram, düzgün işləməsi üçün güncəllənməlidir</string>
+    <string name="audio_record_permission">Audio qeyd icazəsi</string>
+</resources>

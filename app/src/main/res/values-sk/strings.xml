@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Aplikácia ACR Phone prestala pracovať</string>
+    <string name="crash_dialog_text">Vznikla chyba, ktorá spôsobila, že ACR Phone prestala pracovať.\nProsíme pomôžte nám opraviť túto chybu odoslaním dát o chybe. Stačí kliknúť na \'OK\' a odoslať email.</string>
+    <string name="permission_all_required">Pre správne fungovanie sú potrebné všetky povolenia</string>
+    <string name="permissions_title">Žiadosť o povolenie</string>
+    <string name="send">Odoslať</string>
+    <string name="cancel">Zrušiť</string>
+    <string name="app_crash_notification_channel">Upozornenie pri zlyhaní</string>
+    <string name="warning">Upozornenie!</string>
+
+
+    <string name="new_version_found">Nájdená nová verzia</string>
+    <string name="no_url_handle">Na otvorenie tohto odkazu nie je možné nájsť žiadnu aplikáciu</string>
+    <string name="url_error">Nie je možné analyzovať tento odkaz</string>
+
+
+    <string name="enable">Povoliť</string>
+
+
+    <string name="call_rec_permissions_message">Kliknutím na povoliť zobrazíte a udelíte požadované povolenie pre nahrávanie hovorov</string>
+
+
+    <string name="accessibility_service_name">Pomocník pre nahrávanie hovorov</string>
+    <string name="accessibility_service_desc">Táto služba sa používa pre prístup k zvukovému hovoru. Pokiaľ je zakázaná, nie je možné zvuk hovoru zaznamenať. Pre omedzenie k prístupu k vašim údajom aplikácia obmedzuje pozorovanie na svoje vlastné udalosti a nevyžaduje žiadnu funkciu\n\nNiektoré telefóny môžu hlásiť, že služba nefunguje. Skúste ju znovu zakázať a povoliť, pokiaľ sa tak stane.</string>
+    <string name="accessibility_service_notification">Klepnutím sem povolíte pomocníka pre nahrávanie hovorov</string>
+    <string name="accessibility_service_toast">Povoľte prosím pomocníka pre nahrávanie hovorov na obrazovke Služby uľahčenia prístupu</string>
+    <string name="accessibility_service_snack">Pomocník pre nahrávanie hovorov nie je povolený</string>
+
+
+    <string name="download">Stiahnúť</string>
+
+
+    <string name="acr_phone_not_installed">Verzia ACR Phone z obchodu Google Play nie je nainštalovaná, alebo je potrebné ju aktualizovať. Túto aplikáciu je možné používať iba spolu s kompatibilnou verziou ACR Phone.</string>
+    <string name="install">Inštalovať</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Pre funkciu nahrávania hovorov musí byť ACR Phone spustený</string>
+    <string name="forced_update_message_generic">Táto aplikácia musí byť aktualizovaná, aby fungovala správne</string>
+    <string name="audio_record_permission">Povolenie pre nahrávanie zvuku</string>
+</resources>

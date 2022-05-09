@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Aktivera installation av okända källor</string>
+    <string name="update_downloader_install_app">Installera</string>
+    <string name="update_downloader_download_completed">Nerladdningen är klar</string>
+    <string name="update_downloader_downloading">Laddar ner, vänta...</string>
+    <string name="update_download_manually">Ett fel uppstod. Vill du prova att ladda ner manuellt?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Vad är nytt</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Ingen information angiven</string>
+    <string name="update_downloader_miu_optimazation_warning">Din telefon tillåter kanske inte sidoladdning. Prova att installera, ladda ner och installera manuellt med systemfilhanteraren om det inte går</string>
+</resources>

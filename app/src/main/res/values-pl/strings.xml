@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Wystąpił błąd z aplikacją ACR Phone</string>
+    <string name="crash_dialog_text">Wystąpił błąd z aplikacją ACR Phone i została zatrzymana. \nPomóż nam naprawić ten błąd wysyłając nam raport o błędach, kliknij \"OK\" aby wysłać ten raport pocztą elektroniczną.</string>
+    <string name="permission_all_required">Wszystkie uprawnienia są wymagane aby aplikacja działała poprawnie</string>
+    <string name="permissions_title">Uprawnienia</string>
+    <string name="send">Wyślij</string>
+    <string name="cancel">Anuluj</string>
+    <string name="app_crash_notification_channel">Powiadomienie o awariach</string>
+    <string name="warning">Ostrzeżenie!</string>
+
+
+    <string name="new_version_found">Znaleziono nową wersję</string>
+    <string name="no_url_handle">Nie można znaleźć żadnej aplikacji do otwarcia tego linku</string>
+    <string name="url_error">Nie można otworzyć linku</string>
+
+
+    <string name="enable">Włącz</string>
+
+
+    <string name="call_rec_permissions_message">Zezwól na uprawnienia do wyświetlania i nagrywania połączeń</string>
+
+
+    <string name="accessibility_service_name">Pomocnik nagrywania połączeń</string>
+    <string name="accessibility_service_desc">Ta usługa jest używana do dostępu do dźwięku połączenia. Żadne połączenie nie może być nagrywane, gdy jest wyłączone. W celu ograniczenia dostępu do Twoich danych, aplikacja ogranicza obserwację do własnych wydarzeń i nie wymaga żadnych możliwości\n\nNiektóre telefony mogą zgłaszać usługę jako niedziałającą. Spróbuj wyłączyć i włączyć ponownie, jeśli tak się stanie.</string>
+    <string name="accessibility_service_notification">Dotknij tutaj, aby włączyć pomocnika nagrywania połączeń</string>
+    <string name="accessibility_service_toast">Proszę włączyć pomocnika nagrywania połączeń na ekranie Usług Dostępności</string>
+    <string name="accessibility_service_snack">Pomocnik nagrywania połączeń nie jest włączony</string>
+
+
+    <string name="download">Pobierz</string>
+
+
+    <string name="acr_phone_not_installed">Aplikacja ACR Phone w sklepie Google Play nie jest zainstalowana lub musi zostać zaktualizowana. Ta aplikacja może być używana tylko razem z kompatybilną wersją telefonu ACR</string>
+    <string name="install">Zainstaluj</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Musi być uruchomiony dla funkcji nagrywania połączeń ACR Phone</string>
+    <string name="forced_update_message_generic">Ta aplikacja musi być zaktualizowana aby działać poprawnie</string>
+    <string name="audio_record_permission">Uprawnienia do nagrywania dźwięku</string>
+</resources>

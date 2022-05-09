@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone er gået ned</string>
+    <string name="crash_dialog_text">Der opstod en fejl, der forårsagede, at ACR Phone gik ned og stoppede.\nHjælp os med at ordne dette ved at sende os fejldata, alt hvad du skal gøre er at trykke på \'OK\' og sende denne rapport via e-mail.</string>
+    <string name="permission_all_required">Alle tilladelser kræves for fuld funktionalitet</string>
+    <string name="permissions_title">Tilladelsesanmodning</string>
+    <string name="send">Send</string>
+    <string name="cancel">Annuller</string>
+    <string name="app_crash_notification_channel">Meddelelse om nedbrud</string>
+    <string name="warning">Advarsel!</string>
+
+
+    <string name="new_version_found">Ny version fundet</string>
+    <string name="no_url_handle">Kan ikke finde nogen app til at åbne dette link</string>
+    <string name="url_error">Kan ikke fortolke dette link</string>
+
+
+    <string name="enable">Aktiver</string>
+
+
+    <string name="call_rec_permissions_message">Tryk på Tillad at se og give de nødvendige tilladelser til opkaldsoptagelse</string>
+
+
+    <string name="accessibility_service_name">Hjælp til opkaldsoptager</string>
+    <string name="accessibility_service_desc">Denne tjeneste bruges til at få adgang til opkaldslyd. Ingen opkaldslyd kan optages, når den er deaktiveret. For at begrænse adgangen til dine data, begrænser app\'en observation til sine egne begivenheder og anmoder ikke om nogen kapacitet\n\nNogle telefoner kan rapportere tjeneste som ikke fungerer. Prøv at deaktivere og aktivere det igen, hvis dette sker.</string>
+    <string name="accessibility_service_notification">Tryk her for at aktivere Call Recording Helper</string>
+    <string name="accessibility_service_toast">Aktivér venligst Opkaldsoptagelseshjælper på skærmen Installerede Tilgængelighedstjenester</string>
+    <string name="accessibility_service_snack">Opkaldsoptagelseshjælper er ikke aktiveret</string>
+
+
+    <string name="download">Download</string>
+
+
+    <string name="acr_phone_not_installed">Google Play Butik version ACR Phone er ikke installeret eller skal opdateres. Denne app kan kun bruges sammen med en kompatibel version af ACR Phone</string>
+    <string name="install">Installer</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Skal holdes kørende for opkald optagelse funktionalitet ACR Phone</string>
+    <string name="forced_update_message_generic">Denne app skal opdateres for at fungere korrekt</string>
+    <string name="audio_record_permission">Tilladelse til lydoptagelse</string>
+</resources>

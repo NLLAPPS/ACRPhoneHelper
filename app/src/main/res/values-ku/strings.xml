@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">مۆبایلی ئەی سی ئاڕ تێکشکا</string>
+    <string name="crash_dialog_text">هەڵەیەک ڕوویدا کە وای لە ACR Phone کرد کە تێکبدا و بوەستێ.\nتکایە یارمەتیمان بدە بۆ چارەسەرکردنی ئەم زانیاریە بە ناردنی داتای هەڵە بۆ ئێمە، هەموو ئەوەی کە دەبێت نەرم لێبدەی لە \'OK\' و ئەم ڕاپۆرتە بنێرە بە ئیمەیڵ</string>
+    <string name="permission_all_required">هەموو مۆڵەتەکان پێویستە بۆ کرداری تەواو</string>
+    <string name="permissions_title">داواکردنی مۆڵەت پێدان</string>
+    <string name="send">ناردن</string>
+    <string name="cancel">لابردن</string>
+    <string name="app_crash_notification_channel">ئاگانامەی پێکدادان</string>
+    <string name="warning">ئاگادارکردنه‌وه‌ !</string>
+
+
+    <string name="new_version_found">وەشانی نوێ دۆزرایەوە: %1$s</string>
+    <string name="no_url_handle">هیچ ئەپێک نەدۆزرایەوە بۆ کردنەوەی ئەم پەڕگەیە</string>
+    <string name="url_error">ناتوانێت ئەم لینکە شیبکاتەوە</string>
+
+
+    <string name="enable">چالاککردن</string>
+
+
+    <string name="call_rec_permissions_message">نەرم لێبدە لەسەر ڕێپێدان بۆ بینین و پێدانی ڕێپێدانە پێویستەکان بۆ تۆمارکردنی پەیوەندی</string>
+
+
+    <string name="accessibility_service_name">پەیوەندی کردن تۆمارکردن یارمەتیدەر</string>
+    <string name="accessibility_service_desc">ئەم خزمەتگوزاریە بەکاردێت بۆ گەیشتن بە دەنگی پەیوەندی. هیچ دەنگی پەیوەندیکردن ێک ناتوانێت تۆمار بکرێت کاتێک ناچالاک کراوە. بۆ سنووردارکردنی دەستگەیشتن بە داتاکەت، کاربەرنامە چاودێری ڕووداوەکانی خۆی سنووردار دەکات و داوای هیچ توانایەک ناکات\n\nSome لەوانەیە خزمەتگوزاری ڕاپۆڕت بکات وەک کارناکات. هەوڵدە لەکار کەیت و دووبارە چالاک بکە ئەگەر ئەمە ڕوویدا</string>
+    <string name="accessibility_service_notification">نەرم لێبدە لێرە بۆ بەتواناکردنی یارمەتیدەری تۆمارکردنی پەیوەندی</string>
+    <string name="accessibility_service_toast">تکایە یارمەتیدەری تۆمارکردنی پەیوەندی چالاک بکە لەسەر شاشەی خزمەتگوزاریە دامەزراوەکان</string>
+    <string name="accessibility_service_snack">یارمەتیدەری تۆمارکردنی پەیوەندی چالاک نەکراوە</string>
+
+
+    <string name="download">دابەزاندن</string>
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone 작동이 중단되었습니다</string>
+    <string name="crash_dialog_text">ACR Phone을 작동 중지시키는 오류가 발생했습니다.\n이 문제를 해결할 수 있도록 오류 데이터를 보내주세요. \'확인\'을 탭하고 보고서를 이메일로 보내기만 하면됩니다.</string>
+    <string name="permission_all_required">전체 기능을 사용하려면 모든 권한이 필요합니다</string>
+    <string name="permissions_title">허가 요청</string>
+    <string name="send">전송</string>
+    <string name="cancel">취소</string>
+    <string name="app_crash_notification_channel">작동 중지 알림</string>
+    <string name="warning">경고!</string>
+
+
+    <string name="new_version_found">새 버전 발견</string>
+    <string name="no_url_handle">이 링크를 열 수 있는 앱을 찾을 수 없습니다</string>
+    <string name="url_error">이 링크를 구문 분석할 수 없습니다.</string>
+
+
+    <string name="enable">활성화</string>
+
+
+    <string name="call_rec_permissions_message">허용을 탭하여 통화 녹음에 필요한 권한을 확인하고 부여하십시오</string>
+
+
+    <string name="accessibility_service_name">통화 녹음 도우미</string>
+    <string name="accessibility_service_desc">이 서비스는 통화 오디오에 액세스하는데 사용됩니다. 비활성화되면 통화 오디오를 녹음 할 수 없습니다. 데이터에 대한 액세스를 제한하기 위해 앱은 자체 이벤트에 대한 관찰을 제한하고 기능을 요청하지 않습니다\n\n일부 휴대폰은 서비스가 작동하지 않는 것으로 보고될 수 있습니다. 이 경우 비활성화했다가 다시 활성화하십시오.</string>
+    <string name="accessibility_service_notification">통화 녹음 도우미를 활성화하려면 여기를 누르십시오</string>
+    <string name="accessibility_service_toast">설치된 접근성 서비스 화면에서 통화 녹음 도우미를 활성화하십시오</string>
+    <string name="accessibility_service_snack">통화 녹음 도우미가 활성화되지 않았습니다</string>
+
+
+    <string name="download">내려받기</string>
+
+
+</resources>

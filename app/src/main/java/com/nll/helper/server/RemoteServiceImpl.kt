@@ -2,9 +2,9 @@ package com.nll.helper.server
 
 import android.content.Context
 import android.os.IBinder
-import android.util.Log
 import com.nll.helper.bridge.AccessibilityServiceBridge
 import com.nll.helper.bridge.RecorderBridge
+import com.nll.helper.recorder.CLog
 
 /**
  *
@@ -26,12 +26,12 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
     private var serverRecordingState: ServerRecordingState = ServerRecordingState.Stopped
     private val serverRecorderListener = object : ServerRecorderListener {
         override fun onRecordingStateChange(newState: ServerRecordingState) {
-            Log.i(logTag, "onRecordingStateChange() -> newState: $newState")
+            CLog.log(logTag, "onRecordingStateChange() -> newState: $newState")
 
             serverRecordingState = newState
             listeners.forEach { listener ->
                 try {
-                    Log.i(logTag, "onRecordingStateChange() -> listener: $listener")
+                    CLog.log(logTag, "onRecordingStateChange() -> listener: $listener")
                     listener.onRecordingStateChange(newState.asResponseCode())
                 } catch (e: Exception) {
                     e.printStackTrace()
@@ -74,15 +74,15 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
             }
 
         } else {
-            Log.i(logTag, "startRecording() -> isHelperServiceEnabled false. Return HELPER_IS_NOT_RUNNING (${RemoteResponseCodes.HELPER_IS_NOT_RUNNING})")
+            CLog.log(logTag, "startRecording() -> isHelperServiceEnabled false. Return HELPER_IS_NOT_RUNNING (${RemoteResponseCodes.HELPER_IS_NOT_RUNNING})")
             RemoteResponseCodes.HELPER_IS_NOT_RUNNING
         }
-        Log.i(logTag, "startRecording() -> result: $result")
+        CLog.log(logTag, "startRecording() -> result: $result")
         return result
     }
 
     private fun internalStopRecordingAndCleanup(){
-        Log.i(logTag, "internalStopRecordingAndCleanup()")
+        CLog.log(logTag, "internalStopRecordingAndCleanup()")
         try {
             recorderBridge.stopRecording()
         } catch (e: Exception) {
@@ -95,18 +95,18 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
         }
     }
     override suspend fun stopRecording() {
-        Log.i(logTag, "stopRecording()")
+        CLog.log(logTag, "stopRecording()")
         internalStopRecordingAndCleanup()
     }
 
     override suspend fun pauseRecording() {
-        Log.i(logTag, "pauseRecording()")
+        CLog.log(logTag, "pauseRecording()")
         try {
             recorderBridge.pauseRecording()
         } catch (e: Exception) {
             e.printStackTrace()
 
-            Log.i(logTag, "Crash! Call internalStopRecordingAndCleanup()")
+            CLog.log(logTag, "Crash! Call internalStopRecordingAndCleanup()")
             internalStopRecordingAndCleanup()
         }
 
@@ -114,14 +114,14 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
     }
 
     override suspend fun resumeRecording() {
-        Log.i(logTag, "resumeRecording()")
+        CLog.log(logTag, "resumeRecording()")
         try {
             recorderBridge.resumeRecording()
 
         } catch (e: Exception) {
             e.printStackTrace()
 
-            Log.i(logTag, "Crash! Call internalStopRecordingAndCleanup()")
+            CLog.log(logTag, "Crash! Call internalStopRecordingAndCleanup()")
             internalStopRecordingAndCleanup()
         }
 
@@ -133,16 +133,16 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
      */
     private lateinit var clientBinder: IBinder
     override suspend fun registerClientProcessDeath(clientDeathListener: IBinder) {
-        Log.i(logTag, "registerClientProcessDeath()")
+        CLog.log(logTag, "registerClientProcessDeath()")
         clientBinder = clientDeathListener
         //Create new anonymous class of IBinder.DeathRecipient()
         clientDeathListener.linkToDeath(object : IBinder.DeathRecipient {
             override fun binderDied() {
-                Log.i(logTag, "registerClientProcessDeath() -> Client died")
+                CLog.log(logTag, "registerClientProcessDeath() -> Client died")
                 try {
-                    Log.i(logTag, "onUnbind() -> Calling internalStopRecordingAndCleanup() just to make sure stop recording when client dies")
+                    CLog.log(logTag, "onUnbind() -> Calling internalStopRecordingAndCleanup() just to make sure stop recording when client dies")
                     internalStopRecordingAndCleanup()
-                    Log.i(logTag, "onUnbind() -> Calling stopRecording() asking client to conenct again")
+                    CLog.log(logTag, "onUnbind() -> Calling stopRecording() asking client to conenct again")
                     ClientContentProviderHelper.askToClientToConnect(context)
                 } catch (e: Exception) {
                     e.printStackTrace()

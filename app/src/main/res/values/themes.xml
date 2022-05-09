@@ -13,4 +13,27 @@
         <item name="android:statusBarColor">#1976d2</item>
 
     </style>
+
+    <style name="Widget.Theme.InAppMessage" parent="Theme.ACRPhoneHelper">
+        <item name="cardViewStyle">@style/Widget.MyTheme.InAppMessage.CardView</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MyTheme.InAppMessage.Subtitle2</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MyTheme.InAppMessage.Body2</item>
+        <item name="buttonStyle">@style/Widget.MaterialComponents.Button.UnelevatedButton</item>
+        <!-- For close button image tint-->
+        <item name="tint">?colorOnPrimary</item>
+    </style>
+
+    <style name="Widget.MyTheme.InAppMessage.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?colorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.MyTheme.InAppMessage.Subtitle2" parent="TextAppearance.MaterialComponents.Subtitle2">
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
+
+    <style name="TextAppearance.MyTheme.InAppMessage.Body2" parent="TextAppearance.MaterialComponents.Body2">
+        <item name="android:textColor">?colorOnPrimary</item>
+    </style>
+
 </resources>

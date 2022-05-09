@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Schakel de installatie van onbekende bronnen in</string>
+    <string name="update_downloader_install_app">Installeren</string>
+    <string name="update_downloader_download_completed">Download voltooid</string>
+    <string name="update_downloader_downloading">Aan het downloaden. Een ogenblik geduld...</string>
+    <string name="update_download_manually">Er was en fout. Wilt u handmatig proberen te downloaden?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Wat is er nieuw</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Geen informatie verstrekt</string>
+    <string name="update_downloader_miu_optimazation_warning">Je telefoon verhindert mogelijk sideloaden. Probeer installeren, downloaden en handmatig te installeren met systeembestandsbeheer als dit niet lukt</string>
+</resources>

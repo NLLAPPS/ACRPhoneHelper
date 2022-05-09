@@ -103,9 +103,12 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/accessibilityServiceDisabledCard"
+        style="?cardViewStyle"
+        android:theme="@style/Widget.Theme.InAppMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/padding_default_16dp"
+
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toTopOf="@+id/installAcrPhone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -146,9 +149,12 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/installAcrPhone"
+        style="?cardViewStyle"
+        android:theme="@style/Widget.Theme.InAppMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/padding_default_16dp"
+
         android:visibility="gone"
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toTopOf="@+id/webSiteLink"

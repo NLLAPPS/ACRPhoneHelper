@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="cloud2_internet_conn_required">इस अनुरोध को पूरा करने के लिए इंटरनेट कनेक्शन की आवश्यकता है</string>
+</resources>

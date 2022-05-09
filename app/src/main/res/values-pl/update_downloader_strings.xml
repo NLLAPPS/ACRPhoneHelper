@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Proszę włączyć instalację nieznanych źródeł</string>
+    <string name="update_downloader_install_app">Instaluj</string>
+    <string name="update_downloader_download_completed">Pobieranie zakończone</string>
+    <string name="update_downloader_downloading">Pobieranie. Proszę czekać ...</string>
+    <string name="update_download_manually">Wystąpił błąd. Czy chcesz spróbować pobrać ręcznie?</string>
+    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Co nowego</string>
+    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Brak informacji.</string>
+    <string name="update_downloader_miu_optimazation_warning">Twój telefon może uniemożliwiać ładowanie z innych źródeł. Spróbuj zainstalować, pobierając i instalując ręcznie, z systemowym menadżerem plików w przypadku awarii</string>
+</resources>

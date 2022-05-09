@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone क्रैश हो गया है</string>
+    <string name="crash_dialog_text">क्रैश करने और रोकने के लिए ACR Phone के कारण त्रुटि हुई थी.\nकृपया हमें त्रुटि डेटा भेजकर इसे ठीक करने में मदद करें, इसके लिए आपको \'ओके\' पर टैप करना होगा और ईमेल द्वारा यह रिपोर्ट भेजनी होगी.</string>
+    <string name="permission_all_required">पूर्ण कार्यक्षमता के लिए सभी अनुमतियों की आवश्यकता होती है</string>
+    <string name="permissions_title">अनुमति अनुरोध</string>
+    <string name="send">संदेश</string>
+    <string name="cancel">रद्द करें</string>
+    <string name="app_crash_notification_channel">क्रैश नोटिफिकेशन</string>
+    <string name="warning">चेतावनी!</string>
+
+
+    <string name="new_version_found">नया संस्करण मिला</string>
+    <string name="no_url_handle">इस लिंक को खोलने के लिए कोई ऐप नहीं ढूंढ सकता</string>
+    <string name="url_error">इस लिंक को पार्स करने में असमर्थ</string>
+
+
+    <string name="enable">सक्षम करें</string>
+
+
+    <string name="call_rec_permissions_message">कॉल रिकॉर्डिंग के लिए आवश्यक अनुमति देखने और देने की अनुमति पर टैप करें</string>
+
+
+    <string name="accessibility_service_name">कॉल रिकॉर्डिंग हेल्पर</string>
+    <string name="accessibility_service_desc">इस सेवा का उपयोग कॉल ऑडियो तक पहुंचने के लिए किया जाता है. अक्षम होने पर कोई कॉल ऑडियो रिकॉर्ड नहीं किया जा सकता है. आपके डेटा तक पहुंच को सीमित करने के लिए, ऐप अपने स्वयं के ईवेंट का अवलोकन करता है और किसी भी क्षमता का अनुरोध नहीं करता है\n कुछ फोन सेवा को काम नहीं करने के रूप में रिपोर्ट कर सकते हैं. ऐसा होने पर इसे फिर से अक्षम और सक्षम करने का प्रयास करें.</string>
+    <string name="accessibility_service_notification">कॉल रिकॉर्डिंग हेल्पर सक्षम करने के लिए यहां टैप करें</string>
+    <string name="accessibility_service_toast">स्थापित एक्सेसिबिलिटी सर्विसेज स्क्रीन पर कॉल रिकॉर्डिंग हेल्पर सक्षम करें</string>
+    <string name="accessibility_service_snack">कॉल रिकॉर्डिंग हेल्पर सक्षम नहीं है</string>
+
+
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone het omgeval</string>
+    <string name="crash_dialog_text">Daar was \'n fout wat veroorsaak het dat ACR Phone omgeval en gestop het.\nHelp ons asseblief om dit reg te stel deur vir ons die fout-data te stuur, al wat jy moet doen is om op \'GOED\' te tik en hierdie verslag met e-pos te stuur.</string>
+    <string name="permission_all_required">Al die toestemmings is nodig vir volle funksionaliteit</string>
+    <string name="permissions_title">Toestemmingsversoek</string>
+    <string name="send">Stuur</string>
+    <string name="cancel">Kanselleer</string>
+    <string name="app_crash_notification_channel">Omval kennisgewing</string>
+    <string name="warning">Waarskuwing!</string>
+
+
+    <string name="new_version_found">Nuwe weergawe gevind</string>
+    <string name="no_url_handle">Kan nie enige toep kry om hierdie skakel oop te maak nie</string>
+    <string name="url_error">Kan nie hierdie skakel ontleed nie</string>
+
+
+    <string name="enable">Skakel aan</string>
+
+
+    <string name="call_rec_permissions_message">Tik op Laat Toe om die vereiste toestemmings vir oproepopname toe te laat</string>
+
+
+    <string name="accessibility_service_name">Oproep Opnemer Hulp</string>
+    <string name="accessibility_service_desc">Hierdie diens word gebruik vir toegang tot oproepklank. Geen oproepe kan opgeneem word as dit af is nie. Om toegang tot jou data te beperk, beperk die toep waarnemings tot sy eie gebeurtenisse en versoek geen funksies nie\n\nSommige fone kan rapporteer dat die diens nie werk nie. Probeer om dit af en weer aan te skakel, as dit gebeur.</string>
+    <string name="accessibility_service_notification">Tik hier om oproep opnemer hulp aan te skakel</string>
+    <string name="accessibility_service_toast">Skakel asseblief Oproep Opnemer Hulp aan op die skerm vir geïnstalleerde toeganklikheidsdienste</string>
+    <string name="accessibility_service_snack">Oproep Opnemer Hulp is afgeskakel</string>
+
+
+    <string name="download">Laai af</string>
+
+
+</resources>

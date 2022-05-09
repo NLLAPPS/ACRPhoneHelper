@@ -2,6 +2,7 @@ package com.nll.helper.update
 
 import com.nll.helper.AppSettings
 import com.nll.helper.BuildConfig
+import com.nll.helper.Constants
 import com.nll.helper.recorder.CLog
 import com.nll.helper.update.version.LocalAppVersion
 import com.nll.helper.update.version.RemoteAppVersion
@@ -10,7 +11,7 @@ import java.util.concurrent.TimeUnit
 internal class UpdateRequest {
     private val logTag = "UpdateRequest"
 
-     fun getUpdateCheckUrl() = "https://acr.app/version.json"
+     fun getUpdateCheckUrl() = Constants.updateCheckUrl
 
      fun saveLastUpdateCheckTime() {
         if (CLog.isDebug()) {
@@ -71,7 +72,7 @@ internal class UpdateRequest {
         }
     }
 
-    //Some delay different then MessageRequest so that we do not bombard the server with 2 request on first install
+    //Some delay so that we do not bombard the server with requests on first install
      fun getUpdateCheckDelayInMillis(): Long {
         return 200
     }

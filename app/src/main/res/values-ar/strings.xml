@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">لقد تعطل ACR Phone</string>
+    <string name="crash_dialog_text">حدث خطأ تسبب في تعطل ACR Phone وإيقافه.\nيُرجى مساعدتنا في إصلاح هذا العطل عن طريق إرسال بيانات الخطأ إلينا، كل ما عليك فعله هو النقر فوق \"موافق\" وإرسال هذا التقرير عبر البريد الإلكتروني.</string>
+    <string name="permission_all_required">جميع الأذونات مطلوبة للوظائف الكاملة</string>
+    <string name="permissions_title">طلب إذن</string>
+    <string name="send">إرسال</string>
+    <string name="cancel">إلغاء</string>
+    <string name="app_crash_notification_channel">إشعار الأعطال</string>
+    <string name="warning">تحذير!</string>
+
+
+    <string name="new_version_found">تم العثور على إصدار جديد</string>
+    <string name="no_url_handle">لا يمكن العثور على أي تطبيق لفتح هذا الرابط</string>
+    <string name="url_error">تعذر تحليل هذا الرابط</string>
+
+
+    <string name="enable">ممكن</string>
+
+
+    <string name="call_rec_permissions_message">اضغط على السماح لرؤية ومنح الأذونات المطلوبة لتسجيل المكالمات</string>
+
+
+    <string name="accessibility_service_name">مساعد تسجيل المكالمات</string>
+    <string name="accessibility_service_desc">تُستخدم هذه الخدمة للوصول إلى صوت المكالمات. لا يمكن تسجيل صوت المكالمة عند تعطيلها. من أجل تقييد الوصول إلى بياناتك، يقيد التطبيق المراقبة على الأحداث الخاصة به ولا يطلب أي إمكانية قد تبلغ بعض الهواتف عن الخدمة على أنها لا تعمل. حاول تعطيله وتمكينه مرة أخرى إذا حدث ذلك.</string>
+    <string name="accessibility_service_notification">انقر هنا لتمكين مساعد تسجيل المكالمات</string>
+    <string name="accessibility_service_toast">يرجى تمكين مساعد تسجيل المكالمات في شاشة خدمات الوصول المثبتة</string>
+    <string name="accessibility_service_snack">لم يتم تمكين مساعد تسجيل المكالمات</string>
+
+
+</resources>

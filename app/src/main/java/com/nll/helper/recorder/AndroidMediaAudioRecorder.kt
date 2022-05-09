@@ -88,7 +88,7 @@ class AndroidMediaAudioRecorder(private val recorderConfig: RecorderConfig) : Re
                 setAudioSamplingRate(recorderConfig.audioSamplingRate)
                 setAudioSource(recorderConfig.audioSource)
                 setOutputFormat(recorderConfig.mediaRecorderOutputFormat)
-                setOutputFile( FileOutputStream(recorderConfig.recordingFile).fd)
+                setOutputFile(FileOutputStream(recorderConfig.recordingFile).fd)
                 setAudioEncoder(recorderConfig.mediaRecorderAudioEncoder)
                 setOnErrorListener(this@AndroidMediaAudioRecorder)
                 setOnInfoListener(this@AndroidMediaAudioRecorder)

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">Телефон се затвори</string>
+    <string name="crash_dialog_text">Поради грешка ACR Phone се затвори.
+Моля да ни помогнете да поправим грешката, като ни изпратите допълнителна информация.
+Всичко, което трябва да направите е да изберете \'ОК\' и да ни изпратите протокол за грешката по email.</string>
+    <string name="permission_all_required">Всички разрешения са необходими за пълна фунционалност.</string>
+    <string name="permissions_title">Заявка за разрешение</string>
+    <string name="send">Изпрати</string>
+    <string name="cancel">Отказ</string>
+    <string name="app_crash_notification_channel">Нотификация за затваряне.</string>
+
+
+</resources>

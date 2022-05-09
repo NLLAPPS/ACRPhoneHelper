@@ -25,6 +25,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 
+
 class UpdateActivity : AppCompatActivity() {
     private val logTag = "UpdateActivity"
     private var appVersionData: AppVersionData? = null
@@ -71,7 +72,11 @@ class UpdateActivity : AppCompatActivity() {
                         val packageInfo = FileDownloader.getPackageInfoFromApk(this@UpdateActivity, targetFile)
                         if (packageInfo != null) {
                             val installedVersion = getVersionCode()
-                            val downloadedApkVersion = packageInfo.longVersionCode
+                            val downloadedApkVersion = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                                packageInfo.longVersionCode
+                            } else {
+                                packageInfo.versionCode.toLong()
+                            }
                             if (CLog.isDebug()) {
                                 CLog.log(logTag, "onCreate() -> downloadedApkVersion: $downloadedApkVersion, installedVersion: $installedVersion")
                             }
@@ -118,15 +123,15 @@ class UpdateActivity : AppCompatActivity() {
 
             } else {
                 Toast.makeText(this, R.string.cloud2_internet_conn_required, Toast.LENGTH_LONG).show()
-                extTryStartActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY), getString(R.string.no_url_handle))
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                    extTryStartActivity(Intent(Settings.Panel.ACTION_INTERNET_CONNECTIVITY), getString(R.string.no_url_handle))
+                }
             }
 
         }
     }
-
     private fun Context.extConnectivityManager(): ConnectivityManager? = getSystemService()
     private fun oldIsOnline() = extConnectivityManager()?.activeNetworkInfo != null
-
     /**
      * If @param errorMessage is provided, a toast message with provided  be shown on failure to start activity
      */
@@ -146,11 +151,14 @@ class UpdateActivity : AppCompatActivity() {
             CLog.logPrintStackTrace(e)
         }
     }
-
     @Suppress("DEPRECATION")
     private fun getVersionCode(): Long {
         return try {
-            applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).longVersionCode
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).longVersionCode
+            } else {
+                applicationContext.packageManager.getPackageInfo(applicationContext.packageName, 0).versionCode.toLong()
+            }
         } catch (e: Exception) {
             CLog.logPrintStackTrace(e)
             0L
@@ -205,7 +213,7 @@ class UpdateActivity : AppCompatActivity() {
 
     }
 
-    private fun startManualDownload(downloadUrl: String) {
+    private fun startManualDownload(downloadUrl: String){
         try {
             val urlToOpen = Uri.parse(downloadUrl)
             try {
@@ -227,7 +235,6 @@ class UpdateActivity : AppCompatActivity() {
             Toast.makeText(this@UpdateActivity, R.string.url_error, Toast.LENGTH_LONG).show()
         }
     }
-
     private fun askToDownloadManually(downloadUrl: String) {
         with(MaterialAlertDialogBuilder(this))
         {
@@ -244,7 +251,12 @@ class UpdateActivity : AppCompatActivity() {
 
     private fun validateAndInstallDownloadedApk(downloadedApk: File, packageInfo: PackageInfo) {
 
-        val isNewOrSameVersion = packageInfo.longVersionCode >= getVersionCode()
+        val downloadedApkVersion = if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            packageInfo.longVersionCode
+        } else {
+            packageInfo.versionCode.toLong()
+        }
+        val isNewOrSameVersion = downloadedApkVersion >= getVersionCode()
         if (CLog.isDebug()) {
             CLog.log(logTag, "validateAndInstallDownloadedApk() -> isNewOrSameVersion $isNewOrSameVersion")
         }
@@ -279,13 +291,15 @@ class UpdateActivity : AppCompatActivity() {
         } else {
 
 
-            if (!packageManager.canRequestPackageInstalls()) {
-                Toast.makeText(this, R.string.update_downloader_enable_install_unknown_apps, Toast.LENGTH_LONG).show()
-                val permissionIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ) {
+                if (!packageManager.canRequestPackageInstalls()) {
+                    Toast.makeText(this, R.string.update_downloader_enable_install_unknown_apps, Toast.LENGTH_LONG).show()
+                    val permissionIntent = Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES).apply {
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    }
+                    startActivity(permissionIntent)
+                    return
                 }
-                startActivity(permissionIntent)
-                return
             }
 
             val installIntent = Intent(Intent.ACTION_VIEW).apply {

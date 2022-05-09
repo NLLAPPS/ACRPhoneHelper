@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone a planté</string>
+    <string name="crash_dialog_text">Une erreur s\'est produite causant le plantage et l\'arrêt du téléphone ACR Phone.\nS\'il vous plaît, aidez-nous à résoudre ce problème en nous envoyant des données d\'erreur, vous n\'avez qu\'à appuyer sur \"OK\" et envoyer ce rapport par e-mail.</string>
+    <string name="permission_all_required">Toutes les autorisations sont requises pour toutes les fonctionnalités</string>
+    <string name="permissions_title">Demande de permission</string>
+    <string name="send">Envoyer </string>
+    <string name="cancel">Annuler</string>
+    <string name="app_crash_notification_channel">Notification de plantage</string>
+    <string name="warning">Avertissement!</string>
+
+
+    <string name="new_version_found">Nouvelle version trouvée</string>
+    <string name="no_url_handle">Impossible de trouver une application pour ouvrir ce lien</string>
+    <string name="url_error">Impossible d\'ouvrir ce lien</string>
+
+
+    <string name="enable">Activer </string>
+
+
+    <string name="call_rec_permissions_message">Appuyez sur Autoriser pour voir et accorder les autorisations requises pour l\'enregistrement des appels</string>
+
+
+    <string name="accessibility_service_name">Assistant d\'enregistrement des appels</string>
+    <string name="accessibility_service_desc">Ce service est utilisé pour accéder à l\'audio d\'appel. Aucun audio d\'appel ne peut être enregistré lorsqu\'il est désactivé. Afin de limiter l\'accès à vos données, l\'application limite l\'observation à ses propres événements et ne demande aucune capacité\n\nCertains téléphones peuvent signaler le service comme ne fonctionnant pas. Essayez de le désactiver et de l\'activer à nouveau si cela se produit.</string>
+    <string name="accessibility_service_notification">Appuyez ici pour activer l\'assistant d\'enregistrement des appels</string>
+    <string name="accessibility_service_toast">Veuillez activer l\'assistant d\'enregistrement d\'appel sur l\'écran des services d\'accessibilité installés</string>
+    <string name="accessibility_service_snack">L\'assistant d\'enregistrement des appels n\'est pas activé</string>
+
+
+    <string name="download">Télécharger</string>
+
+
+    <string name="acr_phone_not_installed">La version ACR Phone de Google Play Store n\'est pas installée ou doit être mise à jour. Cette application ne peut être utilisée qu\'avec une version compatible de ACR Phone</string>
+    <string name="install">Installer</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Doit être maintenu en cours d\'exécution pour la fonctionnalité d\'enregistrement des appels du ACR Phone</string>
+    <string name="forced_update_message_generic">Cette application doit être mise à jour pour fonctionner correctement</string>
+    <string name="audio_record_permission">Autorisation d\'enregistrement audio</string>
+</resources>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone har krasjet</string>
+    <string name="crash_dialog_text">Det oppstod en feil som fikk ACR Phone til å krasje og stoppe.\nHjelp oss med å fikse dette ved å sende oss feildata. Alt du trenger å gjøre er å trykke på \'OK\' og sende rapporten via e-post.</string>
+    <string name="permission_all_required">Alle tillatelser er påkrevd for full funksjonalitet</string>
+    <string name="permissions_title">Forespørsel om tillatelse</string>
+    <string name="send">Send</string>
+    <string name="cancel">Avbryt</string>
+    <string name="app_crash_notification_channel">Krasj varsler</string>
+    <string name="warning">Advarsel!</string>
+
+
+    <string name="new_version_found">Ny versjon funnet</string>
+    <string name="no_url_handle">Finner ikke noen app for å åpne denne lenken</string>
+    <string name="url_error">Kan ikke åpne denne koblingen</string>
+
+
+    <string name="enable">Aktiver</string>
+
+
+    <string name="call_rec_permissions_message">Trykk på tillat for å se og gi nødvendige tillatelser for opptak av anrop</string>
+
+
+    <string name="accessibility_service_name">Hjelp for samtaleopptak</string>
+    <string name="accessibility_service_desc">Denne tjenesten brukes for å få tilgang til lyd fra samtaler. Ingen samtaler kan tas opp hvis den er deaktivert. For å begrense tilgangen til dine data, ser ACR app kun egne hendelser og ber ikke om utvidet tilgang\n\nNoen telefoner kan rapportere tjenester som ikke fungerende. Prøv å deaktivere og aktivere det igjen hvis dette skjer.</string>
+    <string name="accessibility_service_notification">Trykk her for å aktivere samtaleopptakshjelper</string>
+    <string name="accessibility_service_toast">Vennligst aktiver samtaleopptakshjelper på skjermen for tilgjengelighetstjenester</string>
+    <string name="accessibility_service_snack">Samtaleopptakhjelper er ikke aktivert</string>
+
+
+    <string name="download">Last ned</string>
+
+
+</resources>

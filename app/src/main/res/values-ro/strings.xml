@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone s-a oprit</string>
+    <string name="crash_dialog_text">A apărut o eroare ce a dus la blocarea și oprirea ACR Phone.\nVă rugăm să ne ajutați să o rezolvăm, trimițându-ne date de eroare, tot ce trebuie să faceți fiind să apăsați „OK“ și să trimiteți acest raport prin e-mail.</string>
+    <string name="permission_all_required">Toate permisiunile sunt necesare pentru funcționalitate completă</string>
+    <string name="permissions_title">Solicitare de permisiune</string>
+    <string name="send">Trimiteți</string>
+    <string name="cancel">Anulare</string>
+    <string name="app_crash_notification_channel">Notificare de eroare</string>
+    <string name="warning">Atenție!</string>
+
+
+    <string name="enable">Permite</string>
+
+
+    <string name="call_rec_permissions_message">Apăsați pe Permiteți pentru a vedea și acorda permisiunile necesare pentru înregistrarea apelurilor</string>
+
+
+    <string name="accessibility_service_name">Ajutor pentru înregistrarea apelurilor</string>
+    <string name="accessibility_service_desc">Acest serviciu este utilizat pentru accesarea sunetului apelului. Niciun sunet de apel nu poate fi înregistrat când este dezactivat. Pentru a limita accesul la datele dvs., aplicația limitează observarea la propriile evenimente și nu solicită nicio capacitate. Unele telefoane pot raporta că serviciul nu funcționează. Încercați să o dezactivați și să o activați din nou dacă se întâmplă acest lucru.</string>
+    <string name="accessibility_service_notification">Atingeți aici pentru a activa asistentul pentru înregistrarea apelurilor</string>
+    <string name="accessibility_service_toast">Vă rugăm să activați ajutorul pentru înregistrarea apelurilor pe ecranul Servicii de accesibilitate instalate</string>
+    <string name="accessibility_service_snack">Asistentul pentru înregistrarea apelurilor nu este activat</string>
+
+
+    <string name="download">Descarcare</string>
+
+
+</resources>

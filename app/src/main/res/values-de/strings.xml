@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone ist abgestürzt</string>
+    <string name="crash_dialog_text">Es gab einen Fehler, der ACR Phone zum Absturz brachte und stoppte.\nBitte hilf uns, solche Fehler zu beheben, indem du uns die Fehlerdaten schickst. Alles, was du machen musst ist, auf \'OK\' zu tippen und uns diesen Bericht per E-Mail zu schicken. Danke!</string>
+    <string name="permission_all_required">Diese Berechtigungen sind für die volle Funktionalität erforderlich</string>
+    <string name="permissions_title">Berechtigungsanfrage</string>
+    <string name="send">Senden</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="app_crash_notification_channel">Absturzbenachrichtigung</string>
+    <string name="warning">Achtung!</string>
+
+
+    <string name="new_version_found">Neue Version gefunden</string>
+    <string name="no_url_handle">Keine App zum Öffnen dieses Links gefunden</string>
+    <string name="url_error">Link kann nicht verarbeitet werden</string>
+
+
+    <string name="enable">Aktivieren</string>
+
+
+    <string name="call_rec_permissions_message">Tippe auf Erlauben, um den erforderlichen Berechtigungen für die Anrufaufzeichnung zuzustimmen</string>
+
+
+    <string name="accessibility_service_name">Anrufeaufzeichnungsdienst</string>
+    <string name="accessibility_service_desc">Dieser Dienst wird zum Aufzeichnen von Anrufen verwendet. Wenn der Dienst deaktiviert ist, können keine Anrufe aufgezeichnet werden. Der Dienst bezieht sich nur auf die App und greift nicht auf andere Daten zu\n\nWenn dein Telefon den Dienst als nicht funktionierend anzeigt, versuche ihn zu deaktivieren und anschließend wieder zu aktivieren.</string>
+    <string name="accessibility_service_notification">Hier tippen, um den Anrufeaufzeichnungsdienst zu aktivieren</string>
+    <string name="accessibility_service_toast">Bitte aktiviere den Anrufeaufzeichnungsdienst bei den Bedienungshilfen.</string>
+    <string name="accessibility_service_snack">Der Anrufeaufzeichnungsdienst ist nicht aktiviert</string>
+
+
+    <string name="download">Herunterladen</string>
+
+
+    <string name="acr_phone_not_installed">Die Google Play Store Version von ACR Phone ist nicht installiert oder muss aktualisiert werden. Diese App kann nur zusammen mit einer kompatiblen Version von ACR Phone verwendet werden</string>
+    <string name="install">Installieren</string>
+    <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Muss weiterhin aktiv sein, damit ACR Phone Anrufe aufzeichnen kann</string>
+    <string name="forced_update_message_generic">Diese App muss aktualisiert werden, um korrekt zu funktionieren</string>
+    <string name="audio_record_permission">Audio-Aufnahme-Berechtigung</string>
+</resources>

@@ -1,0 +1,112 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+
+/**
+ * Minimum client version app-helper server can talk to
+ * Set as MINIMUM_CLIENT_VERSION_CODE at app-helper/build.gradle.kts
+ */
+def appHelperMinimumClientVersionCode = 1
+/**
+ * Minimum server version  app-helper-client as client can talk to
+ * Set as MINIMUM_SERVER_VERSION_CODE at app-helper-client/build.gradle.kts
+ */
+def appHelperMinimumServerVersionCode = 1
+
+android {
+    namespace 'com.nll.helper'
+    compileSdk 32
+    buildFeatures {
+        viewBinding = true
+    }
+    defaultConfig {
+        applicationId "com.nll.helper"
+        minSdk 29
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "$appHelperMinimumClientVersionCode")
+        buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "$appHelperMinimumServerVersionCode")
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled = true
+            shrinkResources = true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "aph.apk"
+        }
+    }
+    
+}
+
+
+
+
+
+dependencies {
+
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinesVer}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutinesVer}"
+    implementation "androidx.recyclerview:recyclerview:${versions.recyclerViewVer}"
+    implementation "androidx.core:core-ktx:${versions.supportCoreVer}"
+    implementation "androidx.appcompat:appcompat:${versions.appCompatVer}"
+    implementation "com.google.android.material:material:${versions.materialComponentsVer}"
+    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayoutVer}"
+    implementation "androidx.activity:activity-ktx:${versions.activityVer}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifeCycleVer}"
+    implementation "androidx.startup:startup-runtime:${versions.startupVer}"
+    implementation "com.chibatching.kotpref:kotpref:${versions.kotPrefVer}"
+    implementation "androidx.lifecycle:lifecycle-process:${versions.lifeCycleVer}"
+    implementation "androidx.lifecycle:lifecycle-service:${versions.lifeCycleVer}"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:${versions.coordinatorLayoutVer}"
+    implementation "com.google.android.material:material:${versions.materialComponentsVer}"
+    implementation "com.josesamuel:remoter-annotations:${versions.remoterVer}"
+    kapt "com.josesamuel:remoter:${versions.remoterVer}"
+    //If using kotlin coroutines, include following to make even the service connection simpler
+    implementation "com.josesamuel:remoter-builder:${versions.remoterVer}"
+    /**
+     *  We need this because we are using registerProcessDeath to listen to client crash so we can stop recording and passing Binder requires
+     *  Parceller.
+     *
+     *  Kotlin parcelize does not seem to work yet
+     *  https://github.com/josesamuel/remoter/issues/6
+     *
+     */
+    implementation "org.parceler:parceler-api:${versions.remoterParcelerDependencyVer}"
+    kapt "org.parceler:parceler:${versions.remoterParcelerDependencyVer}"
+
+    implementation "com.squareup.okhttp3:okhttp:${versions.okHttpVer}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okHttpVer}"
+    implementation "ch.acra:acra-core:${versions.acraVer}"
+    implementation "ch.acra:acra-mail:${versions.acraVer}"
+    implementation "ch.acra:acra-notification:${versions.acraVer}"
+    implementation "io.karn:notify:${versions.karNotify}"
+
+}

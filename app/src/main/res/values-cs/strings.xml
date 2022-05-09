@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone havaroval </string>
+    <string name="crash_dialog_text">Chyba způsobila pád a zastavení funkce ACR Phone.\nPomozte nám opravit tento problém tím, že nám pošlete údaje o chybách. Stačí kliknout na \"OK\" a odeslat tuto zprávu emailem. </string>
+    <string name="permission_all_required">Všechna oprávnění jsou vyžadována pro plnou funkčnost</string>
+    <string name="permissions_title">Žádost o oprávnění</string>
+    <string name="send">Odeslat</string>
+    <string name="cancel">Zrušit</string>
+    <string name="app_crash_notification_channel">Oznámení o pádu</string>
+    <string name="warning">Upozornění!</string>
+
+
+    <string name="new_version_found">Byla nalezena nová verze</string>
+    <string name="no_url_handle">Nelze najít žádnou aplikaci pro otevření tohoto odkazu</string>
+    <string name="url_error">Nelze analyzovat tento odkaz</string>
+
+
+    <string name="enable">Povolit</string>
+
+
+    <string name="call_rec_permissions_message">Klepnutím na Povolit zobrazení a udělení požadovaných oprávnění pro nahrávání hovorů</string>
+
+
+    <string name="accessibility_service_name">Pomocník pro nahrávání hovorů</string>
+    <string name="accessibility_service_desc">Tato služba se používá pro přístup ke zvukovému hovoru. Pokud je zakázán, nelze zvuk volání zaznamenat. Pro omezení přístupu k vašim datům aplikace omezuje pozorování na své vlastní události a nevyžaduje žádnou funkci\n\nNěkteré telefony mohou hlásit, že služba nefunguje. Zkuste znovu zakázat a povolit, pokud se tak stane.</string>
+    <string name="accessibility_service_notification">Klepnutím sem povolíte pomocníka pro nahrávání hovorů</string>
+    <string name="accessibility_service_toast">Prosím povolte pomocníka pro nahrávání hovorů na obrazovce Služby usnadnění přístupu</string>
+    <string name="accessibility_service_snack">Pomocník pro nahrávání hovorů není povolen</string>
+
+
+</resources>

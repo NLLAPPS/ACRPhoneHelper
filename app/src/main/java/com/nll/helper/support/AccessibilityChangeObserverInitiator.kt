@@ -1,8 +1,8 @@
 package com.nll.helper.support
 
 import android.content.Context
-import android.util.Log
 import androidx.startup.Initializer
+import com.nll.helper.recorder.CLog
 
 
 /**
@@ -12,7 +12,7 @@ class AccessibilityChangeObserverInitiator : Initializer<Unit> {
     private val logTag = "CR_AccessibilityChangeObserverInitiator"
 
     override fun create(context: Context) {
-        Log.i(logTag, "create()")
+        CLog.log(logTag, "create()")
         AccessibilityChangeObserver.registerAccessibilityServiceChangeContentObserver(context)
 
     }

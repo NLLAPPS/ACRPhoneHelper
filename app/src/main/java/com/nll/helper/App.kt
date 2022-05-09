@@ -51,7 +51,7 @@ class App : Application() {
 
                 plugin<MailSenderConfigurationBuilder> {
                     enabled = true
-                    mailTo = "cb@nllapps.com"
+                    mailTo = Constants.contactEmail
                     reportAsFile = false
                     //setReportFileName("crash_log.txt")
                 }

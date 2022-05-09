@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+
+    <string name="crash_notif_title">ACR Phone 已崩溃</string>
+    <string name="crash_dialog_text">发生错误，导致 ACR Phone 崩溃并停止。请通过向我们发送错误数据来帮助我们解决此问题，您只需点击“确定”并通过电子邮件发送此报告。</string>
+    <string name="permission_all_required">完整功能需要所有权限</string>
+    <string name="permissions_title">权限请求</string>
+    <string name="send">发送</string>
+    <string name="cancel">取消</string>
+    <string name="app_crash_notification_channel">崩溃通知</string>
+    <string name="warning">警告！</string>
+
+
+    <string name="new_version_found">发现新版本</string>
+    <string name="no_url_handle">找不到任何应用程序可以打开此链接</string>
+    <string name="url_error">无法解析此链接</string>
+
+
+    <string name="enable">启用</string>
+
+
+    <string name="call_rec_permissions_message">点击允许查看并授予所需的通话记录权限</string>
+
+
+    <string name="accessibility_service_name">通话记录助手</string>
+    <string name="accessibility_service_desc">此服务用于访问呼叫音频。禁用时，无法录制通话音频。为了限制对您数据的访问，应用程序将观察仅限于其自身的事件，并且不要求任何功能。某些手机可能会报告服务不起作用。如果发生这种情况，请尝试禁用并再次启用它。</string>
+    <string name="accessibility_service_notification">点按此处启用通话记录助手</string>
+    <string name="accessibility_service_toast">请在“已安装的辅助功能”屏幕上启用呼叫记录助手</string>
+    <string name="accessibility_service_snack">呼叫记录助手未启用</string>
+
+
+    <string name="download">下载</string>
+
+
+</resources>

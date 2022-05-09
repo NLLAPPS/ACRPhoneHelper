@@ -81,7 +81,7 @@
                     android:layout_toStartOf="@+id/totalBytes"
                     android:layout_toEndOf="@+id/downloadedBytes"
                     android:max="100"
-                    app:trackCornerRadius="@dimen/progress_indicator_corner_radius" />
+                    app:trackCornerRadius="3dp" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/totalBytes"
