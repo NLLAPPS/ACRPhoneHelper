@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Por favor, activa la instalación de fuentes desconocidas</string>
     <string name="update_downloader_install_app">Instalar</string>
     <string name="update_downloader_download_completed">Descarga completada</string>
     <string name="update_downloader_downloading">Descargando, por favor espere...</string>
     <string name="update_download_manually">Ha habido un error y quieres descargarlo manualmente?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Novedades</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">No hay información proporcionada</string>
+    <string name="update_download_no_whats_new">Novedades</string>
+    <string name="update_download_no_version_notes">No hay información proporcionada</string>
     <string name="update_downloader_miu_optimazation_warning">Su teléfono puede estar impidiendo la carga secundaria. Intente instalar, descargar e instalar manualmente con el gestor de archivos del sistema si falla</string>
 </resources>

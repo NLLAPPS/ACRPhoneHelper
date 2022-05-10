@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Bitte erlauben Sie das Installieren von unbekannten Quellen</string>
     <string name="update_downloader_install_app">Installieren</string>
     <string name="update_downloader_download_completed">Herunterladen abgeschlossen</string>
     <string name="update_downloader_downloading">Wird heruntergeladen, bitte warten …</string>
     <string name="update_download_manually">Es ist ein Fehler aufgetreten. Möchten Sie versuchen, das Herunterladen manuell zu starten?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Neuigkeiten</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Keine Informationen verfügbar</string>
+    <string name="update_download_no_whats_new">Neuigkeiten</string>
+    <string name="update_download_no_version_notes">Keine Informationen verfügbar</string>
     <string name="update_downloader_miu_optimazation_warning">Möglicherweise verhindert Ihr Telefon das Laden von externen Quellen. Es wird versucht die Installation, das Herunterladen und die manuelle Installation mit dem Systemdateimanager durchzuführen, falls dies fehlschlägt.</string>
 </resources>

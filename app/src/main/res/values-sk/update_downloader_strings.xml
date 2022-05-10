@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Zapnite inštaláciu neznámych zdrojov</string>
     <string name="update_downloader_install_app">Inštalovať</string>
     <string name="update_downloader_download_completed">Sťahovanie dokončené</string>
     <string name="update_downloader_downloading">Sťahuje sa, prosím čakajte…</string>
     <string name="update_download_manually">Nastala chyba. Chcete sa pokúsiť stiahnuť manuálne?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Čo je nové</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Neboli poskytnuté žiadne informácie</string>
+    <string name="update_download_no_whats_new">Čo je nové</string>
+    <string name="update_download_no_version_notes">Neboli poskytnuté žiadne informácie</string>
     <string name="update_downloader_miu_optimazation_warning">Váš telefón môže brániť nahratiu softvéru. Ak to zlyhá, skúste nainštalovať, stiahnuť a manuálne nainštalovať pomocou správcu systémových súborov</string>
 </resources>

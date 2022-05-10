@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Attiva l\'installazione di sorgenti sconosciute</string>
     <string name="update_downloader_install_app">Installa</string>
     <string name="update_downloader_download_completed">Download completato</string>
     <string name="update_downloader_downloading">Download in corso, attendere prego...</string>
     <string name="update_download_manually">C\'è stato un errore. Vuoi provare a scaricare manualmente?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Cosa c\'è di nuovo</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Nessuna informazione fornita</string>
+    <string name="update_download_no_whats_new">Cosa c\'è di nuovo</string>
+    <string name="update_download_no_version_notes">Nessuna informazione fornita</string>
     <string name="update_downloader_miu_optimazation_warning">Il telefono potrebbe impedire il sideloading. Provare l\'installazione, scaricare e installare manualmente con il file manager di sistema se fallisce</string>
 </resources>

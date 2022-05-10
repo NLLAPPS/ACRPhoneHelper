@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Si us plau, permet la instal·lació des de fonts desconegudes</string>
     <string name="update_downloader_install_app">Instal·lar</string>
     <string name="update_downloader_download_completed">Descàrrega completada</string>
     <string name="update_downloader_downloading">Descarregant, espereu un moment...</string>
     <string name="update_download_manually">S\'ha produït un error. Voleu intentar la descàrrega manualment?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Novetats</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">No s\'ha proporcionat informació</string>
+    <string name="update_download_no_whats_new">Novetats</string>
+    <string name="update_download_no_version_notes">No s\'ha proporcionat informació</string>
     <string name="update_downloader_miu_optimazation_warning">El teu telèfon pot estar impedint la càrrega secundària. Prova d\'instal·lar, descarregar i instal·lar manualment amb el gestor de fitxers del sistema si no funciona</string>
 </resources>

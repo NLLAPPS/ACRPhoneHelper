@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Пожалуйста, включите установку неизвестных источников</string>
     <string name="update_downloader_install_app">Установить</string>
     <string name="update_downloader_download_completed">Загрузка завершена</string>
     <string name="update_downloader_downloading">Пожалуйста, подождите…</string>
     <string name="update_download_manually">Возникла ошибка и вы хотите попробовать загрузить вручную?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Что нового</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Информация отсутствует.</string>
+    <string name="update_download_no_whats_new">Что нового</string>
+    <string name="update_download_no_version_notes">Информация отсутствует.</string>
     <string name="update_downloader_miu_optimazation_warning">Ваш телефон может предотвращать параллельную загрузку. Попробуйте установить, загрузить и установить вручную в системном файловом менеджере</string>
 </resources>

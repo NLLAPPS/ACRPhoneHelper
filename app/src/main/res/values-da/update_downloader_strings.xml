@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="update_downloader_enable_install_unknown_apps">Slå installationen fra ukendte kilder til</string>
     <string name="update_downloader_install_app">Installer</string>
     <string name="update_downloader_download_completed">Download fuldført</string>
     <string name="update_downloader_downloading">Downloader, vent venligst...</string>
     <string name="update_download_manually">Der opstod en fejl. Vil du prøve at downloade manuelt?</string>
-    <string name="update_download_no_whats_new" tools:keep="@string/update_download_no_whats_new">Nyt i denne version</string>
-    <string name="update_download_no_version_notes" tools:keep="@string/update_download_no_version_notes">Ingen oplysninger</string>
+    <string name="update_download_no_whats_new">Nyt i denne version</string>
+    <string name="update_download_no_version_notes">Ingen oplysninger</string>
     <string name="update_downloader_miu_optimazation_warning">Din telefon forhindrer muligvis sideloading. Prøv at downloade og manuelt installere med systemfilhåndtering, hvis der opstår fejler</string>
 </resources>

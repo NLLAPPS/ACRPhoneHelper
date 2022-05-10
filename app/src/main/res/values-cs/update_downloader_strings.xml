@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_install_app">Instalovat</string>
+    <string name="update_downloader_download_completed">Stahování dokončeno</string>
+    <string name="update_downloader_downloading">Stahování čekejte prosím…</string>
+    <string name="update_download_no_whats_new">Co je nového</string>
+</resources>
