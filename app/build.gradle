@@ -61,8 +61,26 @@ android {
         variant.outputs.all {
             outputFileName = "aph.apk"
         }
+        //outputFileName = outputFileName.replace(".apk", "-${variant.versionName}.apk")
     }
-    
+
+
+    flavorDimensions += "marketPlace"
+    productFlavors {
+        nllStore {
+            //versionCode versions.versionCode + 10000 Make self updating version bigger may be?
+            dimension = "marketPlace"
+            versionNameSuffix = "-nllStore"
+        }
+        galaxyStore {
+            dimension = "marketPlace"
+            versionNameSuffix = "-galaxyStore"
+        }
+        appGallery {
+            dimension = "marketPlace"
+            versionNameSuffix = "-appGallery"
+        }
+    }
 }
 
 

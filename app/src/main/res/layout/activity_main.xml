@@ -104,10 +104,10 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/accessibilityServiceDisabledCard"
         style="?cardViewStyle"
-        android:theme="@style/Widget.Theme.InAppMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/padding_default_16dp"
+        android:theme="@style/Widget.Theme.InAppMessage"
 
         app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toTopOf="@+id/installAcrPhone"
@@ -150,10 +150,10 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/installAcrPhone"
         style="?cardViewStyle"
-        android:theme="@style/Widget.Theme.InAppMessage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/padding_default_16dp"
+        android:theme="@style/Widget.Theme.InAppMessage"
 
         android:visibility="gone"
         app:cardUseCompatPadding="true"
@@ -201,8 +201,21 @@
         android:gravity="center"
         android:lineSpacingExtra="3dp"
         android:text="@string/helper_web_site_link"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/versionInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/versionInfo"
+        style="?textAppearanceCaption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lineSpacingExtra="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Version info" />
 </androidx.constraintlayout.widget.ConstraintLayout>

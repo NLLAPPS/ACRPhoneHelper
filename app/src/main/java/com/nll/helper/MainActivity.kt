@@ -1,12 +1,10 @@
 package com.nll.helper
 
 import android.Manifest
-import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -23,8 +21,6 @@ import com.nll.helper.server.ClientContentProviderHelper
 import com.nll.helper.support.AccessibilityCallRecordingService
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
-import com.nll.helper.update.downloader.AppVersionData
-import com.nll.helper.update.downloader.UpdateActivity
 import kotlinx.coroutines.launch
 
 
@@ -43,7 +39,10 @@ class MainActivity : AppCompatActivity() {
         MainActivityViewModel.Factory(application)
     }
 
-    private val recordAudioPermission = activityResultRegistry.register("audio", ActivityResultContracts.RequestPermission()) { hasAudioRecordPermission ->
+    private val recordAudioPermission = activityResultRegistry.register(
+        "audio",
+        ActivityResultContracts.RequestPermission()
+    ) { hasAudioRecordPermission ->
         if (!hasAudioRecordPermission) {
             Toast.makeText(this, R.string.permission_all_required, Toast.LENGTH_SHORT).show()
         }
@@ -56,21 +55,38 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setTitle(R.string.app_name_helper_long)
 
-        binding.accessibilityServiceStatus.text = String.format("%s (%s)", getString(R.string.accessibility_service_name), getString(R.string.app_name_helper))
+        binding.webSiteLink.isVisible = StoreConfigImpl.canLinkToWebSite()
+        binding.versionInfo.text = Util.getVersionName(this)
+
+        binding.accessibilityServiceStatus.text = String.format(
+            "%s (%s)",
+            getString(R.string.accessibility_service_name),
+            getString(R.string.app_name_helper)
+        )
         audioRecordPermissionStatusDefaultTextColor = binding.audioRecordPermissionStatus.textColors
-        binding.connectionBetweenAppsStatus.text = String.format("%s ⬌ %s", getString(R.string.app_name_helper), getString(R.string.app_name))
+
+        binding.connectionBetweenAppsStatus.text = String.format(
+            "%s ⬌ %s",
+            getString(R.string.app_name_helper),
+            getString(R.string.app_name)
+        )
 
         viewModel.observeAccessibilityServicesChanges().observe(this) { isEnabled ->
             onAccessibilityChanged(isEnabled)
         }
+
         viewModel.observeClientConnected().observe(this) { isConnected ->
             CLog.log(logTag, "observeClientConnected() -> isConnected: $isConnected")
             onClientConnected(isConnected)
         }
+
         binding.accessibilityServiceCardActionButton.setOnClickListener {
             CLog.log(logTag, "accessibilityServiceCardActionButton()")
             val openWithoutCheckingIfEnabled = openHelperServiceSettingsIfNeededClickCount > 0
-            val opened = AccessibilityCallRecordingService.openHelperServiceSettingsIfNeeded(this, openWithoutCheckingIfEnabled)
+            val opened = AccessibilityCallRecordingService.openHelperServiceSettingsIfNeeded(
+                this,
+                openWithoutCheckingIfEnabled
+            )
             if (opened) {
                 openHelperServiceSettingsIfNeededClickCount = 0
             } else {
@@ -80,7 +96,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.installMainAppCardActionButton.setOnClickListener {
             CLog.log(logTag, "installMainAppCardActionButton() -> setOnClickListener")
-            openPlayStore()
+            StoreConfigImpl.openACRPhoneDownloadLink(
+                this,
+                ClientContentProviderHelper.clientPackageName
+            )
         }
 
         //Not that there could be only one job per addRepeatingJob
@@ -126,8 +145,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUpdateMessage(updateResult: UpdateResult.Required) {
-        val appVersionData = AppVersionData(updateResult.remoteAppVersion.downloadUrl, updateResult.remoteAppVersion.versionCode, updateResult.remoteAppVersion.whatsNewMessage)
-        UpdateActivity.start(this, appVersionData)
+        updateResult.openDownloadUrl(this)
     }
 
     private fun onAccessibilityChanged(isEnabled: Boolean) {
@@ -178,7 +196,10 @@ class MainActivity : AppCompatActivity() {
         } else {
             false
         }
-        CLog.log(logTag, "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating")
+        CLog.log(
+            logTag,
+            "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating"
+        )
 
         binding.installAcrPhone.isVisible = !isAcrPhoneInstalled
         if (isAcrPhoneInstalled && !askedClientToConnect) {
@@ -198,7 +219,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkForAudioRecordPermission() {
-        val hasAudioRecordPermission = ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+        val hasAudioRecordPermission = ContextCompat.checkSelfPermission(
+            applicationContext,
+            Manifest.permission.RECORD_AUDIO
+        ) == PackageManager.PERMISSION_GRANTED
         if (!hasAudioRecordPermission) {
             recordAudioPermission.launch(Manifest.permission.RECORD_AUDIO)
         }
@@ -208,7 +232,9 @@ class MainActivity : AppCompatActivity() {
     private fun updateAudioPermissionDisplay(hasAudioRecordPermission: Boolean) {
         binding.audioRecordPermissionStatus.setTextColor(Color.BLUE)
         if (hasAudioRecordPermission) {
-            binding.audioRecordPermissionStatus.setTextColor(audioRecordPermissionStatusDefaultTextColor)
+            binding.audioRecordPermissionStatus.setTextColor(
+                audioRecordPermissionStatusDefaultTextColor
+            )
             binding.audioRecordPermissionStatus.setOnClickListener(null)
         } else {
             binding.audioRecordPermissionStatus.setTextColor(Color.BLUE)
@@ -237,21 +263,5 @@ class MainActivity : AppCompatActivity() {
     override fun onBackPressed() {
         CLog.log(logTag, "onBackPressed()")
         moveTaskToBack(true)
-    }
-
-    private fun openPlayStore() = try {
-        Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=${ClientContentProviderHelper.clientPackageName}"))
-            .let(::startActivity)
-        true
-
-    } catch (ignored: ActivityNotFoundException) {
-        try {
-            Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=${ClientContentProviderHelper.clientPackageName}"))
-                .let(::startActivity)
-            true
-        } catch (e: ActivityNotFoundException) {
-            e.printStackTrace()
-            false
-        }
     }
 }

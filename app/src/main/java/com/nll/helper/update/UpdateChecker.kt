@@ -15,7 +15,7 @@ object UpdateChecker {
     suspend fun checkUpdate(context: Context): UpdateResult = withContext(Dispatchers.IO) {
         //Init settings
         AppSettings.initIfNeeded(context)
-        val updateRequest = UpdateRequest()
+        val updateRequest = UpdateRequestImpl()
 
         if (updateRequest.shouldCheckUpdate()) {
             if (CLog.isDebug()) {
@@ -33,7 +33,7 @@ object UpdateChecker {
     }
 
 
-    private fun realDownloadUpdate(updateRequest: UpdateRequest) {
+    private fun realDownloadUpdate(updateRequest: UpdateRequestImpl) {
         if (CLog.isDebug()) {
             CLog.log(logTag, "realDownloadUpdate")
         }

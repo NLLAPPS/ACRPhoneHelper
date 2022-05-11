@@ -17,10 +17,9 @@ import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LiveData
 import com.nll.helper.*
 import com.nll.helper.recorder.CLog
+import com.nll.helper.update.DownloadUrlOpenerImpl
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
-import com.nll.helper.update.downloader.AppVersionData
-import com.nll.helper.update.downloader.UpdateActivity
 import io.karn.notify.Notify
 import io.karn.notify.entities.Payload
 import kotlinx.coroutines.CoroutineScope
@@ -62,7 +61,12 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     private fun startAsForegroundServiceWithNotification(context: Context) {
 
         val launchIntent = Intent(context, MainActivity::class.java)
-        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val pendingOpenIntent = PendingIntent.getActivity(
+            context,
+            0,
+            launchIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
         val alertPayload = getChannel(context)
 
         val notification = Notify.with(context)
@@ -98,7 +102,6 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         super.onCreate()
         CLog.log(logTag, "onCreate()")
         checkUpdates()
-
     }
 
     private fun checkUpdates() {
@@ -126,11 +129,15 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
     private fun showUpdateNotification(context: Context, updateResult: UpdateResult.Required) {
-        val launchIntent = Intent(context, UpdateActivity::class.java).apply {
-            AppVersionData(updateResult.remoteAppVersion.downloadUrl, updateResult.remoteAppVersion.versionCode, updateResult.remoteAppVersion.whatsNewMessage)
-                .toIntent(this)
-        }
-        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+        val launchIntent =
+            DownloadUrlOpenerImpl.getOpenDownloadUrlIntent(context, updateResult.remoteAppVersion)
+
+        val pendingOpenIntent = PendingIntent.getActivity(
+            context,
+            0,
+            launchIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
         val alertPayload = getChannel(context)
 
         Notify.with(context)
@@ -152,7 +159,8 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             }
             .content {
                 title = context.getString(R.string.new_version_found)
-                text = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty {  context.getString(R.string.forced_update_message_generic) }
+                text =
+                    updateResult.remoteAppVersion.whatsNewMessage.ifEmpty { context.getString(R.string.forced_update_message_generic) }
             }.show(Constants.updateNotificationId)
     }
 
@@ -175,7 +183,10 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
              * However, it should not be an issue as this process does not happen often.
              *
              */
-            CLog.log(logTag, "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)")
+            CLog.log(
+                logTag,
+                "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)"
+            )
             sendAccessibilityServicesChangedEvent(true)
         }
     }
@@ -210,7 +221,6 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
 
-
     companion object {
         private const val logTag: String = "CR_AccessibilityCallRecordingService"
 
@@ -223,7 +233,8 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 //Important as we call this from non activity classes
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
 
-                val showArgs = context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
+                val showArgs =
+                    context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
                 val extraFragmentKeyArg = ":settings:fragment_args_key"
                 putExtra(extraFragmentKeyArg, showArgs)
                 val bundle = Bundle().apply {
@@ -241,7 +252,10 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         private fun openSamsungIntentBelowAndroidR(context: Context) {
             //This Does not work on Android 11+ there is no such action. We have tried with         setClassName("com.samsung.accessibility", "com.samsung.accessibility.core.winset.activity.SubSettings") but cannot start it.
             //We get java.lang.SecurityException: Permission Denial: starting Intent { flg=0x10000000 cmp=com.samsung.accessibility/.core.winset.activity.SubSettings } from ProcessRecord{a0cc8de 32732:com.nll.cb/u0a358} (pid=32732, uid=10358) not exported from uid 1000
-            val samsungDeepLink = addHighlightInTheList(context, Intent("com.samsung.accessibility.installed_service"))
+            val samsungDeepLink = addHighlightInTheList(
+                context,
+                Intent("com.samsung.accessibility.installed_service")
+            )
             return try {
                 context.startActivity(samsungDeepLink)
             } catch (e: Exception) {
@@ -251,11 +265,15 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
         }
 
-        fun openHelperServiceSettingsIfNeeded(context: Context, openWithoutCheckingIfEnabled: Boolean): Boolean {
+        fun openHelperServiceSettingsIfNeeded(
+            context: Context,
+            openWithoutCheckingIfEnabled: Boolean
+        ): Boolean {
             CLog.log(logTag, "openHelperServiceSettingsIfNeeded()")
 
             if (!isHelperServiceEnabled(context) || openWithoutCheckingIfEnabled) {
-                val isSamsungAndBelowAndroidR = Build.MANUFACTURER.uppercase() == "SAMSUNG" && Build.VERSION.SDK_INT < Build.VERSION_CODES.R
+                val isSamsungAndBelowAndroidR =
+                    Build.MANUFACTURER.uppercase() == "SAMSUNG" && Build.VERSION.SDK_INT < Build.VERSION_CODES.R
 
                 if (isSamsungAndBelowAndroidR) {
                     openSamsungIntentBelowAndroidR(context)
@@ -276,8 +294,12 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
          * @see [AccessibilityUtils](https://github.com/android/platform_frameworks_base/blob/d48e0d44f6676de6fd54fd8a017332edd6a9f096/packages/SettingsLib/src/com/android/settingslib/accessibility/AccessibilityUtils.java.L55)
          */
         fun isHelperServiceEnabled(context: Context): Boolean {
-            val expectedComponentName = ComponentName(context, AccessibilityCallRecordingService::class.java)
-            val enabledServicesSetting: String = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+            val expectedComponentName =
+                ComponentName(context, AccessibilityCallRecordingService::class.java)
+            val enabledServicesSetting: String = Settings.Secure.getString(
+                context.contentResolver,
+                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
+            )
                 ?: return false
             val colonSplitter = TextUtils.SimpleStringSplitter(':')
             colonSplitter.setString(enabledServicesSetting)
@@ -300,7 +322,8 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
         fun postEnableHelperServiceNotificationAndToast(context: Context, showToast: Boolean) {
             if (showToast) {
-                Toast.makeText(context, R.string.accessibility_service_toast, Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, R.string.accessibility_service_toast, Toast.LENGTH_SHORT)
+                    .show()
             }
             showHelperServiceNotEnabledNotification(context)
 
@@ -312,7 +335,8 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             accessibilityServicesChangedEventLiveData.postValue(value)
         }
 
-        fun observeAccessibilityServicesChangesLiveData(): LiveData<Boolean> = accessibilityServicesChangedEventLiveData
+        fun observeAccessibilityServicesChangesLiveData(): LiveData<Boolean> =
+            accessibilityServicesChangedEventLiveData
 
         private fun showHelperServiceNotEnabledNotification(context: Context) {
             val notificationChannel = Payload.Alerts(
@@ -327,7 +351,12 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             val launchIntent = Intent(context, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             }
-            val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            val pendingOpenIntent = PendingIntent.getActivity(
+                context,
+                0,
+                launchIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            )
 
 
             Notify.with(context)
