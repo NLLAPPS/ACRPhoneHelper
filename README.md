@@ -1,6 +1,6 @@
 
 # ACR Phone Helper  (APH)
-Source code of ACR Phone Helper (APH) . Published in the interest of transparency.
+Source code of ACR Phone Helper (APH). Published in the interest of transparency.
 
 APH is a companion app for ACR Phone. It records calls with the help of Accessibility API and shares them with ACR Phone.
 You need ACR Phone for APH to work and you need APH to record calls with ACR Phone on Android 10+. Without APH, call recordings on Android 10+ will have no sound.
@@ -20,7 +20,7 @@ Note to other developers.
 - Never mind the spelling mistakes.
 - Might accept pull requests.
 ---
-Farther details about Google's never ending war against call recording
+Further details about Google's never-ending war against call recording
 - [https://nllapps.com/no](https://nllapps.com/no)
 - [https://nllapps.com/android9](https://nllapps.com/android9) (Related to legacy ACR Call Recorder)
 - [https://nllapps.com/android11](https://nllapps.com/android11) (Related to once in a lifetime opportunity that was missed)
