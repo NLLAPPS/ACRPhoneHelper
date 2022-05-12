@@ -28,6 +28,6 @@
     <string name="accessibility_service_notification">انقر هنا لتمكين مساعد تسجيل المكالمات</string>
     <string name="accessibility_service_toast">يرجى تمكين مساعد تسجيل المكالمات في شاشة خدمات الوصول المثبتة</string>
     <string name="accessibility_service_snack">لم يتم تمكين مساعد تسجيل المكالمات</string>
-
+    <string name="notification">إشعار</string>
 
 </resources>

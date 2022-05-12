@@ -31,6 +31,6 @@
 
 
     <string name="download">내려받기</string>
-
+    <string name="notification">알림</string>
 
 </resources>

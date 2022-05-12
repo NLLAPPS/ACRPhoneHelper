@@ -21,6 +21,6 @@
 
 
     <string name="call_rec_permissions_message">Ketuk Izinkan untuk melihat dan memberi izin yang dibutuhkan perekam panggilan</string>
-
+    <string name="notification">Pemberitahuan</string>
 
 </resources>

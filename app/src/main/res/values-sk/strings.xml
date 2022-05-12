@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Pre funkciu nahrávania hovorov musí byť ACR Phone spustený</string>
     <string name="forced_update_message_generic">Táto aplikácia musí byť aktualizovaná, aby fungovala správne</string>
     <string name="audio_record_permission">Povolenie pre nahrávanie zvuku</string>
+    <string name="notification">Oznámenie</string>
 </resources>

@@ -38,4 +38,5 @@
     <string name="helper_service_notification">ACR Phone\'un arama kaydetme işlevi için çalışır durumda tutulmalıdır</string>
     <string name="forced_update_message_generic">Bu uygulamanın düzgün çalışması için güncellenmesi gerekmektedir</string>
     <string name="audio_record_permission">Ses kaydı izni</string>
+    <string name="notification">Bildirim</string>
 </resources>

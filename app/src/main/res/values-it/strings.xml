@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Deve essere mantenuto in esecuzione per la funzionalità di registrazione delle chiamate del ACR Phone</string>
     <string name="forced_update_message_generic">Questa app deve essere aggiornata per funzionare correttamente</string>
     <string name="audio_record_permission">Autorizzazione registrazione audio</string>
+    <string name="notification">Notifica</string>
 </resources>

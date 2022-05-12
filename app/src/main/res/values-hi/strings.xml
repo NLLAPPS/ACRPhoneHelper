@@ -29,5 +29,5 @@
     <string name="accessibility_service_toast">स्थापित एक्सेसिबिलिटी सर्विसेज स्क्रीन पर कॉल रिकॉर्डिंग हेल्पर सक्षम करें</string>
     <string name="accessibility_service_snack">कॉल रिकॉर्डिंग हेल्पर सक्षम नहीं है</string>
 
-
+    <string name="notification">अधिसूचना</string>
 </resources>

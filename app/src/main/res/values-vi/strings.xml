@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Phải tiếp tục chạy cho chức năng ghi âm cuộc gọi của ACR Phone</string>
     <string name="forced_update_message_generic">Ứng dụng này phải được cập nhật để hoạt động chính xác</string>
     <string name="audio_record_permission">Quyền ghi âm thanh</string>
+    <string name="notification">Thông báo</string>
 </resources>

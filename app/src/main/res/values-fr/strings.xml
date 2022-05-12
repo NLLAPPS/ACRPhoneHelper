@@ -17,7 +17,7 @@
     <string name="url_error">Impossible d\'ouvrir ce lien</string>
 
 
-    <string name="enable">Activer </string>
+    <string name="enable">Activer</string>
 
 
     <string name="call_rec_permissions_message">Appuyez sur Autoriser pour voir et accorder les autorisations requises pour l\'enregistrement des appels</string>
@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Doit être maintenu en cours d\'exécution pour la fonctionnalité d\'enregistrement des appels du ACR Phone</string>
     <string name="forced_update_message_generic">Cette application doit être mise à jour pour fonctionner correctement</string>
     <string name="audio_record_permission">Autorisation d\'enregistrement audio</string>
+    <string name="notification">Notification</string>
 </resources>

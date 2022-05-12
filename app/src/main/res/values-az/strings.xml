@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">ACR Telefonunun zəng yazma funksiyası üçün işlək vəziyyətdə saxlanılmalıdır</string>
     <string name="forced_update_message_generic">Bu proqram, düzgün işləməsi üçün güncəllənməlidir</string>
     <string name="audio_record_permission">Audio qeyd icazəsi</string>
+    <string name="notification">Bildiriş</string>
 </resources>

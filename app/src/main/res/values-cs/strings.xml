@@ -28,6 +28,6 @@
     <string name="accessibility_service_notification">Klepnutím sem povolíte pomocníka pro nahrávání hovorů</string>
     <string name="accessibility_service_toast">Prosím povolte pomocníka pro nahrávání hovorů na obrazovce Služby usnadnění přístupu</string>
     <string name="accessibility_service_snack">Pomocník pro nahrávání hovorů není povolen</string>
-
+    <string name="notification">Oznámení</string>
 
 </resources>

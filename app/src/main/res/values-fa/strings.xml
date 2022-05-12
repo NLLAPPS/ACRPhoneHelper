@@ -28,6 +28,6 @@
     <string name="accessibility_service_notification">برای فعال کردن راهنمای ضبط تماس ، روی اینجا ضربه بزنید</string>
     <string name="accessibility_service_toast">لطفاً راهنمای ضبط تماس را در صفحه خدمات دسترسی قابل نصب نصب کنید</string>
     <string name="accessibility_service_snack">راهنمای ضبط تماس فعال نیست</string>
-
+    <string name="notification">اطلاع</string>
 
 </resources>

@@ -22,5 +22,5 @@
 
     <string name="call_rec_permissions_message">Натисніть на кнопку \"Дозволити\" і надайте дозвіл для запису дзвінків</string>
 
-
+    <string name="notification">Сповіщення</string>
 </resources>

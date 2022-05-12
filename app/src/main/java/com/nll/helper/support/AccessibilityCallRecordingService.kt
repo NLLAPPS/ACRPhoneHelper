@@ -31,22 +31,6 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     private val job = Job()
     override val coroutineContext = Dispatchers.IO + job
 
-    /**
-     *
-     * As per
-     * https://developer.android.com/guide/components/activities/background-starts
-     * https://developer.android.com/about/versions/oreo/background
-     *
-     * Since client connects to server with AIDL bound service, helper app is excluded from background restrictions
-     * as long as client app is in the background. In our case, since our app is bound by system telecom service
-     * we are safe
-     *
-     * We however still have option to use foreground service
-     * Just switch actAsForegroundService to TRUE AND EDIT MANIFEST to add
-     * android:foregroundServiceType="phoneCall|microphone"
-     * to AccessibilityCallRecordingService
-     */
-    private val actAsForegroundService = false
 
     private fun getChannel(context: Context) = Payload.Alerts(
         channelKey = "helper_notification",
@@ -90,7 +74,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 text = context.getString(R.string.helper_service_notification)
             }.asBuilder()
 
-        startForeground(Constants.notificationId, notification.build())
+        startForeground(Constants.foregroundNotificationId, notification.build())
     }
 
     override fun onKeyEvent(event: KeyEvent): Boolean {
@@ -170,9 +154,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
         isRunning = true
 
-        if (actAsForegroundService) {
-            startAsForegroundServiceWithNotification(applicationContext)
-        }
+        toggleNotification()
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             /**
@@ -190,12 +172,26 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             sendAccessibilityServicesChangedEvent(true)
         }
     }
+    private fun toggleNotification(){
+        if (AppSettings.actAsForegroundService) {
+            startAsForegroundServiceWithNotification(applicationContext)
+        } else {
+            stopForeground(true)
+        }
 
+    }
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         CLog.log(logTag, "onStartCommand()")
 
         isRunning = true
-        sendAccessibilityServicesChangedEvent(true)
+        /**
+         *
+         * Important to make sure isHelperServiceEnabled because we might eb starting this service befoere system binds to it.
+         * For example when actAsForegroundService is true
+         *
+         */
+        sendAccessibilityServicesChangedEvent(isHelperServiceEnabled(applicationContext))
+        toggleNotification()
         return super.onStartCommand(intent, flags, startId)
     }
 
@@ -223,6 +219,11 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
     companion object {
         private const val logTag: String = "CR_AccessibilityCallRecordingService"
+
+        fun start(context: Context) {
+            context.startService(Intent(context.applicationContext, AccessibilityCallRecordingService::class.java))
+        }
+
 
         //Do not integrate to isHelperServiceEnabled() as running service might not be stopped instantly when user switches it off in Accessibility settings
         private var isRunning = false

@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Skal holdes kørende for opkald optagelse funktionalitet ACR Phone</string>
     <string name="forced_update_message_generic">Denne app skal opdateres for at fungere korrekt</string>
     <string name="audio_record_permission">Tilladelse til lydoptagelse</string>
+    <string name="notification">Notifikation</string>
 </resources>

@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">S\'ha de continuar executant per poder enregistrar trucades amb l\'ACR Phone</string>
     <string name="forced_update_message_generic">Cal actualitzar l\'aplicació per poder funcionar correctament</string>
     <string name="audio_record_permission">Permís d\'enregistrament d\'àudio</string>
+    <string name="notification">Notificació</string>
 </resources>

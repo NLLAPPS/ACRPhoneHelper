@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Moet actief blijven voor gespreksopnamefunctie van ACR Phone</string>
     <string name="forced_update_message_generic">Deze app moet worden bijgewerkt om correct te kunnen functioneren</string>
     <string name="audio_record_permission">Audio-opname rechten</string>
+    <string name="notification">Melding</string>
 </resources>

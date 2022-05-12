@@ -41,4 +41,5 @@
     <string name="forced_update_message_generic">This app must be updated to function correctly</string>
     <string name="audio_record_permission">Audio record permission</string>
 
+    <string name="notification">Notification</string>
 </resources>

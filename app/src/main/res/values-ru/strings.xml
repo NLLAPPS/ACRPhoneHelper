@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Выполняется для работы функции записи вызовов ACR телефона</string>
     <string name="forced_update_message_generic">Приложение должно быть обновлено для правильной работы</string>
     <string name="audio_record_permission">Права на запись аудио</string>
+    <string name="notification">Уведомление</string>
 </resources>

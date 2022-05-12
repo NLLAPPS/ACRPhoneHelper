@@ -38,4 +38,5 @@
     <string name="helper_service_notification" comment="This is the text shown on an ongoing notification informing user that notification must be running for app to work properly">Måste hållas igång för samtalsinspelningsfunktion av ACR Phone ska fungera</string>
     <string name="forced_update_message_generic">Appen måste uppdateras för att fungera korrekt</string>
     <string name="audio_record_permission">Behörighet för ljudinspelning</string>
+    <string name="notification">Avisering</string>
 </resources>

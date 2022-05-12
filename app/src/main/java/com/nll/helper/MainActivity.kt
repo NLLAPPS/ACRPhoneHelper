@@ -80,6 +80,13 @@ class MainActivity : AppCompatActivity() {
             onClientConnected(isConnected)
         }
 
+        binding.enableOngoingNotification.isChecked = AppSettings.actAsForegroundService
+        binding.enableOngoingNotification.setOnCheckedChangeListener { buttonView, isChecked ->
+
+            AppSettings.actAsForegroundService = isChecked
+            AccessibilityCallRecordingService.start(this)
+
+        }
         binding.accessibilityServiceCardActionButton.setOnClickListener {
             CLog.log(logTag, "accessibilityServiceCardActionButton()")
             val openWithoutCheckingIfEnabled = openHelperServiceSettingsIfNeededClickCount > 0
