@@ -43,5 +43,9 @@ object AppSettings : KotprefModel() {
         key = "actAsForegroundService",
         default = false
     )
+    var privacyPolicyDisplayed: Boolean by booleanPref(
+        key = "privacyPolicyDisplayed",
+        default = false
+    )
 
 }

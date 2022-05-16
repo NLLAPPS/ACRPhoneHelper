@@ -12,19 +12,21 @@ import kotlinx.coroutines.flow.onEach
 class MainActivityViewModel(app: Application) : AndroidViewModel(app) {
     private val logTag = "CR_MainActivityViewModel"
 
-    private val _accessibilityServicesChanged = LiveEvent<Boolean>()
-    fun observeAccessibilityServicesChanges() = _accessibilityServicesChanged
+    private val _accessibilityServicesChanged = MutableLiveData<Boolean>()
+    fun observeAccessibilityServicesChanges(): LiveData<Boolean> = _accessibilityServicesChanged
 
     private val _clientConnected = MutableLiveData<Boolean>()
     fun observeClientConnected(): LiveData<Boolean> = _clientConnected
 
 
     init {
-        CLog.log(logTag, "init()")
 
 
-        val isEnabledOnInit = AccessibilityCallRecordingService.isHelperServiceEnabled(app)
-        _accessibilityServicesChanged.postValue(isEnabledOnInit)
+
+        val isHelperServiceEnabledOnInit = AccessibilityCallRecordingService.isHelperServiceEnabled(app)
+        CLog.log(logTag, "init() -> isHelperServiceEnabledOnInit: $isHelperServiceEnabledOnInit")
+
+        _accessibilityServicesChanged.postValue(isHelperServiceEnabledOnInit)
 
         AccessibilityCallRecordingService.observeAccessibilityServicesChangesLiveData().observeForever { isEnabled ->
             CLog.log(logTag, "observeAccessibilityServicesChangesLiveData() -> isEnabled: $isEnabled")

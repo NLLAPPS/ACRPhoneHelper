@@ -29,5 +29,8 @@ object StoreConfigImpl : IStoreConfig {
     }
 
     override fun canLinkToWebSite() = true
+    override fun canLinkToGooglePlayStore() = true
     override fun getUpdateCheckUrl() = "https://acr.app/version-app-gallery.json"
+    override fun requiresProminentPrivacyPolicyDisplay() = true
+    override fun getPrivacyPolicyUrl()= "https://acr.app/policy.htm"
 }

@@ -42,4 +42,5 @@
     <string name="audio_record_permission">Audio record permission</string>
 
     <string name="notification">Notification</string>
+    <string name="privacy_policy_warning">I have read and accept <![CDATA[<a href="%1$s">privacy policy</a>]]></string>
 </resources>

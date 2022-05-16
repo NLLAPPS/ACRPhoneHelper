@@ -34,6 +34,7 @@
                 android:layout_marginBottom="@dimen/padding_default_16dp"
                 android:ellipsize="end"
                 android:maxLines="1"
+
                 android:text="@string/accessibility_service_name"
                 app:drawableEndCompat="@drawable/ic_empty_icon"
                 tools:drawableEndCompat="@drawable/ic_green_checked_24dp" />

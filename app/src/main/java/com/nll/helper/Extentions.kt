@@ -4,7 +4,13 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
+import android.text.Html
+import android.text.SpannableStringBuilder
 import android.text.TextUtils
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.text.style.URLSpan
+import android.view.View
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import java.util.*
@@ -55,4 +61,24 @@ fun Activity.extOpenAppDetailsSettings() {
         addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
         addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
     }.let(::startActivity)
+}
+fun TextView.extSetHTML(html: String, urlToOpen: (String) -> Unit) {
+    val sequence: CharSequence = Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY)
+    val strBuilder = SpannableStringBuilder(sequence)
+    strBuilder.getSpans(0, sequence.length, URLSpan::class.java).forEach { span ->
+
+        val start = strBuilder.getSpanStart(span)
+        val end = strBuilder.getSpanEnd(span)
+        val flags = strBuilder.getSpanFlags(span)
+        val clickable: ClickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                urlToOpen(span.url)
+            }
+        }
+        strBuilder.setSpan(clickable, start, end, flags)
+        strBuilder.removeSpan(span)
+
+    }
+    movementMethod = LinkMovementMethod.getInstance()
+    text = strBuilder
 }
