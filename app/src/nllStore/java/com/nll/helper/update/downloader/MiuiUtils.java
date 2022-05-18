@@ -1,4 +1,4 @@
-package com.nll.helper.update;
+package com.nll.helper.update.downloader;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

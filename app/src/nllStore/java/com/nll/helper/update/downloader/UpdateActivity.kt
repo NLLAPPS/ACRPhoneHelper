@@ -17,9 +17,8 @@ import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.nll.helper.R
 import com.nll.helper.databinding.UpdateActivityBinding
-import com.nll.helper.extHumanReadableByteCount
 import com.nll.helper.recorder.CLog
-import com.nll.helper.update.MiuiUtils
+import com.nll.helper.util.extHumanReadableByteCount
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
