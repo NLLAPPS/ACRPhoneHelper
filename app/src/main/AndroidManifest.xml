@@ -54,7 +54,7 @@
             tools:ignore="ExportedContentProvider"/>
 
         <activity
-            android:name="com.nll.helper.MainActivity"
+            android:name="com.nll.helper.ui.MainActivity"
             android:configChanges="locale|orientation|layoutDirection|keyboard|keyboardHidden|screenLayout|screenSize|smallestScreenSize"
             android:exported="true">
             <intent-filter>

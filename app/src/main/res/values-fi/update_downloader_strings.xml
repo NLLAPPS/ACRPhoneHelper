@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="update_downloader_enable_install_unknown_apps">Salli asentaminen tuntemattomista lähteistä</string>
+    <string name="update_downloader_install_app">Asenna</string>
+    <string name="update_downloader_download_completed">Lataus valmis</string>
+    <string name="update_downloader_downloading">Latays käynnissä</string>
+    <string name="update_download_manually">Tapahtui virhe. Haluatko yrittää latausta manuaalisesti?</string>
+    <string name="update_download_no_whats_new">Uutta</string>
+    <string name="update_download_no_version_notes">Tietoja ei ole annettu</string>
+    <string name="update_downloader_miu_optimazation_warning">Puhelimesi saattaa estää sideload-toiminnon. Kokeile manuaaliasennusta tiedostohallinnan kautta jos ei muuten toimi.</string>
+</resources>

@@ -1,9 +1,9 @@
 package com.nll.helper.update
 
 import android.content.Context
-import com.nll.helper.AppSettings
 import com.nll.helper.recorder.CLog
 import com.nll.helper.update.version.RemoteAppVersion
+import com.nll.helper.util.AppSettings
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

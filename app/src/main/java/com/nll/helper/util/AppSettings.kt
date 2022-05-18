@@ -1,4 +1,4 @@
-package com.nll.helper
+package com.nll.helper.util
 
 
 import android.content.Context
@@ -43,8 +43,8 @@ object AppSettings : KotprefModel() {
         key = "actAsForegroundService",
         default = false
     )
-    var privacyPolicyDisplayed: Boolean by booleanPref(
-        key = "privacyPolicyDisplayed",
+    var privacyPolicyAccepted: Boolean by booleanPref(
+        key = "privacyPolicyAccepted",
         default = false
     )
 

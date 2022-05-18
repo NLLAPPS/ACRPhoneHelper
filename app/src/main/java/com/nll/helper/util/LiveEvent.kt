@@ -1,4 +1,4 @@
-package com.nll.helper
+package com.nll.helper.util
 
 import androidx.annotation.MainThread
 import androidx.collection.ArraySet

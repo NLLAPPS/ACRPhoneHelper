@@ -1,4 +1,4 @@
-package com.nll.helper
+package com.nll.helper.ui
 
 import android.app.Application
 import androidx.lifecycle.*

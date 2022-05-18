@@ -8,13 +8,13 @@ import android.content.pm.PackageManager
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.nll.helper.Constants
-import com.nll.helper.MainActivity
 import com.nll.helper.R
 import com.nll.helper.recorder.*
 import com.nll.helper.server.IRecorderBridge
 import com.nll.helper.server.RemoteResponseCodes
 import com.nll.helper.server.ServerRecorderListener
 import com.nll.helper.server.ServerRecordingState
+import com.nll.helper.ui.MainActivity
 import io.karn.notify.Notify
 import io.karn.notify.entities.Payload
 

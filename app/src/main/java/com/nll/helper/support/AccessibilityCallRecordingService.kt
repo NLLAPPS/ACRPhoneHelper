@@ -17,9 +17,12 @@ import androidx.core.app.NotificationCompat
 import androidx.lifecycle.LiveData
 import com.nll.helper.*
 import com.nll.helper.recorder.CLog
+import com.nll.helper.ui.MainActivity
 import com.nll.helper.update.DownloadUrlOpenerImpl
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
+import com.nll.helper.util.AppSettings
+import com.nll.helper.util.LiveEvent
 import io.karn.notify.Notify
 import io.karn.notify.entities.Payload
 import kotlinx.coroutines.CoroutineScope

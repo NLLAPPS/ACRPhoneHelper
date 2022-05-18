@@ -1,11 +1,10 @@
-package com.nll.helper
+package com.nll.helper.ui
 
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -16,14 +15,19 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textview.MaterialTextView
+import com.nll.helper.BuildConfig
+import com.nll.helper.R
+import com.nll.helper.StoreConfigImpl
 import com.nll.helper.databinding.ActivityMainBinding
 import com.nll.helper.recorder.CLog
 import com.nll.helper.server.ClientContentProviderHelper
 import com.nll.helper.support.AccessibilityCallRecordingService
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
+import com.nll.helper.util.AppSettings
+import com.nll.helper.util.Util
+import com.nll.helper.util.extOpenAppDetailsSettings
+import com.nll.helper.util.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft
 import kotlinx.coroutines.launch
 
 
@@ -136,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
         CLog.log(logTag, "doOnEachStarted()")
 
-        if (StoreConfigImpl.requiresProminentPrivacyPolicyDisplay() && !AppSettings.privacyPolicyDisplayed) {
+        if (StoreConfigImpl.requiresProminentPrivacyPolicyDisplay() && !AppSettings.privacyPolicyAccepted) {
             showPrivacyPolicy()
         } else {
 
@@ -148,40 +152,23 @@ class MainActivity : AppCompatActivity() {
 
     private fun showPrivacyPolicy() {
         CLog.log(logTag, "showPrivacyPolicy()")
-        with(MaterialAlertDialogBuilder(this))
-        {
 
-            val message = String.format(getString(R.string.privacy_policy_warning), StoreConfigImpl.getPrivacyPolicyUrl())
-            val textView = MaterialTextView(this@MainActivity).apply {
-                val pad = Util.dpToPx(this@MainActivity, 24f).toInt()
-                setPadding(pad, pad, pad, pad)
-                extSetHTML(message) { urlToOpen ->
-                    CLog.log(logTag, "setHML -> Clicked on: $urlToOpen")
-                    try {
-                        Intent(Intent.ACTION_VIEW, Uri.parse(urlToOpen)).let(context::startActivity)
-                    } catch (e: Exception) {
-                        CLog.logPrintStackTrace(e)
-                        Toast.makeText(this@MainActivity, e.message, Toast.LENGTH_SHORT).show()
-                    }
-                }
-
+        DialogTerms.display(supportFragmentManager) { isAcceptedNow ->
+            if (CLog.isDebug()) {
+                CLog.log(logTag, "nllAppsCallScreener.setOnPreferenceChangeListener ->CallScreenerTermsDialog callback. Terms accepted: $isAcceptedNow")
             }
-            setCancelable(false)
-            setView(textView)
-            setPositiveButton(android.R.string.ok) { _, _ ->
+            if (isAcceptedNow) {
                 if (CLog.isDebug()) {
                     CLog.log(logTag, "showPrivacyPolicy() -> Accepted. Call doOnEachStarted()")
                 }
-                AppSettings.privacyPolicyDisplayed = true
+                AppSettings.privacyPolicyAccepted = true
                 doOnEachStarted()
-            }
-            setNegativeButton(android.R.string.cancel) { _, _ ->
+            } else {
                 if (CLog.isDebug()) {
                     CLog.log(logTag, "showPrivacyPolicy() -> Declined. Close the app")
                 }
                 finish()
             }
-            show()
         }
     }
 

@@ -1,11 +1,11 @@
 package com.nll.helper.update
 
-import com.nll.helper.AppSettings
 import com.nll.helper.BuildConfig
 import com.nll.helper.StoreConfigImpl
 import com.nll.helper.recorder.CLog
 import com.nll.helper.update.version.LocalAppVersion
 import com.nll.helper.update.version.RemoteAppVersion
+import com.nll.helper.util.AppSettings
 import java.util.concurrent.TimeUnit
 
 internal class UpdateRequestImpl {

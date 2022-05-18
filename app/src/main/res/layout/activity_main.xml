@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:padding="@dimen/activity_padding"
-    tools:context="com.nll.helper.MainActivity">
+    tools:context="com.nll.helper.ui.MainActivity">
 
 
     <androidx.core.widget.NestedScrollView

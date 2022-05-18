@@ -2,6 +2,7 @@ package com.nll.helper
 
 import android.app.Application
 import android.content.Context
+import com.nll.helper.util.AppSettings
 import org.acra.ReportField
 import org.acra.config.MailSenderConfigurationBuilder
 import org.acra.config.NotificationConfigurationBuilder
