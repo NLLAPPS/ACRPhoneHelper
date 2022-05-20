@@ -43,4 +43,5 @@
 
     <string name="notification">Notification</string>
     <string name="privacy_policy_warning">I have read and accept <![CDATA[<a href="%1$s">privacy policy</a>]]></string>
+    <string name="agree">Agree</string>
 </resources>

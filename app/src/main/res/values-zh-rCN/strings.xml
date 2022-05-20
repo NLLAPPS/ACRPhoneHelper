@@ -32,6 +32,7 @@
 
     <string name="download">下载</string>
     <string name="notification">通知</string>
+    <string name="agree">确定</string>
 
 
 </resources>

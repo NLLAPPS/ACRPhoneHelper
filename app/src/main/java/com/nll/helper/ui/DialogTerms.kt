@@ -55,7 +55,7 @@ class DialogTerms : DialogFragment() {
         val alertDialog = MaterialAlertDialogBuilder(requireContext(), theme)
             .setCancelable(false)
             .setView(binding.root)
-            .setPositiveButton(android.R.string.ok) { _, _ ->
+            .setPositiveButton(R.string.agree) { _, _ ->
                 listener?.onTermsChoice(binding.termsAgreed.isChecked)
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->
