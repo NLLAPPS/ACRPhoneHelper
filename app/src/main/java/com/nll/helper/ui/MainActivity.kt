@@ -1,11 +1,14 @@
 package com.nll.helper.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
@@ -24,10 +27,7 @@ import com.nll.helper.server.ClientContentProviderHelper
 import com.nll.helper.support.AccessibilityCallRecordingService
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
-import com.nll.helper.util.AppSettings
-import com.nll.helper.util.Util
-import com.nll.helper.util.extOpenAppDetailsSettings
-import com.nll.helper.util.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft
+import com.nll.helper.util.*
 import kotlinx.coroutines.launch
 
 
@@ -97,6 +97,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+
         binding.accessibilityServiceCardActionButton.setOnClickListener {
             CLog.log(logTag, "accessibilityServiceCardActionButton()")
             val openWithoutCheckingIfEnabled = openHelperServiceSettingsIfNeededClickCount > 0
@@ -133,6 +134,35 @@ class MainActivity : AppCompatActivity() {
             onVersionUpdateResult(UpdateChecker.checkUpdate(this@MainActivity))
         }
 
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkBatteryOptimization()
+    }
+
+    /**
+     * No way to observe ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS state.
+     * So we check it every time on resume
+     */
+    @SuppressLint("BatteryLife")//Ignore policy warning since we do not publish on Google Play
+    private fun checkBatteryOptimization() {
+        val isIgnoringBatteryOptimizations = extPowerManager()?.isIgnoringBatteryOptimizations(packageName) ?: false
+        with(binding.ignoreBatteryOptimization){
+            setOnCheckedChangeListener(null)
+            isChecked = isIgnoringBatteryOptimizations
+            isEnabled = !isIgnoringBatteryOptimizations
+            setOnCheckedChangeListener { _, isChecked ->
+                if(isChecked) {
+                    startActivity(Intent().apply {
+                        action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+                        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        data = Uri.parse("package:$packageName")
+                    })
+                }
+            }
+        }
 
     }
 

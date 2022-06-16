@@ -34,7 +34,6 @@
                 android:layout_marginBottom="@dimen/padding_default_16dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-
                 android:text="@string/accessibility_service_name"
                 app:drawableEndCompat="@drawable/ic_empty_icon"
                 tools:drawableEndCompat="@drawable/ic_green_checked_24dp" />
@@ -78,21 +77,41 @@
                 tools:drawableEndCompat="@drawable/ic_green_checked_24dp"
                 tools:text="APH - ACR Phone connection to be replaced" />
 
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/padding_default_16dp" />
+
+            <TextView
+                style="?textAppearanceBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/auto_close_prevent_info" />
+
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/ignoreBatteryOptimization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:checked="false"
+                android:text="@string/ignore_battery_optimization_title" />
+
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/enableOngoingNotification"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/notification"
-                android:checked="false"
                 android:layout_marginBottom="@dimen/padding_default_16dp"
-                android:layout_height="wrap_content"/>
+                android:checked="false"
+                android:text="@string/notification" />
 
             <TextView
                 android:id="@+id/accessibilityServiceInfo"
                 style="?textAppearanceCaption"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="3dp"
                 android:text="@string/accessibility_service_desc" />
 
         </LinearLayout>

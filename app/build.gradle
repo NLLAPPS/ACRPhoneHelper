@@ -19,14 +19,14 @@ def appHelperMinimumServerVersionCode = 1
 
 android {
     namespace 'com.nll.helper'
-    compileSdk 32
+    compileSdk 33
     buildFeatures {
         viewBinding = true
     }
     defaultConfig {
         applicationId "com.nll.helper"
         minSdk 29
-        targetSdk 32
+        targetSdk 33
         versionCode 3
         versionName "3.0"
 

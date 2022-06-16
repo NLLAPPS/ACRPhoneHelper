@@ -1,8 +1,10 @@
 package com.nll.helper.util
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.PowerManager
 import android.provider.Settings
 import android.text.Html
 import android.text.SpannableStringBuilder
@@ -13,10 +15,11 @@ import android.text.style.URLSpan
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.DrawableRes
+import androidx.core.content.getSystemService
 import java.util.*
 import kotlin.math.ln
 import kotlin.math.pow
-
+fun Context.extPowerManager(): PowerManager? = getSystemService()
 /**
  * setCompoundDrawablesWithIntrinsicBounds depending on the Locale
  * We need to set even if compoundDrawable=null as we may be calling this method from ViewHolders and might mean to update/reset

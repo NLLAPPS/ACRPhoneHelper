@@ -237,8 +237,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 //Important as we call this from non activity classes
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
 
-                val showArgs =
-                    context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
+                val showArgs =                    context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
                 val extraFragmentKeyArg = ":settings:fragment_args_key"
                 putExtra(extraFragmentKeyArg, showArgs)
                 val bundle = Bundle().apply {

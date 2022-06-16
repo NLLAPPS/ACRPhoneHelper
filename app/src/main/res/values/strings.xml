@@ -44,4 +44,6 @@
     <string name="notification">Notification</string>
     <string name="privacy_policy_warning">I have read and accept <![CDATA[<a href="%1$s">privacy policy</a>]]></string>
     <string name="agree">Agree</string>
+    <string name="ignore_battery_optimization_title">Ignore battery optimization</string>
+    <string name="auto_close_prevent_info">Prevent APH automatically closed by your device</string>
 </resources>
