@@ -102,6 +102,22 @@
         </provider>
 
 
+        <activity
+            android:name="com.nll.helper.debug.DebugLogActivity"
+            android:label="@string/debug_log"
+            android:launchMode="singleTop" />
+
+        <service
+            android:name="com.nll.helper.debug.DebugLogService"
+            android:exported="false" />
+
+        <provider
+            android:name="com.nll.helper.debug.DebugLogAttachmentProvider"
+            android:authorities="com.nll.helper.debug.DebugLogAttachmentProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            tools:ignore="ExportedContentProvider" />
+
     </application>
 
 </manifest>

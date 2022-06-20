@@ -9,11 +9,15 @@ import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +26,7 @@ import com.nll.helper.BuildConfig
 import com.nll.helper.R
 import com.nll.helper.StoreConfigImpl
 import com.nll.helper.databinding.ActivityMainBinding
+import com.nll.helper.debug.DebugLogActivity
 import com.nll.helper.recorder.CLog
 import com.nll.helper.server.ClientContentProviderHelper
 import com.nll.helper.support.AccessibilityCallRecordingService
@@ -135,6 +140,21 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
+        addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.main_activity_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                when (menuItem.itemId) {
+                    R.id.openDebugLog -> {
+                        startActivity(Intent(this@MainActivity, DebugLogActivity::class.java))
+                    }
+                }
+                return true
+            }
+        })
     }
 
     override fun onResume() {
@@ -149,12 +169,12 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("BatteryLife")//Ignore policy warning since we do not publish on Google Play
     private fun checkBatteryOptimization() {
         val isIgnoringBatteryOptimizations = extPowerManager()?.isIgnoringBatteryOptimizations(packageName) ?: false
-        with(binding.ignoreBatteryOptimization){
+        with(binding.ignoreBatteryOptimization) {
             setOnCheckedChangeListener(null)
             isChecked = isIgnoringBatteryOptimizations
             isEnabled = !isIgnoringBatteryOptimizations
             setOnCheckedChangeListener { _, isChecked ->
-                if(isChecked) {
+                if (isChecked) {
                     startActivity(Intent().apply {
                         action = Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

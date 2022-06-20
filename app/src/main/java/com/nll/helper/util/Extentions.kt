@@ -14,6 +14,8 @@ import android.text.style.ClickableSpan
 import android.text.style.URLSpan
 import android.view.View
 import android.widget.TextView
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
 import androidx.core.content.getSystemService
 import java.util.*
@@ -38,6 +40,16 @@ fun TextView.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft(@DrawableRe
         0
     }
 
+}
+
+@ColorInt
+fun Context.extGetThemeAttrColor(@AttrRes colorAttr: Int): Int {
+    val array = obtainStyledAttributes(null, intArrayOf(colorAttr))
+    return try {
+        array.getColor(0, 0)
+    } finally {
+        array.recycle()
+    }
 }
 fun Long.extHumanReadableByteCount(si: Boolean): String {
     val unit = if (si) 1000 else 1024

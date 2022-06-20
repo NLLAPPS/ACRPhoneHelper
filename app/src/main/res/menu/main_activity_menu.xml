@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/openDebugLog"
+        android:icon="@drawable/notification_debug"
+        android:showAsAction="never"
+        android:title="@string/debug_log"
+        app:showAsAction="never"/>
+
+
+</menu>

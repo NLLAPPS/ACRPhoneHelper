@@ -46,4 +46,11 @@
     <string name="agree">Agree</string>
     <string name="ignore_battery_optimization_title">Ignore battery optimization</string>
     <string name="auto_close_prevent_info">Prevent APH automatically closed by your device</string>
+
+    <string name="debug_log">Debug log</string>
+    <string name="debug_log_dumped">Debug logs dumped to %1$s</string>
+    <string name="share">Share</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="clear">Clear</string>
 </resources>
