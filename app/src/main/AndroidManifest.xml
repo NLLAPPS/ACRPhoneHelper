@@ -9,23 +9,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 
-
-    <!-- TODO watch https://issuetracker.google.com/issues/209652486
-    once bug is fixed we can use
-
-        android:protectionLevel="signature|knownSigner" android:knownCerts="@array/app_helper_known_certs"
-
-     to allow debug and release build signatures together.
-
-     Reason:
-    https://developer.android.com/reference/android/R.attr#knownCerts
-     So that app-helper and app-helper client can talk to each other when one of them is debug build.
-     Otherwise release builds cannot talk to debug builds.
-
-     -->
     <permission
         android:name="com.nll.helper.permission"
-        android:protectionLevel="signature" />
+        android:protectionLevel="signature|knownSigner" android:knownCerts="@array/app_helper_known_certs" />
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission
