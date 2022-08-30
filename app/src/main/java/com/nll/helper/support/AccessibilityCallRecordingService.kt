@@ -2,6 +2,7 @@ package com.nll.helper.support
 
 import android.accessibilityservice.AccessibilityService
 import android.app.PendingIntent
+import android.app.Service
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -175,21 +176,23 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             sendAccessibilityServicesChangedEvent(true)
         }
     }
-    private fun toggleNotification(){
+
+    private fun toggleNotification() {
         if (AppSettings.actAsForegroundService) {
             startAsForegroundServiceWithNotification(applicationContext)
         } else {
-            stopForeground(true)
+            stopForeground(Service.STOP_FOREGROUND_REMOVE)
         }
 
     }
+
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         CLog.log(logTag, "onStartCommand()")
 
         isRunning = true
         /**
          *
-         * Important to make sure isHelperServiceEnabled because we might eb starting this service befoere system binds to it.
+         * Important to make sure isHelperServiceEnabled because we might be starting this service before system binds to it.
          * For example when actAsForegroundService is true
          *
          */
@@ -228,7 +231,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         }
 
 
-        //Do not integrate to isHelperServiceEnabled() as running service might not be stopped instantly when user switches it off in Accessibility settings
+        // Do not integrate to isHelperServiceEnabled() as running service might not be stopped instantly when user switches it off in Accessibility settings
         private var isRunning = false
 
         //https://stackoverflow.com/a/63214655
@@ -237,7 +240,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 //Important as we call this from non activity classes
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT)
 
-                val showArgs =                    context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
+                val showArgs = context.packageName.toString() + "/" + AccessibilityCallRecordingService::class.java.name
                 val extraFragmentKeyArg = ":settings:fragment_args_key"
                 putExtra(extraFragmentKeyArg, showArgs)
                 val bundle = Bundle().apply {
@@ -297,21 +300,27 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
          * @see [AccessibilityUtils](https://github.com/android/platform_frameworks_base/blob/d48e0d44f6676de6fd54fd8a017332edd6a9f096/packages/SettingsLib/src/com/android/settingslib/accessibility/AccessibilityUtils.java.L55)
          */
         fun isHelperServiceEnabled(context: Context): Boolean {
-            val expectedComponentName =
-                ComponentName(context, AccessibilityCallRecordingService::class.java)
-            val enabledServicesSetting: String = Settings.Secure.getString(
-                context.contentResolver,
-                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES
-            )
-                ?: return false
-            val colonSplitter = TextUtils.SimpleStringSplitter(':')
-            colonSplitter.setString(enabledServicesSetting)
-            while (colonSplitter.hasNext()) {
-                val componentNameString: String = colonSplitter.next()
-                val enabledService = ComponentName.unflattenFromString(componentNameString)
-                if (enabledService != null && enabledService == expectedComponentName) return true
+            /*
+                Rather than altering everything, we simply check if we have CaptureAudioOutput permission (meaning app is installed with Magisk module) and pretend that accessibility service is running
+                This saves us a lot of time we may spend changing whole structure of APH.
+                Perhaps we can re-visit this and change the structure to introduces different call recording modes such as, root, accessibility etc
+             */
+            return if (App.hasCaptureAudioOutputPermission()) {
+                CLog.log(logTag, "isHelperServiceEnabled() -> hasCaptureAudioOutputPermission is true. There is no need for AccessibilityCallRecordingService. Returning True")
+                true
+            } else {
+                val expectedComponentName = ComponentName(context, AccessibilityCallRecordingService::class.java)
+                val enabledServicesSetting: String = Settings.Secure.getString(context.contentResolver, Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES)
+                    ?: return false
+                val colonSplitter = TextUtils.SimpleStringSplitter(':')
+                colonSplitter.setString(enabledServicesSetting)
+                while (colonSplitter.hasNext()) {
+                    val componentNameString: String = colonSplitter.next()
+                    val enabledService = ComponentName.unflattenFromString(componentNameString)
+                    if (enabledService != null && enabledService == expectedComponentName) return true
+                }
+                false
             }
-            return false
 
         }
 

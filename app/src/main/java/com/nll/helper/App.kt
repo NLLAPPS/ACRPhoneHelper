@@ -1,7 +1,11 @@
 package com.nll.helper
 
+import android.Manifest
 import android.app.Application
 import android.content.Context
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
+import com.nll.helper.recorder.CLog
 import com.nll.helper.util.AppSettings
 import org.acra.ReportField
 import org.acra.config.MailSenderConfigurationBuilder
@@ -12,11 +16,23 @@ import org.acra.ktx.plugin
 import java.util.concurrent.Executors
 
 class App : Application() {
+    private val logTag = "App"
+
     override fun onCreate() {
         super.onCreate()
         //Init settings
         AppSettings.initIfNeeded(this)
+        //Check if installed as Magisk module
+        hasCaptureAudioOutputPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.CAPTURE_AUDIO_OUTPUT) == PackageManager.PERMISSION_GRANTED
+
+        CLog.log(logTag, "onCreate() -> hasCaptureAudioOutputPermission: $hasCaptureAudioOutputPermission")
     }
+
+    companion object {
+        private var hasCaptureAudioOutputPermission = false
+        fun hasCaptureAudioOutputPermission() = hasCaptureAudioOutputPermission
+    }
+
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(base)
         //Use executor rather than coroutine https://medium.com/specto/android-startup-tip-dont-use-kotlin-coroutines-a7b3f7176fe5
@@ -27,6 +43,7 @@ class App : Application() {
         }
 
     }
+
     private fun initACRA() {
         try {
             initAcra {
@@ -74,7 +91,7 @@ class App : Application() {
 
         } catch (e: Exception) {
             //Already called. Ignore. It seems to be called more than once on rare occasions
-           e.printStackTrace()
+            e.printStackTrace()
         }
     }
 }

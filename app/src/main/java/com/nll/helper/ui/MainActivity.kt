@@ -22,6 +22,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.nll.helper.App
 import com.nll.helper.BuildConfig
 import com.nll.helper.R
 import com.nll.helper.StoreConfigImpl
@@ -250,11 +251,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onAccessibilityChanged(isEnabled: Boolean) {
-        CLog.log(logTag, "onAccessibilityChanged -> isEnabled: $isEnabled")
+        /*
+        Rather than altering everything, we simply check if we have CaptureAudioOutput permission (meaning app is installed with Magisk module) and pretend that accessibility service is running
+        This saves us a lot of time we may spend changing whole structure of APH.
+        Perhaps we can re-visit this and change the structure to introduces different call recording modes such as, root, accessibility etc
+     */
+        val isEnabledReal = if(App.hasCaptureAudioOutputPermission()){
+            CLog.log(logTag, "onAccessibilityChanged() -> hasCaptureAudioOutputPermission is true. There is no need for AccessibilityCallRecordingService. Altering isEnabled as True")
+            true
+        }else{
+            isEnabled
+        }
+        CLog.log(logTag, "onAccessibilityChanged() -> isEnabled: $isEnabledReal")
 
-        binding.accessibilityServiceDisabledCard.isVisible = isEnabled.not()
+        binding.accessibilityServiceDisabledCard.isVisible = isEnabledReal.not()
         binding.accessibilityServiceStatus.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft(
-            if (isEnabled) {
+            if (isEnabledReal) {
                 R.drawable.ic_green_checked_24dp
             } else {
                 R.drawable.ic_red_error_24dp
@@ -268,7 +280,7 @@ class MainActivity : AppCompatActivity() {
          */
         lifecycleScope.launch {
             //Make sure we are not in the background to avoid -> Not allowed to start service Intent { cmp=com.nll.cb/.record.support.AccessibilityCallRecordingService }: app is in background
-            if (isEnabled && lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+            if (isEnabledReal && lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
                 //Start Service. We do this here rather then AndroidViewModelObserving because we would have called start service as many times as ViewModel count that extending AndroidViewModelObserving
                 AccessibilityCallRecordingService.startHelperServiceIfIsNotRunning(application)
             }

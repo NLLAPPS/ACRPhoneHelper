@@ -27,8 +27,8 @@ android {
         applicationId "com.nll.helper"
         minSdk 29
         targetSdk 33
-        versionCode 5
-        versionName "5.0"
+        versionCode 6
+        versionName "6.0"
 
         buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "$appHelperMinimumClientVersionCode")
         buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "$appHelperMinimumServerVersionCode")
@@ -62,6 +62,7 @@ android {
             outputFileName = "aph.apk"
         }
         //outputFileName = outputFileName.replace(".apk", "-${variant.versionName}.apk")
+
     }
 
 
@@ -80,11 +81,12 @@ android {
             dimension = "marketPlace"
             versionNameSuffix = "-appGallery"
         }
+        magiskStore {
+            dimension = "marketPlace"
+            versionNameSuffix = "-magiskStore"
+        }
     }
 }
-
-
-
 
 
 dependencies {

@@ -5,8 +5,10 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.media.MediaRecorder
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import com.nll.helper.App
 import com.nll.helper.Constants
 import com.nll.helper.R
 import com.nll.helper.recorder.*
@@ -34,7 +36,18 @@ class RecorderBridge : IRecorderBridge {
             RemoteResponseCodes.RECORDING_STOPPED
         } else {
             val realRecordingFile = CacheFileProvider.provideCacheFile(context, recordingFile)
-            val recorderConfig = RecorderConfig.fromPrimitives(encoder, realRecordingFile, audioChannels, encodingBitrate, audioSamplingRate, audioSource, mediaRecorderOutputFormat, mediaRecorderAudioEncoder, recordingGain, serverRecorderListener)
+            /*
+                Rather than altering everything, we simply check if we have CaptureAudioOutput permission (meaning app is installed with Magisk module) and pretend that accessibility service is running
+                This saves us a lot of time we may spend changing whole structure of APH.
+                Perhaps we can re-visit this and change the structure to introduces different call recording modes such as, root, accessibility etc
+             */
+            val realAudioSource = if (App.hasCaptureAudioOutputPermission()) {
+                CLog.log(logTag, "startRecording() -> hasCaptureAudioOutputPermission() is true. Changing audioSource to MediaRecorder.AudioSource.VOICE_CALL")
+                MediaRecorder.AudioSource.VOICE_CALL
+            } else {
+                audioSource
+            }
+            val recorderConfig = RecorderConfig.fromPrimitives(encoder, realRecordingFile, audioChannels, encodingBitrate, audioSamplingRate, realAudioSource, mediaRecorderOutputFormat, mediaRecorderAudioEncoder, recordingGain, serverRecorderListener)
 
             CLog.log(logTag, "startRecording() -> is recorder null ${recorder == null}, is recorder recording ${recorder?.getState() == ServerRecordingState.Recording}")
 
