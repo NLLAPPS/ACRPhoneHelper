@@ -1,5 +1,6 @@
 package com.nll.helper.recorder
 
+import android.annotation.SuppressLint
 import android.media.*
 import android.media.MediaCodec.CodecException
 import com.nll.helper.recorder.mediacodec.AsynchronousMediaCodecAdapter
@@ -41,15 +42,14 @@ class MediaCodecAudioEncoder2(
     private var minimumBufferSize = 0
 
 
+    @SuppressLint("MissingPermission")// App should already have permission
     private fun setupAudioRecord() {
-        if (CLog.isDebug()) {
-            CLog.log(logTag, "setupAudioRecord()")
-        }
         val audioFormatChannel = if (audioChannelCount == 1) AudioFormat.CHANNEL_IN_MONO else AudioFormat.CHANNEL_IN_STEREO
         val audioFormat = AudioFormat.ENCODING_PCM_16BIT
-
-        minimumBufferSize = AudioRecord.getMinBufferSize(audioSamplingRate, audioFormatChannel, audioFormat)
-
+        minimumBufferSize = AudioRecord.getMinBufferSize(audioSamplingRate, audioFormatChannel, audioFormat) * 2
+        if (CLog.isDebug()) {
+            CLog.log(logTag, "setupAudioRecord() -> audioFormatChannel: $audioFormatChannel, audioFormat: $audioFormat, minimumBufferSize: $minimumBufferSize")
+        }
 
         /*audioRecorder = AudioRecord(
                 audioSource,
@@ -57,7 +57,13 @@ class MediaCodecAudioEncoder2(
                 if (audioChannelCount == 1) AudioFormat.CHANNEL_IN_MONO else AudioFormat.CHANNEL_IN_STEREO,
                 AudioFormat.ENCODING_PCM_16BIT, mMinimumBufferSize * 2)*/
 
-        audioRecorder = AudioRecord(audioSource, audioSamplingRate, audioFormatChannel, audioFormat, minimumBufferSize)
+        audioRecorder = AudioRecord(
+            audioSource,
+            audioSamplingRate,
+            audioFormatChannel,
+            audioFormat,
+            minimumBufferSize
+        )
 
 
     }
