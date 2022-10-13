@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone a planté</string>
-    <string name="crash_dialog_text">Une erreur s\'est produite causant le plantage et l\'arrêt du téléphone ACR Phone.\nS\'il vous plaît, aidez-nous à résoudre ce problème en nous envoyant des données d\'erreur, vous n\'avez qu\'à appuyer sur \"OK\" et envoyer ce rapport par e-mail.</string>
+    <string name="crash_notif_title">APH a planté</string>
+    <string name="crash_dialog_text">Une erreur s\'est produite causant le plantage et l\'arrêt du téléphone APH.\nS\'il vous plaît, aidez-nous à résoudre ce problème en nous envoyant des données d\'erreur, vous n\'avez qu\'à appuyer sur \"OK\" et envoyer ce rapport par e-mail.</string>
     <string name="permission_all_required">Toutes les autorisations sont requises pour toutes les fonctionnalités</string>
     <string name="permissions_title">Demande de permission</string>
     <string name="send">Envoyer </string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Az ACR Phone összeomlott</string>
-    <string name="crash_dialog_text">Egy hiba miatt az ACR Phone összeomlott.\nKérjük segítsen a hibajavításban, riport küldésével! Csak nyomjon az OK gombra a riport emailben való küldéséhez! </string>
+    <string name="crash_notif_title">Az APH összeomlott</string>
+    <string name="crash_dialog_text">Egy hiba miatt az APH összeomlott.\nKérjük segítsen a hibajavításban, riport küldésével! Csak nyomjon az OK gombra a riport emailben való küldéséhez! </string>
     <string name="permission_all_required">Minden engedély megadására szükség van a működéshez</string>
     <string name="permissions_title">Engedély kérés</string>
     <string name="send">Küldés</string>

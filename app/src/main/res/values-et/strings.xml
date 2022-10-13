@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone jooksis kokku</string>
-    <string name="crash_dialog_text">ACRTelefon-i kokkujooksmise ja seiskamise tõttu ilmnes tõrge. \nPalun aidake meil see parandada, saates meile tõrkeandmed. Teil tuleb vaid toksata \"OK\" ja saata see aruanne e-kirjaga.</string>
+    <string name="crash_notif_title">APH jooksis kokku</string>
+    <string name="crash_dialog_text">APH-i kokkujooksmise ja seiskamise tõttu ilmnes tõrge. \nPalun aidake meil see parandada, saates meile tõrkeandmed. Teil tuleb vaid toksata \"OK\" ja saata see aruanne e-kirjaga.</string>
     <string name="permission_all_required">Kõigi funktsioonide kasutamiseks on vaja kõiki õigusi</string>
     <string name="permissions_title">Luba nõutud</string>
     <string name="send">Saada</string>

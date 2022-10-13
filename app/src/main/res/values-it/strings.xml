@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone è andato in crash</string>
+    <string name="crash_notif_title">APH è andato in crash</string>
     <string name="crash_dialog_text">Si è verificato un errore che ha causato il crash di ACR Phone e l\'arresto.\nAiutaci a risolvere questo problema inviandoci dati di errore, tutto quello che devi toccare \'OK\' e inviare questo rapporto via email.</string>
     <string name="permission_all_required">Tutti i permessi sono richiesti per la funzionalità completa</string>
     <string name="permissions_title">Richiesta permesso</string>

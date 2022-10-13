@@ -51,10 +51,8 @@ class RecorderBridge : IRecorderBridge {
 
             CLog.log(logTag, "startRecording() -> is recorder null ${recorder == null}, is recorder recording ${recorder?.getState() == ServerRecordingState.Recording}")
 
-            /**
-             * Just in case we have a dangling recorder.
-             * IPC communication is quite complicated and frigate.
-             */
+            CLog.log(logTag, "startRecording() -> Calling stopRecording() just in case we have a dangling recorder. IPC communication is quite complicated and fragile.")
+
             stopRecording()
 
             //Now start fresh

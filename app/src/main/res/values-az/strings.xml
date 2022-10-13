@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone qəzaya uğrayıb</string>
-    <string name="crash_dialog_text">ACR Phone-un qəzaya uğramasına və dayanmasına səbəb olan xəta oldu.\nLütfən səhv məlumatları göndərməklə onu düzəltməyə kömək edin, sadəcə \'OK\' vurun və bu hesabatı e-poçtla göndərin.</string>
+    <string name="crash_notif_title">APH qəzaya uğrayıb</string>
+    <string name="crash_dialog_text">APH-un qəzaya uğramasına və dayanmasına səbəb olan xəta oldu.\nLütfən səhv məlumatları göndərməklə onu düzəltməyə kömək edin, sadəcə \'OK\' vurun və bu hesabatı e-poçtla göndərin.</string>
     <string name="permission_all_required">Tam işləmə üçün bütün icazələr tələb olunur</string>
     <string name="permissions_title">İcazə istəyi</string>
     <string name="send">Göndər</string>

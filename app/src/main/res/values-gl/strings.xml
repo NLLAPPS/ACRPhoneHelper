@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone fallou</string>
-    <string name="crash_dialog_text">Produciuse un erro que causou que ACR Phone fallase e se detivese.\nPor favor, axúdenos a solucionalo enviándonos os datos do erro, só ten que premer \"Si\" e enviar este informe por correo electrónico.</string>
+    <string name="crash_notif_title">APH fallou</string>
+    <string name="crash_dialog_text">Produciuse un erro que causou que APH fallase e se detivese.\nPor favor, axúdenos a solucionalo enviándonos os datos do erro, só ten que premer \"Si\" e enviar este informe por correo electrónico.</string>
     <string name="permission_all_required">Son necesarios todos os permisos para obter funcionalidade completa</string>
     <string name="permissions_title">Solicitude de permiso</string>
     <string name="send">Enviar</string>

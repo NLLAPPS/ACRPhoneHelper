@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone क्रैश हो गया है</string>
+    <string name="crash_notif_title">APH क्रैश हो गया है</string>
     <string name="crash_dialog_text">क्रैश करने और रोकने के लिए ACR Phone के कारण त्रुटि हुई थी.\nकृपया हमें त्रुटि डेटा भेजकर इसे ठीक करने में मदद करें, इसके लिए आपको \'ओके\' पर टैप करना होगा और ईमेल द्वारा यह रिपोर्ट भेजनी होगी.</string>
     <string name="permission_all_required">पूर्ण कार्यक्षमता के लिए सभी अनुमतियों की आवश्यकता होती है</string>
     <string name="permissions_title">अनुमति अनुरोध</string>

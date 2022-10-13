@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone ha fallat</string>
-    <string name="crash_dialog_text">S\'ha produït un error que ha causat que ACR Phone hagi fallat i s\'hagi aturat.\nSi us plau, ajuda\'ns a solucionar aquest problema enviant-nos informació sobre aquest error, tot el que has de fer és clicar \"OK\" i enviar-nos aquest informe mitjançant correu electrònic.</string>
+    <string name="crash_notif_title">APH ha fallat</string>
+    <string name="crash_dialog_text">S\'ha produït un error que ha causat que APH hagi fallat i s\'hagi aturat.\nSi us plau, ajuda\'ns a solucionar aquest problema enviant-nos informació sobre aquest error, tot el que has de fer és clicar \"OK\" i enviar-nos aquest informe mitjançant correu electrònic.</string>
     <string name="permission_all_required">Es requereixen tots els permisos per una funcionalitat completa</string>
     <string name="permissions_title">Sol·licitud de permís</string>
     <string name="send">Envia</string>

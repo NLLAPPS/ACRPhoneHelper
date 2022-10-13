@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Программа ACR Phone завершена с ошибкой</string>
-    <string name="crash_dialog_text">Произошла ошибка при сбое и остановке работы ACR Phone.\nПожалуйста, помогите нам исправить это, отправив нам данные об ошибке. Все что вам надо сделать чтобы отправить этот отчет по электронной почте, только нажать \'OK\'.</string>
+    <string name="crash_notif_title">Программа APH завершена с ошибкой</string>
+    <string name="crash_dialog_text">Произошла ошибка при сбое и остановке работы APH.\nПожалуйста, помогите нам исправить это, отправив нам данные об ошибке. Все что вам надо сделать чтобы отправить этот отчет по электронной почте, только нажать \'OK\'.</string>
     <string name="permission_all_required">Все права необходимы для полной функциональности</string>
     <string name="permissions_title">Запрос разрешения</string>
     <string name="send">Отправить</string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone 작동이 중단되었습니다</string>
-    <string name="crash_dialog_text">ACR Phone을 작동 중지시키는 오류가 발생했습니다.\n이 문제를 해결할 수 있도록 오류 데이터를 보내주세요. \'확인\'을 탭하고 보고서를 이메일로 보내기만 하면됩니다.</string>
+    <string name="crash_notif_title">APH 작동이 중단되었습니다</string>
+    <string name="crash_dialog_text">APH을 작동 중지시키는 오류가 발생했습니다.\n이 문제를 해결할 수 있도록 오류 데이터를 보내주세요. \'확인\'을 탭하고 보고서를 이메일로 보내기만 하면됩니다.</string>
     <string name="permission_all_required">전체 기능을 사용하려면 모든 권한이 필요합니다</string>
     <string name="permissions_title">허가 요청</string>
     <string name="send">전송</string>

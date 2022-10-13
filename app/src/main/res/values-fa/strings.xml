@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone خراب شد</string>
-    <string name="crash_dialog_text">هنگام خرابی و توقف ACR Phone خطایی روی داد.\nلطفاً با ارسال اطلاعات خطا برای رفع این مشکل به ما کمک کنید ، فقط کافی است روی \"تأیید\" ضربه بزنید و این گزارش را از طریق ایمیل ارسال کنید.</string>
+    <string name="crash_notif_title">APH خراب شد</string>
+    <string name="crash_dialog_text">هنگام خرابی و توقف APH خطایی روی داد.\nلطفاً با ارسال اطلاعات خطا برای رفع این مشکل به ما کمک کنید ، فقط کافی است روی \"تأیید\" ضربه بزنید و این گزارش را از طریق ایمیل ارسال کنید.</string>
     <string name="permission_all_required">برای عملکرد کامل ، همه مجوزها لازم است</string>
     <string name="permissions_title">درخواست مجوز</string>
     <string name="send">ارسال</string>

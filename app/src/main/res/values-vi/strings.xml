@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone đã bị sự cố</string>
-    <string name="crash_dialog_text">Đã xảy ra lỗi khiến ACR Phone bị sự cố và dừng.\nVui lòng giúp chúng tôi khắc phục điều này bằng cách gửi cho chúng tôi dữ liệu lỗi, tất cả những gì bạn phải làm là nhấn \'OK\' và gửi báo cáo này qua email.</string>
+    <string name="crash_notif_title">APH đã bị sự cố</string>
+    <string name="crash_dialog_text">Đã xảy ra lỗi khiến APH bị sự cố và dừng.\nVui lòng giúp chúng tôi khắc phục điều này bằng cách gửi cho chúng tôi dữ liệu lỗi, tất cả những gì bạn phải làm là nhấn \'OK\' và gửi báo cáo này qua email.</string>
     <string name="permission_all_required">Tất cả các quyền được yêu cầu cho chức năng đầy đủ</string>
     <string name="permissions_title">Yêu cầu cấp quyền</string>
     <string name="send">Gửi</string>

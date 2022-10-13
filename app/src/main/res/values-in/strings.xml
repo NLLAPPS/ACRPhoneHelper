@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone crash</string>
-    <string name="crash_dialog_text">Ada kesalahan yang membuat ACR Phone crash dan berhenti.\nHarap bantu kami membenahinya dengan mengirimkan data kesalahan, yang perlu anda lakukan hanyalah menyentuh \'OK\' dan mengirim laporan ini melalui email.</string>
+    <string name="crash_notif_title">APH crash</string>
+    <string name="crash_dialog_text">Ada kesalahan yang membuat APH crash dan berhenti.\nHarap bantu kami membenahinya dengan mengirimkan data kesalahan, yang perlu anda lakukan hanyalah menyentuh \'OK\' dan mengirim laporan ini melalui email.</string>
     <string name="permission_all_required">Semua perizinan diperlukan untuk fungsionalitas penuh</string>
     <string name="permissions_title">Permintaan Perizinan</string>
     <string name="send">Kirim</string>

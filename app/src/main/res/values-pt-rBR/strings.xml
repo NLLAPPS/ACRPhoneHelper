@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone travou</string>
-    <string name="crash_dialog_text">Houve um erro que originou um bloqueio da aplicação ACR Phone.\nPor favor ajude-nos a corrigir este problema enviando-nos dados do erro, basta clicar em \'OK\' e enviar este relatório por e-mail.</string>
+    <string name="crash_notif_title">APH travou</string>
+    <string name="crash_dialog_text">Houve um erro que originou um bloqueio da aplicação APH.\nPor favor ajude-nos a corrigir este problema enviando-nos dados do erro, basta clicar em \'OK\' e enviar este relatório por e-mail.</string>
     <string name="permission_all_required">Todas as permissões são necessárias para todas as funcionalidades</string>
     <string name="permissions_title">Solicitação de permissão</string>
     <string name="send">Enviar</string>

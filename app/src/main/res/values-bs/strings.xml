@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone se srušio</string>
-    <string name="crash_dialog_text">Došlo je do greške zbog čega se ACR telefon srušio i zaustavio.\nMolimo vas da nam pomognete da to popravimo tako što ćete nam poslati podatke o pogrešci, sve što trebate je dodirnuti \'U redu\' i poslati ovaj izvještaj e-poštom.</string>
+    <string name="crash_notif_title">APH se srušio</string>
+    <string name="crash_dialog_text">Došlo je do greške zbog čega se APH srušio i zaustavio.\nMolimo vas da nam pomognete da to popravimo tako što ćete nam poslati podatke o pogrešci, sve što trebate je dodirnuti \'U redu\' i poslati ovaj izvještaj e-poštom.</string>
     <string name="permission_all_required">Sve dozvole su potrebne za punu funkcionalnost</string>
     <string name="permissions_title">Zahtjev za dozvolu</string>
     <string name="send">Poslati</string>

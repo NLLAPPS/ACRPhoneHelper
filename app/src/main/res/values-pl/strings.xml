@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Wystąpił błąd z aplikacją ACR Phone</string>
-    <string name="crash_dialog_text">Wystąpił błąd z aplikacją ACR Phone i została zatrzymana. \nPomóż nam naprawić ten błąd wysyłając nam raport o błędach, kliknij \"OK\" aby wysłać ten raport pocztą elektroniczną.</string>
+    <string name="crash_notif_title">Wystąpił błąd z aplikacją APH</string>
+    <string name="crash_dialog_text">Wystąpił błąd z aplikacją APH i została zatrzymana. \nPomóż nam naprawić ten błąd wysyłając nam raport o błędach, kliknij \"OK\" aby wysłać ten raport pocztą elektroniczną.</string>
     <string name="permission_all_required">Wszystkie uprawnienia są wymagane aby aplikacja działała poprawnie</string>
     <string name="permissions_title">Uprawnienia</string>
     <string name="send">Wyślij</string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Додаток ACR Phone аварійно завершив роботу</string>
-    <string name="crash_dialog_text">Сталася помилка та робота ACR Phone була аварійно завершена.\nБудь ласка, допоможіть нам виправити це, надіславши нам інформацію про помилку, для цього вам лише потрібно натиснути \'Гаразд\' та надіслати цей звіт електронною поштою.</string>
+    <string name="crash_notif_title">Додаток APH аварійно завершив роботу</string>
+    <string name="crash_dialog_text">Сталася помилка та робота APH була аварійно завершена.\nБудь ласка, допоможіть нам виправити це, надіславши нам інформацію про помилку, для цього вам лише потрібно натиснути \'Гаразд\' та надіслати цей звіт електронною поштою.</string>
     <string name="permission_all_required">Для повної функціональності необхідні всі дозволи</string>
     <string name="permissions_title">Запит на дозвіл</string>
     <string name="send">Надіслати</string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">TelefonACR telah terhenti</string>
-    <string name="crash_dialog_text">Terdapat kegagalan yang menyebabkan TelefonACR terhenti.\nBantu kami untuk baiki kelemahan ini dengan menghantar data kegagalan, hanya tekan \'OK\' untuk menghantar laporan melalui email.</string>
+    <string name="crash_notif_title">APH telah terhenti</string>
+    <string name="crash_dialog_text">Terdapat kegagalan yang menyebabkan APH terhenti.\nBantu kami untuk baiki kelemahan ini dengan menghantar data kegagalan, hanya tekan \'OK\' untuk menghantar laporan melalui email.</string>
     <string name="permission_all_required">Semua kebenaran diperlukan untuk fungsi penuh</string>
     <string name="permissions_title">Meminta Kebenaran</string>
     <string name="send">Hantar</string>

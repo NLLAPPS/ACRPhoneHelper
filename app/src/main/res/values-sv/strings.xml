@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone har kraschat</string>
-    <string name="crash_dialog_text">Det uppstod ett fel så ACR Phone kraschade.\nHjälp oss gärna genom att trycka på \"OK\" och skicka in rapporten med felloggen till oss via e-post.</string>
+    <string name="crash_notif_title">APH har kraschat</string>
+    <string name="crash_dialog_text">Det uppstod ett fel så APH kraschade.\nHjälp oss gärna genom att trycka på \"OK\" och skicka in rapporten med felloggen till oss via e-post.</string>
     <string name="permission_all_required">Alla behörigheter krävs för full funktionalitet</string>
     <string name="permissions_title">Behörighetsbegäran</string>
     <string name="send">Skicka</string>

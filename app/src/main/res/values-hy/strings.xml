@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone-ը վթարվեց</string>
-    <string name="crash_dialog_text">Վրեպի պատճառով ACR Phone-ը վթարվեց և փակվեց։\nԽնդրում ենք, որ մեզ օգնեք, որ խնդիրը կարգավորենք։ Սեղմեք «Լավ» և ուղարկեք վրեպի զեկույցը էլ. փոստով։</string>
+    <string name="crash_notif_title">APH-ը վթարվեց</string>
+    <string name="crash_dialog_text">Վրեպի պատճառով APH-ը վթարվեց և փակվեց։\nԽնդրում ենք, որ մեզ օգնեք, որ խնդիրը կարգավորենք։ Սեղմեք «Լավ» և ուղարկեք վրեպի զեկույցը էլ. փոստով։</string>
     <string name="permission_all_required">Բոլոր թույլտվությունները անհրաժեշտ են ամբողջական ֆունկցիոնալության համար</string>
     <string name="permissions_title">Թույլտվության Հարցում</string>
     <string name="send">Ուղարկել</string>

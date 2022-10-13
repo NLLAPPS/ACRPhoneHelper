@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone het omgeval</string>
-    <string name="crash_dialog_text">Daar was \'n fout wat veroorsaak het dat ACR Phone omgeval en gestop het.\nHelp ons asseblief om dit reg te stel deur vir ons die fout-data te stuur, al wat jy moet doen is om op \'GOED\' te tik en hierdie verslag met e-pos te stuur.</string>
+    <string name="crash_notif_title">APH het omgeval</string>
+    <string name="crash_dialog_text">Daar was \'n fout wat veroorsaak het dat APH omgeval en gestop het.\nHelp ons asseblief om dit reg te stel deur vir ons die fout-data te stuur, al wat jy moet doen is om op \'GOED\' te tik en hierdie verslag met e-pos te stuur.</string>
     <string name="permission_all_required">Al die toestemmings is nodig vir volle funksionaliteit</string>
     <string name="permissions_title">Toestemmingsversoek</string>
     <string name="send">Stuur</string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phoneがクラッシュしました</string>
-    <string name="crash_dialog_text">ACR Phoneのクラッシュおよび停止の原因となるエラーがありました。\nエラーデータを送信してこの修正をお手伝いください。「OK」をタップしてこのレポートをメールで送信するだけです。</string>
+    <string name="crash_notif_title">APHがクラッシュしました</string>
+    <string name="crash_dialog_text">APHのクラッシュおよび停止の原因となるエラーがありました。\nエラーデータを送信してこの修正をお手伝いください。「OK」をタップしてこのレポートをメールで送信するだけです。</string>
     <string name="permission_all_required">全機能を使うには、すべての許可が必要です</string>
     <string name="permissions_title">許可リクエスト</string>
     <string name="send">送信</string>

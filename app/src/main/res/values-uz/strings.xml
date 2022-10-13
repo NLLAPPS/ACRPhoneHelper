@@ -2,7 +2,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phoneda nosozlik yuz berdi</string>
+    <string name="crash_notif_title">APH nosozlik yuz berdi</string>
     <string name="permissions_title">Ruxsat so‘rovi</string>
     <string name="send">Yuborish</string>
     <string name="cancel">Bekor qilish</string>

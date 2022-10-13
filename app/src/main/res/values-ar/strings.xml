@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">لقد تعطل ACR Phone</string>
-    <string name="crash_dialog_text">حدث خطأ تسبب في تعطل ACR Phone وإيقافه.\nيُرجى مساعدتنا في إصلاح هذا العطل عن طريق إرسال بيانات الخطأ إلينا، كل ما عليك فعله هو النقر فوق \"موافق\" وإرسال هذا التقرير عبر البريد الإلكتروني.</string>
+    <string name="crash_notif_title">لقد تعطل APH</string>
+    <string name="crash_dialog_text">حدث خطأ تسبب في تعطل APH وإيقافه.\nيُرجى مساعدتنا في إصلاح هذا العطل عن طريق إرسال بيانات الخطأ إلينا، كل ما عليك فعله هو النقر فوق \"موافق\" وإرسال هذا التقرير عبر البريد الإلكتروني.</string>
     <string name="permission_all_required">جميع الأذونات مطلوبة للوظائف الكاملة</string>
     <string name="permissions_title">طلب إذن</string>
     <string name="send">إرسال</string>

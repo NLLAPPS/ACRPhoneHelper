@@ -3,7 +3,7 @@
 
 
     <string name="crash_notif_title">Телефон се затвори</string>
-    <string name="crash_dialog_text">Поради грешка ACR Phone се затвори.
+    <string name="crash_dialog_text">Поради грешка APH се затвори.
 Моля да ни помогнете да поправим грешката, като ни изпратите допълнителна информация.
 Всичко, което трябва да направите е да изберете \'ОК\' и да ни изпратите протокол за грешката по email.</string>
     <string name="permission_all_required">Всички разрешения са необходими за пълна фунционалност.</string>

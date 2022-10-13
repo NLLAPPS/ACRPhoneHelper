@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone s-a oprit</string>
-    <string name="crash_dialog_text">A apărut o eroare ce a dus la blocarea și oprirea ACR Phone.\nVă rugăm să ne ajutați să o rezolvăm, trimițându-ne date de eroare, tot ce trebuie să faceți fiind să apăsați „OK“ și să trimiteți acest raport prin e-mail.</string>
+    <string name="crash_notif_title">APH s-a oprit</string>
+    <string name="crash_dialog_text">A apărut o eroare ce a dus la blocarea și oprirea APH.\nVă rugăm să ne ajutați să o rezolvăm, trimițându-ne date de eroare, tot ce trebuie să faceți fiind să apăsați „OK“ și să trimiteți acest raport prin e-mail.</string>
     <string name="permission_all_required">Toate permisiunile sunt necesare pentru funcționalitate completă</string>
     <string name="permissions_title">Solicitare de permisiune</string>
     <string name="send">Trimiteți</string>

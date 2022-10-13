@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Telefon çöktü</string>
-    <string name="crash_dialog_text">Beklenmeyen bir hata ACR\'nin çökmesine neden oldu. Lütfen bu hatayı bize bildirerek giderilmesine yardımcı olun</string>
+    <string name="crash_notif_title">APH çöktü</string>
+    <string name="crash_dialog_text">Beklenmeyen bir hata APH\'nin çökmesine neden oldu. Lütfen bu hatayı bize bildirerek giderilmesine yardımcı olun</string>
     <string name="permission_all_required">Tam işlevsellik için tüm izinler gereklidir</string>
     <string name="permissions_title">İzin Talebi</string>
     <string name="send">Yolla</string>

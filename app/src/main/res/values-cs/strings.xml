@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone havaroval </string>
-    <string name="crash_dialog_text">Chyba způsobila pád a zastavení funkce ACR Phone.\nPomozte nám opravit tento problém tím, že nám pošlete údaje o chybách. Stačí kliknout na \"OK\" a odeslat tuto zprávu emailem. </string>
+    <string name="crash_notif_title">APH havaroval </string>
+    <string name="crash_dialog_text">Chyba způsobila pád a zastavení funkce APH.\nPomozte nám opravit tento problém tím, že nám pošlete údaje o chybách. Stačí kliknout na \"OK\" a odeslat tuto zprávu emailem. </string>
     <string name="permission_all_required">Všechna oprávnění jsou vyžadována pro plnou funkčnost</string>
     <string name="permissions_title">Žádost o oprávnění</string>
     <string name="send">Odeslat</string>

@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Aplikácia ACR Phone prestala pracovať</string>
-    <string name="crash_dialog_text">Vznikla chyba, ktorá spôsobila, že ACR Phone prestala pracovať.\nProsíme pomôžte nám opraviť túto chybu odoslaním dát o chybe. Stačí kliknúť na \'OK\' a odoslať email.</string>
+    <string name="crash_notif_title">Aplikácia APH prestala pracovať</string>
+    <string name="crash_dialog_text">Vznikla chyba, ktorá spôsobila, že APH prestala pracovať.\nProsíme pomôžte nám opraviť túto chybu odoslaním dát o chybe. Stačí kliknúť na \'OK\' a odoslať email.</string>
     <string name="permission_all_required">Pre správne fungovanie sú potrebné všetky povolenia</string>
     <string name="permissions_title">Žiadosť o povolenie</string>
     <string name="send">Odoslať</string>

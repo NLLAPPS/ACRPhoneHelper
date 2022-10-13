@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">Το ACR Phone κατέρρευσε</string>
-    <string name="crash_dialog_text">Παρουσιάστηκε σφάλμα προκαλώντας κατάρρευση και διακοπή λειτουργίας του ACR Phone.\nΠαρακαλώ βοηθήστε μας να διορθώσουμε αυτό στέλνοντας μας δεδομένα σφάλματος, το μόνο που πρέπει να κάνετε είναι να πατήσετε \'ΟΚ\' και να στείλετε αυτή την αναφορά μέσω email.</string>
+    <string name="crash_notif_title">Το APH κατέρρευσε</string>
+    <string name="crash_dialog_text">Παρουσιάστηκε σφάλμα προκαλώντας κατάρρευση και διακοπή λειτουργίας του APH.\nΠαρακαλώ βοηθήστε μας να διορθώσουμε αυτό στέλνοντας μας δεδομένα σφάλματος, το μόνο που πρέπει να κάνετε είναι να πατήσετε \'ΟΚ\' και να στείλετε αυτή την αναφορά μέσω email.</string>
     <string name="permission_all_required">Όλα τα δικαιώματα απαιτούνται για την πλήρη λειτουργικότητα</string>
     <string name="permissions_title">Απαιτείται Άδεια</string>
     <string name="send">Αποστολή</string>

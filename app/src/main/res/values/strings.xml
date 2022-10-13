@@ -11,8 +11,8 @@
     <string name="install">Install</string>
 
 
-    <string name="crash_notif_title">ACR Phone has crashed</string>
-    <string name="crash_dialog_text">There was an error causing ACR Phone to crash and stop.\nPlease help us fix this by sending us error data, all you have to is tap \'OK\' and send this report by email.</string>
+    <string name="crash_notif_title">APH has crashed</string>
+    <string name="crash_dialog_text">There was an error causing APH to crash and stop.\nPlease help us fix this by sending us error data, all you have to is tap \'OK\' and send this report by email.</string>
     <string name="permission_all_required">All permissions are required for full functionality</string>
     <string name="permissions_title">Permission Request</string>
     <string name="send">Send</string>
@@ -53,4 +53,5 @@
     <string name="start">Start</string>
     <string name="stop">Stop</string>
     <string name="clear">Clear</string>
+
 </resources>

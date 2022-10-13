@@ -2,8 +2,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
 
-    <string name="crash_notif_title">ACR Phone 已經程式崩潰</string>
-    <string name="crash_dialog_text">ACR Phone已出錯導致程序崩潰和停止運作。\n請幫我們回報造成錯誤的資訊，您僅需點擊「OK」按鈕並將報錯資料用電子郵件傳送</string>
+    <string name="crash_notif_title">APH 已經程式崩潰</string>
+    <string name="crash_dialog_text">APH已出錯導致程序崩潰和停止運作。\n請幫我們回報造成錯誤的資訊，您僅需點擊「OK」按鈕並將報錯資料用電子郵件傳送</string>
     <string name="permission_all_required">完整的功能需要所有權限</string>
     <string name="permissions_title">要求權限</string>
     <string name="send">發送</string>
