@@ -95,6 +95,19 @@ class MainActivity : AppCompatActivity() {
             onClientConnected(isConnected)
         }
 
+        /**
+         *
+         * We have just discovered that Android requires apps to have an ongoing foreground notification in order to record audio!
+         * Even if app has android.permission.CAPTURE_AUDIO_OUTPUT
+         * So we are forcing app to show permanent ongoing notification and hiding control away from user in root mode.
+         * While ideally we should show notification only when recording, it requires us to do a large factoring which we do not have time for at the moment.
+         *
+         * There is no such problem when AccessibilityService is used due to nature of AccessibilityService Api.
+         *
+         */
+        binding.enableOngoingNotification.isVisible = !App.hasCaptureAudioOutputPermission()
+
+
         binding.enableOngoingNotification.isChecked = AppSettings.actAsForegroundService
         binding.enableOngoingNotification.setOnCheckedChangeListener { buttonView, isChecked ->
 

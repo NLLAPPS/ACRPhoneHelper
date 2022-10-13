@@ -178,7 +178,17 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
     private fun toggleNotification() {
-        if (AppSettings.actAsForegroundService) {
+        /**
+         *
+         * We have just discovered that Android requires apps to have an ongoing foreground notification in order to record audio!
+         * Even if app has android.permission.CAPTURE_AUDIO_OUTPUT
+         * So we are forcing app to show permanent ongoing notification and hiding control away from user in root mode.
+         * While ideally we should show notification only when recording, it requires us to do a large factoring which we do not have time for at the moment.
+         *
+         * There is no such problem when AccessibilityService is used due to nature of AccessibilityService Api.
+         *
+         */
+        if (AppSettings.actAsForegroundService || App.hasCaptureAudioOutputPermission()) {
             startAsForegroundServiceWithNotification(applicationContext)
         } else {
             stopForeground(Service.STOP_FOREGROUND_REMOVE)
