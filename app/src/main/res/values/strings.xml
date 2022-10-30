@@ -45,7 +45,7 @@
     <string name="privacy_policy_warning">I have read and accept <![CDATA[<a href="%1$s">privacy policy</a>]]></string>
     <string name="agree">Agree</string>
     <string name="ignore_battery_optimization_title">Ignore battery optimization</string>
-    <string name="auto_close_prevent_info">Prevent APH automatically closed by your device</string>
+    <string name="auto_close_prevent_info">Prevent APH from being automatically closed by your device</string>
 
     <string name="debug_log">Debug log</string>
     <string name="debug_log_dumped">Debug logs dumped to %1$s</string>
