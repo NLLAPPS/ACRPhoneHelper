@@ -127,6 +127,6 @@ dependencies {
     implementation "ch.acra:acra-core:${versions.acraVer}"
     implementation "ch.acra:acra-mail:${versions.acraVer}"
     implementation "ch.acra:acra-notification:${versions.acraVer}"
-    implementation "io.karn:notify:${versions.karNotify}"
+    implementation "io.karn:notify:${versions.karnNotify}"
 
 }

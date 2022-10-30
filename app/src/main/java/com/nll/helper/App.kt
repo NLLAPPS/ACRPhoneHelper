@@ -8,11 +8,10 @@ import androidx.core.content.ContextCompat
 import com.nll.helper.recorder.CLog
 import com.nll.helper.util.AppSettings
 import org.acra.ReportField
-import org.acra.config.MailSenderConfigurationBuilder
-import org.acra.config.NotificationConfigurationBuilder
+import org.acra.config.mailSender
+import org.acra.config.notification
 import org.acra.data.StringFormat
 import org.acra.ktx.initAcra
-import org.acra.ktx.plugin
 import java.util.concurrent.Executors
 
 class App : Application() {
@@ -44,12 +43,13 @@ class App : Application() {
 
     }
 
+
     private fun initACRA() {
         try {
             initAcra {
                 buildConfigClass = BuildConfig::class.java
                 reportFormat = StringFormat.KEY_VALUE_LIST
-                reportContent = arrayOf(
+                reportContent = listOf(
                     ReportField.USER_COMMENT,
                     ReportField.TOTAL_MEM_SIZE,
                     ReportField.AVAILABLE_MEM_SIZE,
@@ -67,14 +67,14 @@ class App : Application() {
                     ReportField.LOGCAT
                 )
 
-                plugin<MailSenderConfigurationBuilder> {
+                mailSender {
                     enabled = true
                     mailTo = Constants.contactEmail
                     reportAsFile = false
                     //setReportFileName("crash_log.txt")
                 }
 
-                plugin<NotificationConfigurationBuilder> {
+                notification {
                     enabled = true
                     title = getString(R.string.crash_notif_title)
                     text = getString(R.string.crash_dialog_text)
