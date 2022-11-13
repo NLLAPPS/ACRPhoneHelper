@@ -65,11 +65,13 @@ class MainActivity : AppCompatActivity() {
     private val postNotificationPermission = activityResultRegistry.register(
         "notification",
         ActivityResultContracts.RequestPermission()
-    ) { hasAudioRecordPermission ->
-        if (!hasAudioRecordPermission) {
+    ) { hasNotificationPermission ->
+        if (!hasNotificationPermission) {
             Toast.makeText(this, R.string.permission_all_required, Toast.LENGTH_SHORT).show()
+            binding.enableOngoingNotification.isChecked = false
         }
-        updateAudioPermissionDisplay(hasAudioRecordPermission)
+
+        setupNotification(hasNotificationPermission)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -121,22 +123,19 @@ class MainActivity : AppCompatActivity() {
         binding.enableOngoingNotification.isChecked = AppSettings.actAsForegroundService
         binding.enableOngoingNotification.setOnCheckedChangeListener { buttonView, isChecked ->
 
-            fun setupNotification() {
-                AppSettings.actAsForegroundService = isChecked
-                AccessibilityCallRecordingService.start(this)
-            }
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                val hasPostNotificationPermission = ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
-                if (hasPostNotificationPermission) {
-                    setupNotification()
+            if (isChecked) {
+                if (hasNotificationPermission()) {
+                    setupNotification(true)
                 } else {
-                    postNotificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                        postNotificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+                    }else{
+                        //Just satisfying lint check
+                    }
                 }
             } else {
-                setupNotification()
+                setupNotification(false)
             }
-
-
         }
 
 
@@ -194,10 +193,22 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun setupNotification(isChecked: Boolean) {
+        AppSettings.actAsForegroundService = isChecked
+        AccessibilityCallRecordingService.start(this)
+    }
+
+    private fun hasNotificationPermission() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+
+    } else {
+        true
+    }
 
     override fun onResume() {
         super.onResume()
         checkBatteryOptimization()
+
     }
 
     /**
@@ -223,6 +234,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun doOnEachStarted() {
 
