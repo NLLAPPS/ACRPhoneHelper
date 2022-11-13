@@ -7,6 +7,7 @@ import android.content.pm.PackageManager
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
@@ -54,6 +55,15 @@ class MainActivity : AppCompatActivity() {
 
     private val recordAudioPermission = activityResultRegistry.register(
         "audio",
+        ActivityResultContracts.RequestPermission()
+    ) { hasAudioRecordPermission ->
+        if (!hasAudioRecordPermission) {
+            Toast.makeText(this, R.string.permission_all_required, Toast.LENGTH_SHORT).show()
+        }
+        updateAudioPermissionDisplay(hasAudioRecordPermission)
+    }
+    private val postNotificationPermission = activityResultRegistry.register(
+        "notification",
         ActivityResultContracts.RequestPermission()
     ) { hasAudioRecordPermission ->
         if (!hasAudioRecordPermission) {
@@ -111,8 +121,21 @@ class MainActivity : AppCompatActivity() {
         binding.enableOngoingNotification.isChecked = AppSettings.actAsForegroundService
         binding.enableOngoingNotification.setOnCheckedChangeListener { buttonView, isChecked ->
 
-            AppSettings.actAsForegroundService = isChecked
-            AccessibilityCallRecordingService.start(this)
+            fun setupNotification() {
+                AppSettings.actAsForegroundService = isChecked
+                AccessibilityCallRecordingService.start(this)
+            }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val hasPostNotificationPermission = ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+                if (hasPostNotificationPermission) {
+                    setupNotification()
+                } else {
+                    postNotificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+                }
+            } else {
+                setupNotification()
+            }
+
 
         }
 
@@ -170,6 +193,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
     override fun onResume() {
         super.onResume()
@@ -269,10 +293,10 @@ class MainActivity : AppCompatActivity() {
         This saves us a lot of time we may spend changing whole structure of APH.
         Perhaps we can re-visit this and change the structure to introduces different call recording modes such as, root, accessibility etc
      */
-        val isEnabledReal = if(App.hasCaptureAudioOutputPermission()){
+        val isEnabledReal = if (App.hasCaptureAudioOutputPermission()) {
             CLog.log(logTag, "onAccessibilityChanged() -> hasCaptureAudioOutputPermission is true. There is no need for AccessibilityCallRecordingService. Altering isEnabled as True")
             true
-        }else{
+        } else {
             isEnabled
         }
         CLog.log(logTag, "onAccessibilityChanged() -> isEnabled: $isEnabledReal")

@@ -1,6 +1,7 @@
 package com.nll.helper.support
 
 import android.accessibilityservice.AccessibilityService
+import android.app.Notification
 import android.app.PendingIntent
 import android.app.Service
 import android.content.ComponentName
@@ -24,6 +25,7 @@ import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
 import com.nll.helper.util.AppSettings
 import com.nll.helper.util.LiveEvent
+import com.nll.helper.util.extNotificationManager
 import io.karn.notify.Notify
 import io.karn.notify.entities.Payload
 import kotlinx.coroutines.CoroutineScope
@@ -381,7 +383,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             )
 
 
-            Notify.with(context)
+            val builder = Notify.with(context)
                 .alerting(notificationChannel.channelKey) {
                     lockScreenVisibility = notificationChannel.lockScreenVisibility
                     channelName = notificationChannel.channelName
@@ -406,9 +408,14 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                     title = context.getString(R.string.accessibility_service_name)
                     text = context.getString(R.string.accessibility_service_notification)
 
-                }
+                }.asBuilder()
 
-                .show(notificationChannel.channelKey.hashCode())
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                builder.foregroundServiceBehavior = Notification.FOREGROUND_SERVICE_IMMEDIATE
+            }
+            context.extNotificationManager()?.notify(notificationChannel.channelKey.hashCode(), builder.build())
+
+
         }
 
 

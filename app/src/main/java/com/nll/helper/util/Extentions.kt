@@ -1,6 +1,7 @@
 package com.nll.helper.util
 
 import android.app.Activity
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -41,7 +42,7 @@ fun TextView.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft(@DrawableRe
     }
 
 }
-
+fun Context.extNotificationManager(): NotificationManager? = getSystemService()
 @ColorInt
 fun Context.extGetThemeAttrColor(@AttrRes colorAttr: Int): Int {
     val array = obtainStyledAttributes(null, intArrayOf(colorAttr))
