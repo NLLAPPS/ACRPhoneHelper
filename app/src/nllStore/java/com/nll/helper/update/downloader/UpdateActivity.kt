@@ -71,8 +71,7 @@ class UpdateActivity : AppCompatActivity() {
                         val packageInfo = FileDownloader.getPackageInfoFromApk(this@UpdateActivity, targetFile)
                         if (packageInfo != null) {
                             val installedVersion = getVersionCode()
-                            val downloadedApkVersion =
-                                packageInfo.longVersionCode
+                            val downloadedApkVersion =  packageInfo.longVersionCode
                             if (CLog.isDebug()) {
                                 CLog.log(logTag, "onCreate() -> downloadedApkVersion: $downloadedApkVersion, installedVersion: $installedVersion")
                             }
