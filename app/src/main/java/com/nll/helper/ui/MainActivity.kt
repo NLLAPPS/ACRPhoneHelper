@@ -23,6 +23,7 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.nll.helper.App
 import com.nll.helper.BuildConfig
 import com.nll.helper.R
@@ -296,7 +297,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showUpdateMessage(updateResult: UpdateResult.Required) {
-        updateResult.openDownloadUrl(this)
+
+        val message = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty { getString(R.string.forced_update_message_generic) }
+            with(MaterialAlertDialogBuilder(this))
+            {
+                setTitle(R.string.new_version_found)
+                setIcon(R.drawable.ic_warning_24)
+                setMessage(message)
+                setCancelable(false)
+                setPositiveButton(R.string.download) { _, _ ->
+                    updateResult.openDownloadUrl(this@MainActivity)
+                }
+                setNegativeButton(R.string.cancel, null)
+                show()
+            }
+
+
+
     }
 
     private fun onAccessibilityChanged(isEnabled: Boolean) {

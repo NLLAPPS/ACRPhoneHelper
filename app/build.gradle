@@ -22,6 +22,7 @@ android {
     compileSdk 33
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     defaultConfig {
         applicationId "com.nll.helper"
