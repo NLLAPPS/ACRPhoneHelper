@@ -46,7 +46,11 @@ class MediaCodecAudioEncoder2(
     private fun setupAudioRecord() {
         val audioFormatChannel = if (audioChannelCount == 1) AudioFormat.CHANNEL_IN_MONO else AudioFormat.CHANNEL_IN_STEREO
         val audioFormat = AudioFormat.ENCODING_PCM_16BIT
-        minimumBufferSize = AudioRecord.getMinBufferSize(audioSamplingRate, audioFormatChannel, audioFormat) * 2
+        // On some devices, MediaCodec occasionally has sudden spikes in processing time, so use
+        // a larger internal buffer to reduce the chance of overrun on the recording side.
+        // Setting this to large values affects smoothness of the recording timeline view
+        val minimumBufferSizeMultiplier = 6
+        minimumBufferSize = AudioRecord.getMinBufferSize(audioSamplingRate, audioFormatChannel, audioFormat) * minimumBufferSizeMultiplier
         if (CLog.isDebug()) {
             CLog.log(logTag, "setupAudioRecord() -> audioFormatChannel: $audioFormatChannel, audioFormat: $audioFormat, minimumBufferSize: $minimumBufferSize")
         }
@@ -252,10 +256,14 @@ class MediaCodecAudioEncoder2(
             } catch (e: Exception) {
                 CLog.logPrintStackTrace(e)
             }
-            audioRecorder?.startRecording()
-            mediaCodecAdapter.start()
+            /**
+             * isRecording and isRecordingPaused must be set before startRecording() to prevent race condition
+             */
             isRecording = true
             isRecordingPaused = false
+
+            audioRecorder?.startRecording()
+            mediaCodecAdapter.start()
             listener.onEncoderStart(this@MediaCodecAudioEncoder2)
         } else {
             listener.onEncoderError(this@MediaCodecAudioEncoder2, RecorderError.AudioRecordInUse, Exception("AudioRecordInUse"))

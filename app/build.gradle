@@ -28,8 +28,8 @@ android {
         applicationId "com.nll.helper"
         minSdk 29
         targetSdk 33
-        versionCode 11
-        versionName "11.0"
+        versionCode 12
+        versionName "12.0"
 
         buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "$appHelperMinimumClientVersionCode")
         buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "$appHelperMinimumServerVersionCode")
@@ -50,16 +50,16 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_11.toString()
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
-    applicationVariants.all { variant ->
-        variant.outputs.all {
+    applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
             outputFileName = "aph.apk"
         }
         //outputFileName = outputFileName.replace(".apk", "-${variant.versionName}.apk")
@@ -107,7 +107,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-process:${versions.lifeCycleVer}"
     implementation "androidx.lifecycle:lifecycle-service:${versions.lifeCycleVer}"
     implementation "androidx.coordinatorlayout:coordinatorlayout:${versions.coordinatorLayoutVer}"
-    implementation "com.google.android.material:material:${versions.materialComponentsVer}"
     implementation "com.josesamuel:remoter-annotations:${versions.remoterVer}"
     kapt "com.josesamuel:remoter:${versions.remoterVer}"
     //If using kotlin coroutines, include following to make even the service connection simpler

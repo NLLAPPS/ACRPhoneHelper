@@ -264,7 +264,11 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
         }
 
         private fun getDefaultOpenAccessibilitySettingsIntent(context: Context): Intent {
-            return addHighlightInTheList(context, Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+            return addHighlightInTheList(context, Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS).apply {
+                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
+                addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+            })
         }
 
         private fun openSamsungIntentBelowAndroidR(context: Context) {
