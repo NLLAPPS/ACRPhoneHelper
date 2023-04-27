@@ -2,8 +2,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+        We currently hide install main ACR Phone app from Google Play is store it is installed does not allow links to Google Play.
+        We could publish ACR Phone to different stores and use StoreConfigImpl to open link to said store but that makes life complicated as we would need to maintain ACR PHone on many stores.
+    -->
     <queries>
         <package android:name="com.nll.cb" />
+        <package android:name="com.nll.store" />
+        <package android:name="com.xiaomi.mipicks"/>
+        <package android:name="com.huawei.appmarket"/>
+        <package android:name="com.sec.android.app.samsungapps"/>
+
     </queries>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />

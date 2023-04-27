@@ -81,8 +81,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setTitle(R.string.app_name_helper_long)
 
-        binding.installMainAppCardActionButton.isVisible =
-            StoreConfigImpl.canLinkToGooglePlayStore()
+        /**
+         * We currently hide install main ACR Phone app from Google Play is store it is installed does not allow links to Google Play.
+         * We could publish ACR Phone to different stores and use StoreConfigImpl to open link to said store but that makes life complicated as we would need to maintain ACR PHone on many stores.
+         */
+        binding.installMainAppCardActionButton.isVisible =    StoreConfigImpl.canLinkToGooglePlayStore()
         binding.webSiteLink.isVisible = StoreConfigImpl.canLinkToWebSite()
         binding.versionInfo.text = Util.getVersionName(this)
 

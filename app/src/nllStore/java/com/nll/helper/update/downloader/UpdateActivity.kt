@@ -240,8 +240,7 @@ class UpdateActivity : AppCompatActivity() {
 
     private fun validateAndInstallDownloadedApk(downloadedApk: File, packageInfo: PackageInfo) {
 
-        val downloadedApkVersion =
-            packageInfo.longVersionCode
+        val downloadedApkVersion =  packageInfo.longVersionCode
         val isNewOrSameVersion = downloadedApkVersion >= getVersionCode()
         if (CLog.isDebug()) {
             CLog.log(logTag, "validateAndInstallDownloadedApk() -> isNewOrSameVersion $isNewOrSameVersion")
