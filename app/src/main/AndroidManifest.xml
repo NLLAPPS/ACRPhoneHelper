@@ -105,6 +105,7 @@
 
         <service
             android:name="com.nll.helper.debug.DebugLogService"
+            android:foregroundServiceType="dataSync"
             android:exported="false" />
 
         <provider
