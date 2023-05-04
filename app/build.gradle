@@ -28,8 +28,8 @@ android {
         applicationId "com.nll.helper"
         minSdk 29
         targetSdk 33
-        versionCode 14
-        versionName "14.0"
+        versionCode 15
+        versionName "15.0"
 
         buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "$appHelperMinimumClientVersionCode")
         buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "$appHelperMinimumServerVersionCode")
