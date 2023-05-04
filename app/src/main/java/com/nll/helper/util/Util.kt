@@ -19,6 +19,15 @@ object Util {
             0L
         }
     }
+    @Suppress("DEPRECATION")
+    fun isAppInstalled(context: Context, packageName: String): Boolean {
+        return try {
+            context.applicationContext.packageManager.getPackageInfo(packageName, 0)!=null
+        } catch (e: Exception) {
+            CLog.logPrintStackTrace(e)
+            false
+        }
+    }
 
     fun getVersionName(context: Context): String {
         return try {

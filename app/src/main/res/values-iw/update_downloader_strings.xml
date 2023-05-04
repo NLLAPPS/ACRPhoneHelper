@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="update_downloader_install_app">התקן</string>
-    <string name="update_downloader_download_completed">ההורדה הושלמה</string>
-    <string name="update_downloader_downloading">מוריד. נא להמתין...</string>
-    <string name="update_download_manually">התרחשה שגיאה. האם תרצה לנסות להוריד באופן ידני?</string>
-    <string name="update_download_no_whats_new">מה חדש</string>
-    <string name="update_download_no_version_notes">לא סופק מידע</string>
-</resources>

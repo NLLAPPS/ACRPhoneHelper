@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="update_downloader_download_completed">다운로드 완료</string>
-    <string name="update_downloader_downloading">僅用於中文</string>
-    <string name="update_download_no_whats_new">새로운 기능</string>
-</resources>
