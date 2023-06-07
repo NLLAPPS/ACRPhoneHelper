@@ -4,17 +4,17 @@ buildscript {
 
       acraVer : '5.9.7', // https://github.com/ACRA/acra
       kotPrefVer : '2.13.2', // https://github.com/chibatching/Kotpref
-      activityVer : '1.7.1', // https://developer.android.com/jetpack/androidx/releases/activity
+      activityVer : '1.7.2', // https://developer.android.com/jetpack/androidx/releases/activity
       appCompatVer : '1.6.1' ,// https://developer.android.com/jetpack/androidx/releases/appcompat
       constraintLayoutVer : '2.1.4', // https://developer.android.com/jetpack/androidx/releases/constraintlayout
       coordinatorLayoutVer : '1.2.0' ,// https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
       startupVer : '1.2.0-alpha02' ,// https://developer.android.com/jetpack/androidx/releases/startup
       lifeCycleVer : '2.6.1' ,// https://developer.android.com/jetpack/androidx/releases/lifecycle
       recyclerViewVer : '1.3.0' ,// https://developer.android.com/jetpack/androidx/releases/recyclerview
-      supportCoreVer : '1.10.0' ,// https://developer.android.com/jetpack/androidx/releases/core
+      supportCoreVer : '1.10.1' ,// https://developer.android.com/jetpack/androidx/releases/core
       materialComponentsVer : '1.8.0' ,// https://github.com/material-components/material-components-android/releases
       coroutinesVer : '1.7.1' ,// https://github.com/Kotlin/kotlinx.coroutines
-      okHttpVer : '4.10.0' , // https://square.github.io/okhttp/
+      okHttpVer : '4.11.0' , // https://square.github.io/okhttp/
       remoterVer : '2.0.5', // https://github.com/josesamuel/remoter
       remoterParcelerDependencyVer :'1.1.13', // https://github.com/johncarl81/parceler
       karnNotify: '1.4.0'
@@ -29,7 +29,7 @@ buildscript {
 
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id 'com.android.application' version '8.2.0-alpha04' apply false
-    id 'com.android.library' version '8.2.0-alpha04' apply false
+    id 'com.android.application' version '8.2.0-alpha07' apply false
+    id 'com.android.library' version '8.2.0-alpha07' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.20' apply false
 }
