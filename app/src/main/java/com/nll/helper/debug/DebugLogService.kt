@@ -152,7 +152,7 @@ class DebugLogService : LifecycleService() {
         return if (files.isEmpty()) {
             null
         } else {
-            val zipFile = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/cb_logs.zip")
+            val zipFile = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/aph_logs.zip")
             if (zipFile.exists()) {
                 zipFile.delete()
             }
@@ -178,7 +178,7 @@ class DebugLogService : LifecycleService() {
     }
 
     private fun saveDebugLog(): File? {
-        val file = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/cb_debugLog.txt")
+        val file = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/aph_debugLog.txt")
         if (file.exists()) {
             file.delete()
         }
@@ -197,7 +197,7 @@ class DebugLogService : LifecycleService() {
     }
 
     private fun saveLogCatDump(): File? {
-        val file = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/cb_logcat.txt")
+        val file = File(DebugLogAttachmentProvider.getLogPath(applicationContext).toString() + "/aph_logcat.txt")
         if (file.exists()) {
             file.delete()
         }

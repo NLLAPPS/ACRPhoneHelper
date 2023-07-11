@@ -2,8 +2,8 @@
 ########################################################################################
 # App
 ########################################################################################
-appVersionName = "16"
-appVersionCode = "16"
+appVersionName = "17"
+appVersionCode = "17"
 
 # Minimum client version app-helper server can talk to
 # Set as MINIMUM_CLIENT_VERSION_CODE at app-helper/build.gradle.kts

@@ -365,7 +365,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
         private fun showHelperServiceNotEnabledNotification(context: Context) {
             val notificationChannel = Payload.Alerts(
-                channelKey = "cb_enable_call_recording_helper",
+                channelKey = "aph_enable_call_recording_helper",
                 lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
                 channelName = context.getString(R.string.accessibility_service_name),
                 channelImportance = Notify.IMPORTANCE_HIGH,
@@ -392,7 +392,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
                 .meta {
                     category = NotificationCompat.CATEGORY_ERROR
-                    group = "cb_enable_call_recording_notifications"
+                    group = "aph_enable_call_recording_notifications"
                     clickIntent = pendingOpenIntent
                 }
 

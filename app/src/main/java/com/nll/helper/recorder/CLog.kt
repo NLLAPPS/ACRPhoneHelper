@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Locale
 
 object CLog {
     private const val logTag = "CLog"
@@ -38,9 +38,9 @@ object CLog {
     }
 
     fun log(extraTag: String, message: String) {
-        android.util.Log.d("CR_$extraTag", message)
+        android.util.Log.d("APH_$extraTag", message)
         loggerScope.launch {
-            _observableLog.emit("[${loggerDateFormat.format(System.currentTimeMillis())}] [CB_$extraTag] => $message")
+            _observableLog.emit("[${loggerDateFormat.format(System.currentTimeMillis())}] [APH_$extraTag] => $message")
         }
     }
 

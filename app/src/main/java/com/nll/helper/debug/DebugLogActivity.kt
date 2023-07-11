@@ -46,7 +46,7 @@ class DebugLogActivity : AppCompatActivity() {
         }.launchIn(lifecycleScope)
 
         DebugLogService.serviceMessage().onEach { serviceMessage ->
-            android.util.Log.d("CB_$logTag", "serviceMessage -> $serviceMessage")
+            android.util.Log.d("APH_$logTag", "serviceMessage -> $serviceMessage")
 
             when (serviceMessage) {
                 is DebugLogServiceMessage.Saved -> {
