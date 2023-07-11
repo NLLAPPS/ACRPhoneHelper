@@ -1,7 +1,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="app_name_helper" translatable="false">APH</string>
-    <string name="app_name_helper_long" translatable="false">ACR Phone Helper</string>
+    <string name="app_name_helper_long" translatable="false">ACR Phone Helper (APH)</string>
     <string name="app_name" translatable="false">ACR Phone</string>
     <string name="helper_web_site_link" translatable="false">www.acr.app</string>
     <string name="accessibility_service_snack">Call Recording Helper is not enabled</string>
@@ -10,7 +10,6 @@
     <string name="acr_phone_not_installed">Google Play Store version ACR Phone is not installed or must be updated. This app can only be used together with a compatible version of ACR Phone</string>
     <string name="install">Install</string>
 
-
     <string name="crash_notif_title">APH has crashed</string>
     <string name="crash_dialog_text">There was an error causing APH to crash and stop.\nPlease help us fix this by sending us error data, all you have to is tap \'OK\' and send this report by email.</string>
     <string name="permission_all_required">All permissions are required for full functionality</string>
@@ -18,29 +17,18 @@
     <string name="send">Send</string>
     <string name="cancel">Cancel</string>
     <string name="app_crash_notification_channel">Crash notification</string>
-
-
     <string name="new_version_found">New version found</string>
     <string name="no_url_handle">Cannot find any app to open this link</string>
     <string name="url_error">Unable to parse this link</string>
-
-
     <string name="call_rec_permissions_message">Tap on Allow to see and grant required permissions for call recording</string>
-
-
     <string name="accessibility_service_name">Call Recording Helper</string>
     <string name="accessibility_service_desc">This service is used for accessing call audio. No call audio can be recorded when it is disabled. In order to limit access to your data, app limits observation to its own events and does not request any capability\n\nSome phones may report service as not working. Try disabling and enabling it again if this happens.</string>
     <string name="accessibility_service_notification">Tap here to enable Call Recording Helper</string>
     <string name="accessibility_service_toast">Please enable Call Recording Helper on Installed Accessibility Services screen</string>
-
-
     <string name="download">Download</string>
-
-
     <string name="helper_service_notification">Must be kept running for call recording functionality of ACR Phone</string>
     <string name="forced_update_message_generic">This app must be updated to function correctly</string>
     <string name="audio_record_permission">Audio record permission</string>
-
     <string name="notification">Notification</string>
     <string name="privacy_policy_warning">I have read and accept <![CDATA[<a href="%1$s">privacy policy</a>]]></string>
     <string name="agree">Agree</string>

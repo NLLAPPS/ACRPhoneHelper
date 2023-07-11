@@ -1,5 +1,6 @@
 package com.nll.helper.debug
 import android.app.PendingIntent
+import android.app.Service
 import android.content.Context
 import android.content.Intent
 import androidx.core.content.ContextCompat
@@ -10,10 +11,20 @@ import com.nll.helper.recorder.CLog
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import java.io.*
-import java.util.*
+import java.io.BufferedInputStream
+import java.io.BufferedOutputStream
+import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.InputStreamReader
+import java.util.LinkedList
 import java.util.zip.ZipEntry
 import java.util.zip.ZipOutputStream
 
@@ -102,7 +113,7 @@ class DebugLogService : LifecycleService() {
         CLog.disableDebug()
         clearLogStorage()
         sendServiceMessage(DebugLogServiceMessage.Stopped)
-        stopForeground(true)
+        stopForeground(Service.STOP_FOREGROUND_REMOVE)
         stopSelf()
     }
 

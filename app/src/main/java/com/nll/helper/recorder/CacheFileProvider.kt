@@ -7,7 +7,11 @@ object CacheFileProvider {
     fun provideCacheFile(context: Context, fileName: String) = File(getExternalCacheDirectory(context), fileName)
 
     fun getExternalCacheDirectory(context: Context): File {
-        return File(context.externalCacheDir, "recordings").also { folder ->
+        /**
+         * Use getExternalFilesDir instead of externalCacheDir.
+         * There have been instances where Android cleared cache dir while we are downloading the apk
+         */
+        return File(context.getExternalFilesDir(null), "recordings").also { folder ->
             if (folder.exists().not()) {
                 folder.mkdirs()
             }

@@ -46,7 +46,7 @@ public class DebugLogAttachmentProvider extends ContentProvider {
     }
 
     public static File getLogPath(Context context) {
-        File root = new File(context.getExternalCacheDir(), "/" + CACHE_LOG_PATH + "/");
+        File root = new File(context.getExternalFilesDir(null), "/" + CACHE_LOG_PATH + "/");
         if (!root.exists()) {
             root.mkdirs();
         }

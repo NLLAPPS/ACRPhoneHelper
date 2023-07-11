@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget.MyTheme.AppBarLayout" parent="Widget.Material3.AppBarLayout">
+        <item name="elevation">@dimen/app_bar_elevation_m3</item>
+        <item name="liftOnScroll">false</item>
+    </style>
+</resources>

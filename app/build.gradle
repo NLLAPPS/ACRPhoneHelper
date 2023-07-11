@@ -1,61 +1,61 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'kotlin-parcelize'
+    alias(libs.plugins.kotlin.android)
+}
+apply plugin: libs.plugins.android.application.get().pluginId
+apply plugin: libs.plugins.kotlin.android.get().pluginId
+apply plugin: libs.plugins.kotlin.kapt.get().pluginId
+apply plugin: libs.plugins.kotlin.parcelize.get().pluginId
+
+
+def javaVersionEnum = JavaVersion.toVersion(libs.versions.javaVersion.get().toString())
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(javaVersionEnum.toString().toInteger()))
+    }
 }
 
-
-/**
- * Minimum client version app-helper server can talk to
- * Set as MINIMUM_CLIENT_VERSION_CODE at app-helper/build.gradle.kts
- */
-def appHelperMinimumClientVersionCode = 1
-/**
- * Minimum server version  app-helper-client as client can talk to
- * Set as MINIMUM_SERVER_VERSION_CODE at app-helper-client/build.gradle.kts
- */
-def appHelperMinimumServerVersionCode = 1
-
 android {
-    namespace 'com.nll.helper'
-    compileSdk 34
+    namespace commonValues.appBaseNameSpace
+    compileSdk libs.versions.compileSdkVersion.get().toInteger()
     buildFeatures {
         viewBinding = true
         buildConfig = true
     }
     defaultConfig {
-        applicationId "com.nll.helper"
-        minSdk 29
-        targetSdk 33
-        versionCode 15
-        versionName "15.0"
+        applicationId commonValues.appBaseNameSpace
+        minSdk(libs.versions.minSdkVersion.get().toInteger())
+        targetSdk(libs.versions.targetSdkVersion.get().toInteger())
+        versionName(libs.versions.appVersionName.get())
+        versionCode(libs.versions.appVersionCode.get().toInteger())
+        vectorDrawables.useSupportLibrary = true
 
-        buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "$appHelperMinimumClientVersionCode")
-        buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "$appHelperMinimumServerVersionCode")
+        buildConfigField("Integer", "MINIMUM_CLIENT_VERSION_CODE", "${libs.versions.appHelperMinimumClientVersionCode.get().toInteger()}")
+        buildConfigField("Integer", "MINIMUM_SERVER_VERSION_CODE", "${libs.versions.appHelperMinimumServerVersionCode.get().toInteger()}")
 
     }
-
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources = true
+            minifyEnabled(commonValues.releaseMinifyEnabled)
+            shrinkResources = commonValues.releaseShrinkResourcesEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
-            minifyEnabled = true
-            shrinkResources = true
+            debuggable true
+            //use proguard on dev builds too in order to avoid multidex issue
+            minifyEnabled(commonValues.debugMinifyEnabled)
+            shrinkResources = commonValues.debugShrinkResourcesEnabled
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility javaVersionEnum
+        targetCompatibility javaVersionEnum
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+        jvmTarget = javaVersionEnum.toString()
     }
 
     applicationVariants.configureEach { variant ->
@@ -96,41 +96,38 @@ android {
 
 dependencies {
 
+    implementation(libs.bundles.acraBundle)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.appCompat)
+    implementation(libs.androidx.constraintLayout)
+    implementation(libs.androidx.coordinatorLayout)
+    implementation(libs.androidx.startup)
+    implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.lifecycle.viewModelKtx)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.coreKtx)
+    implementation(libs.androidx.recyclerView)
+    implementation(libs.bundles.coroutinesBundle)
+    implementation(libs.google.materialComponents)
+    implementation(libs.kotPref)
+    implementation(libs.square.okHttp)
+    implementation(libs.square.okHttp.loggingInterceptor)
+    implementation(libs.karnNotify)
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutinesVer}"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutinesVer}"
-    implementation "androidx.recyclerview:recyclerview:${versions.recyclerViewVer}"
-    implementation "androidx.core:core-ktx:${versions.supportCoreVer}"
-    implementation "androidx.appcompat:appcompat:${versions.appCompatVer}"
-    implementation "com.google.android.material:material:${versions.materialComponentsVer}"
-    implementation "androidx.constraintlayout:constraintlayout:${versions.constraintLayoutVer}"
-    implementation "androidx.activity:activity-ktx:${versions.activityVer}"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifeCycleVer}"
-    implementation "androidx.startup:startup-runtime:${versions.startupVer}"
-    implementation "com.chibatching.kotpref:kotpref:${versions.kotPrefVer}"
-    implementation "androidx.lifecycle:lifecycle-process:${versions.lifeCycleVer}"
-    implementation "androidx.lifecycle:lifecycle-service:${versions.lifeCycleVer}"
-    implementation "androidx.coordinatorlayout:coordinatorlayout:${versions.coordinatorLayoutVer}"
-    implementation "com.josesamuel:remoter-annotations:${versions.remoterVer}"
-    kapt "com.josesamuel:remoter:${versions.remoterVer}"
     //If using kotlin coroutines, include following to make even the service connection simpler
-    implementation "com.josesamuel:remoter-builder:${versions.remoterVer}"
+    implementation(libs.remoter.builder)
+    // Rest of the remoter
+    implementation(libs.remoter.annotations)
+    kapt(libs.remoter)
     /**
-     *  We need this because we are using registerProcessDeath to listen to client crash so we can stop recording and passing Binder requires
+     *  We need this because we are using registerProcessDeath to listen to client crash so we can stop recording and passing Binder() requires
      *  Parceller.
      *
      *  Kotlin parcelize does not seem to work yet
      *  https://github.com/josesamuel/remoter/issues/6
      *
      */
-    implementation "org.parceler:parceler-api:${versions.remoterParcelerDependencyVer}"
-    kapt "org.parceler:parceler:${versions.remoterParcelerDependencyVer}"
-
-    implementation "com.squareup.okhttp3:okhttp:${versions.okHttpVer}"
-    implementation "com.squareup.okhttp3:logging-interceptor:${versions.okHttpVer}"
-    implementation "ch.acra:acra-core:${versions.acraVer}"
-    implementation "ch.acra:acra-mail:${versions.acraVer}"
-    implementation "ch.acra:acra-notification:${versions.acraVer}"
-    implementation "io.karn:notify:${versions.karnNotify}"
+    implementation(libs.remoter.parcelerApiDependency)
+    kapt(libs.remoter.parcelerDependency)
 
 }

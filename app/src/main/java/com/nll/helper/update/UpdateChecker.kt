@@ -45,26 +45,25 @@ object UpdateChecker {
                     }
                     updateRequest.saveLastUpdateCheckTime()
 
-                    response.body?.let { body ->
-                        val bodyString = body.string()
-                        if (CLog.isDebug()) {
-                            CLog.log(logTag, "realDownloadUpdate -> response.body: $bodyString")
-                        }
-
-                        try {
-                            val remoteVersion = RemoteAppVersion(bodyString)
-                            if (CLog.isDebug()) {
-                                CLog.log(logTag, "realDownloadUpdate success. Save remoteVersion: $remoteVersion")
-                            }
-                            updateRequest.saveRemoteVersion(bodyString)
-                        } catch (e: Exception) {
-                            if (CLog.isDebug()) {
-                                CLog.log(logTag, "realDownloadUpdate failed while parsing response. Will try again later")
-                            }
-                            CLog.logPrintStackTrace(e)
-                        }
-
+                    val bodyString = response.body.string()
+                    if (CLog.isDebug()) {
+                        CLog.log(logTag, "realDownloadUpdate -> response.body: $bodyString")
                     }
+
+                    try {
+                        val remoteVersion = RemoteAppVersion(bodyString)
+                        if (CLog.isDebug()) {
+                            CLog.log(logTag, "realDownloadUpdate success. Save remoteVersion: $remoteVersion")
+                        }
+                        updateRequest.saveRemoteVersion(bodyString)
+                    } catch (e: Exception) {
+                        if (CLog.isDebug()) {
+                            CLog.log(logTag, "realDownloadUpdate failed while parsing response. Will try again later")
+                        }
+                        CLog.logPrintStackTrace(e)
+                    }
+
+
                 }
             }
         } catch (e: Exception) {

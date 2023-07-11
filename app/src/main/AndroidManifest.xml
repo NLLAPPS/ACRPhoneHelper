@@ -16,6 +16,8 @@
     </queries>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 
     <permission
@@ -37,7 +39,7 @@
         android:label="@string/app_name_helper"
         android:roundIcon="@mipmap/ic_helper_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ACRPhoneHelper">
+        android:theme="@style/AppTheme">
 
 
         <provider
@@ -76,7 +78,7 @@
         <service
             android:name="com.nll.helper.support.AccessibilityCallRecordingService"
             android:exported="true"
-            android:foregroundServiceType="phoneCall|microphone"
+            android:foregroundServiceType="microphone"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -103,10 +105,13 @@
             android:label="@string/debug_log"
             android:launchMode="singleTop" />
 
+
         <service
             android:name="com.nll.helper.debug.DebugLogService"
-            android:foregroundServiceType="dataSync"
-            android:exported="false" />
+            android:foregroundServiceType="specialUse"
+            android:exported="false" >
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE" android:value="debugLogging"/>
+        </service>
 
         <provider
             android:name="com.nll.helper.debug.DebugLogAttachmentProvider"

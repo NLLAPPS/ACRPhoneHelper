@@ -51,12 +51,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     private fun startAsForegroundServiceWithNotification(context: Context) {
 
         val launchIntent = Intent(context, MainActivity::class.java)
-        val pendingOpenIntent = PendingIntent.getActivity(
-            context,
-            0,
-            launchIntent,
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        )
+        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val alertPayload = getChannel(context)
 
         val notification = Notify.with(context)
@@ -65,6 +60,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 channelName = alertPayload.channelName
                 channelDescription = alertPayload.channelDescription
                 channelImportance = alertPayload.channelImportance
+                showBadge = alertPayload.showBadge
             }
             .header {
                 icon = R.drawable.ic_helper_notification2
@@ -108,6 +104,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                             showUpdateNotification(applicationContext, updateResult)
                         }
                     }
+
                     is UpdateResult.NotRequired -> {
                         if (CLog.isDebug()) {
                             CLog.log(logTag, "onVersionUpdateResult -> NotRequired")
@@ -373,7 +370,6 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
                 channelName = context.getString(R.string.accessibility_service_name),
                 channelImportance = Notify.IMPORTANCE_HIGH,
                 showBadge = false
-
             )
 
             val launchIntent = Intent(context, MainActivity::class.java).apply {

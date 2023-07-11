@@ -10,15 +10,11 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.view.MenuProvider
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -85,7 +81,7 @@ class MainActivity : AppCompatActivity() {
          * We currently hide install main ACR Phone app from Google Play is store it is installed does not allow links to Google Play.
          * We could publish ACR Phone to different stores and use StoreConfigImpl to open link to said store but that makes life complicated as we would need to maintain ACR PHone on many stores.
          */
-        binding.installMainAppCardActionButton.isVisible =    StoreConfigImpl.canLinkToGooglePlayStore()
+        binding.installMainAppCardActionButton.isVisible = StoreConfigImpl.canLinkToGooglePlayStore()
         binding.webSiteLink.isVisible = StoreConfigImpl.canLinkToWebSite()
         binding.versionInfo.text = Util.getVersionName(this)
 
@@ -125,7 +121,7 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.enableOngoingNotification.isChecked = AppSettings.actAsForegroundService
-        binding.enableOngoingNotification.setOnCheckedChangeListener { buttonView, isChecked ->
+        binding.enableOngoingNotification.setOnCheckedChangeListener { _, isChecked ->
 
             if (isChecked) {
                 if (hasNotificationPermission()) {
@@ -133,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                         postNotificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
-                    }else{
+                    } else {
                         //Just satisfying lint check
                     }
                 }
@@ -179,22 +175,17 @@ class MainActivity : AppCompatActivity() {
             onVersionUpdateResult(UpdateChecker.checkUpdate(this@MainActivity))
         }
 
+        binding.toolbar.setOnMenuItemClickListener { item ->
+            when (item.itemId) {
 
-
-        addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.main_activity_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                when (menuItem.itemId) {
-                    R.id.openDebugLog -> {
-                        startActivity(Intent(this@MainActivity, DebugLogActivity::class.java))
-                    }
+                R.id.openDebugLog -> {
+                    startActivity(Intent(this, DebugLogActivity::class.java))
                 }
-                return true
             }
-        })
+
+            true
+        }
+
     }
 
     private fun setupNotification(isChecked: Boolean) {
@@ -291,6 +282,7 @@ class MainActivity : AppCompatActivity() {
             is UpdateResult.Required -> {
                 showUpdateMessage(updateResult)
             }
+
             is UpdateResult.NotRequired -> {
                 if (CLog.isDebug()) {
                     CLog.log(logTag, "onVersionUpdateResult -> NotRequired")
@@ -302,19 +294,18 @@ class MainActivity : AppCompatActivity() {
     private fun showUpdateMessage(updateResult: UpdateResult.Required) {
 
         val message = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty { getString(R.string.forced_update_message_generic) }
-            with(MaterialAlertDialogBuilder(this))
-            {
-                setTitle(R.string.new_version_found)
-                setIcon(R.drawable.ic_warning_24)
-                setMessage(message)
-                setCancelable(false)
-                setPositiveButton(R.string.download) { _, _ ->
-                    updateResult.openDownloadUrl(this@MainActivity)
-                }
-                setNegativeButton(R.string.cancel, null)
-                show()
+        with(MaterialAlertDialogBuilder(this))
+        {
+            setTitle(R.string.new_version_found)
+            setIcon(R.drawable.ic_warning_24)
+            setMessage(message)
+            setCancelable(false)
+            setPositiveButton(R.string.download) { _, _ ->
+                updateResult.openDownloadUrl(this@MainActivity)
             }
-
+            setNegativeButton(R.string.cancel, null)
+            show()
+        }
 
 
     }
