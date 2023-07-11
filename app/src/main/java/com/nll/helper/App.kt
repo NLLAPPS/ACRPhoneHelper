@@ -8,6 +8,7 @@ import androidx.core.content.ContextCompat
 import com.nll.helper.recorder.CLog
 import com.nll.helper.util.AppSettings
 import org.acra.ReportField
+import org.acra.config.dialog
 import org.acra.config.mailSender
 import org.acra.config.notification
 import org.acra.data.StringFormat
@@ -85,6 +86,13 @@ class App : Application() {
 
                     resDiscardButtonIcon = R.drawable.crash_log_discard
                     resSendButtonIcon = R.drawable.crash_log_send
+                }
+
+                //Notification may not work, also use dialog for now. See https://github.com/ACRA/acra/issues/1146
+                dialog {
+                    title = getString(R.string.crash_notif_title)
+                    text = getString(R.string.crash_dialog_text)
+
                 }
             }
 

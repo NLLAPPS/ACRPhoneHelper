@@ -37,7 +37,7 @@ androidXappCompatVersion = "1.7.0-alpha02" # https://developer.android.com/jetpa
 androidXconstraintLayoutVersion = "2.1.4" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 androidXcoordinatorLayoutVersion = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
 androidXlifeCycleVersion = "2.6.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidXrecyclerViewVersion = "1.3.0" # https://developer.android.com/jetpack/androidx/releases/recyclerview
+androidXrecyclerViewVersion = "1.3.1-rc01" # https://developer.android.com/jetpack/androidx/releases/recyclerview
 androidXstartupVersion = "1.2.0-alpha02" # https://developer.android.com/jetpack/androidx/releases/startup
 androidXCoreVersion = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/core
 banesVersionsVersion = "0.47.0" # https://github.com/ben-manes/gradle-versions-plugin
@@ -85,7 +85,7 @@ android-application = { id = "com.android.application", version.ref = "androidGr
 android-library = { id = "com.android.library", version.ref = "androidGradleVersion" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinVersion" }
-kotlin-kapt= { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinVersion" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlinVersion" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlinVersion" }
 banes-versions = { id = "com.github.ben-manes.versions", version.ref = "banesVersionsVersion" } #  https://github.com/ben-manes/gradle-versions-plugin
 

@@ -2,7 +2,6 @@
 <resources>
     <dimen name="padding_24dp">24dp</dimen>
     <dimen name="padding_default_16dp">16dp</dimen>
-    <dimen name="activity_padding">10dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="padding_12dp">12dp</dimen>
     <dimen name="app_bar_elevation_m3">0dp</dimen>
