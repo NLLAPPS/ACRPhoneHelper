@@ -25,23 +25,23 @@ javaVersion = "17" # JavaVersion.VERSION_17
 ########################################################################################
 # Main
 ########################################################################################
-androidGradleVersion = "8.2.0-alpha11"
-kotlinVersion = "1.9.0"
+androidGradleVersion = "8.3.0-alpha03"
+kotlinVersion = "1.9.10"
 
 ########################################################################################
 # Rest
 ########################################################################################
-acraVersion = "5.10.1" # https://github.com/ACRA/acra
+acraVersion = "5.11.2" # https://github.com/ACRA/acra
 androidXactivityVersion = "1.7.2" # https://developer.android.com/jetpack/androidx/releases/activity
-androidXappCompatVersion = "1.7.0-alpha02" # https://developer.android.com/jetpack/androidx/releases/appcompat
+androidXappCompatVersion = "1.7.0-alpha03" # https://developer.android.com/jetpack/androidx/releases/appcompat
 androidXconstraintLayoutVersion = "2.1.4" # https://developer.android.com/jetpack/androidx/releases/constraintlayout
 androidXcoordinatorLayoutVersion = "1.2.0" # https://developer.android.com/jetpack/androidx/releases/coordinatorlayout
-androidXlifeCycleVersion = "2.6.1" # https://developer.android.com/jetpack/androidx/releases/lifecycle
-androidXrecyclerViewVersion = "1.3.1-rc01" # https://developer.android.com/jetpack/androidx/releases/recyclerview
+androidXlifeCycleVersion = "2.6.2" # https://developer.android.com/jetpack/androidx/releases/lifecycle
+androidXrecyclerViewVersion = "1.3.1" # https://developer.android.com/jetpack/androidx/releases/recyclerview
 androidXstartupVersion = "1.2.0-alpha02" # https://developer.android.com/jetpack/androidx/releases/startup
-androidXCoreVersion = "1.10.1" # https://developer.android.com/jetpack/androidx/releases/core
-banesVersionsVersion = "0.47.0" # https://github.com/ben-manes/gradle-versions-plugin
-coroutinesVersion = "1.7.2" # https://github.com/Kotlin/kotlinx.coroutines
+androidXCoreVersion = "1.12.0" # https://developer.android.com/jetpack/androidx/releases/core
+banesVersionsVersion = "0.48.0" # https://github.com/ben-manes/gradle-versions-plugin
+coroutinesVersion = "1.7.3" # https://github.com/Kotlin/kotlinx.coroutines
 kotPrefVersion = "2.13.2" # https://github.com/chibatching/Kotpref
 materialComponentsVersion = "1.9.0" # https://github.com/material-components/material-components-android/releases
 okHttpVersion = "5.0.0-alpha.11" # https://square.github.io/okhttp/
