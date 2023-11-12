@@ -125,6 +125,9 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
 
     /**
      * Listen to client process death to re init and ask to connect back
+     * This may not work on android 14+
+     * See https://twitter.com/MishaalRahman/status/1722758953300292095
+     * See https://android.googlesource.com/platform/frameworks/base/+/79825c6f2f8b46808e4b431fe52b3be78f1e8ac8
      */
     private lateinit var clientBinder: IBinder
     override suspend fun registerClientProcessDeath(clientDeathListener: IBinder) {
