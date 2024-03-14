@@ -17,6 +17,7 @@ java {
 
 android {
     namespace commonValues.appBaseNameSpace
+    //compileSdkPreview "VanillaIceCream"
     compileSdk libs.versions.compileSdkVersion.get().toInteger()
     buildFeatures {
         viewBinding = true
@@ -26,6 +27,7 @@ android {
         applicationId commonValues.appBaseNameSpace
         minSdk(libs.versions.minSdkVersion.get().toInteger())
         targetSdk(libs.versions.targetSdkVersion.get().toInteger())
+        //targetSdkPreview "VanillaIceCream"
         versionName(libs.versions.appVersionName.get())
         versionCode(libs.versions.appVersionCode.get().toInteger())
         vectorDrawables.useSupportLibrary = true
