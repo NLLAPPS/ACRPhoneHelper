@@ -20,6 +20,10 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
+-keepnames class com.google.android.material.** { *; }
+-keepnames class android.** { *; }
+-keepnames class androidx.** { *; }
+-keepnames class kotlinx.** { *; }
 
 -keepclassmembers class * implements android.os.Parcelable {
     static ** CREATOR;
