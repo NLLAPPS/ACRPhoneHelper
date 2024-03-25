@@ -39,5 +39,5 @@ allprojects {
         kotlinOptions.jvmTarget = libs.versions.javaVersion.get().toString()
     }
 
-    buildDir = "${System.properties['user.home']}${File.separator}.build${File.separator}${rootProject.name}${File.separator}${project.name}"
+    layout.buildDirectory = "${System.properties['user.home']}${File.separator}.build${File.separator}${rootProject.name}${File.separator}${project.name}"
 }

@@ -66,6 +66,18 @@ android {
         }
         //outputFileName = outputFileName.replace(".apk", "-${variant.versionName}.apk")
 
+        if (!buildType.debuggable) {
+            assembleProvider.get().doLast {
+                mappingFileProvider.get().files.forEach { proguardFile ->
+                    def newFile = new File("${rootDir}/proguard-mappings/${flavorName}-${versionCode}.txt")
+                    if (newFile.exists()) {
+                        project.logger.lifecycle("Project app applicationVariants deleting already existing ${newFile.absolutePath}")
+                    }
+                    project.logger.lifecycle("Project app applicationVariants proguardFile from ${proguardFile} to ${newFile.absolutePath}")
+                    proguardFile.renameTo(newFile)
+                }
+            }
+        }
     }
 
 
@@ -93,6 +105,7 @@ android {
             versionNameSuffix = "-magiskStore"
         }
     }
+
 }
 
 

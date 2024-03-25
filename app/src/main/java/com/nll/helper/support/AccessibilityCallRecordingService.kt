@@ -234,7 +234,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
     companion object {
         private const val logTag: String = "CR_AccessibilityCallRecordingService"
-
+        private const val ACCESSIBILITY_SERVICE_NOT_ENABLED_NOTIFICATION_ID = 999
         fun start(context: Context) {
             context.startService(Intent(context.applicationContext, AccessibilityCallRecordingService::class.java))
         }
@@ -343,6 +343,8 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             if (!isRunning) {
                 context.startService(Intent(context, AccessibilityCallRecordingService::class.java))
             }
+
+            Notify.cancelNotification(context, ACCESSIBILITY_SERVICE_NOT_ENABLED_NOTIFICATION_ID)
         }
 
         fun postEnableHelperServiceNotificationAndToast(context: Context, showToast: Boolean) {
@@ -413,7 +415,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                 builder.foregroundServiceBehavior = Notification.FOREGROUND_SERVICE_IMMEDIATE
             }
-            context.extNotificationManager()?.notify(notificationChannel.channelKey.hashCode(), builder.build())
+            context.extNotificationManager()?.notify(ACCESSIBILITY_SERVICE_NOT_ENABLED_NOTIFICATION_ID, builder.build())
 
 
         }
