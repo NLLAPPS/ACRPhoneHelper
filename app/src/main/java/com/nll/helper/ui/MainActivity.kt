@@ -31,7 +31,11 @@ import com.nll.helper.server.ClientContentProviderHelper
 import com.nll.helper.support.AccessibilityCallRecordingService
 import com.nll.helper.update.UpdateChecker
 import com.nll.helper.update.UpdateResult
-import com.nll.helper.util.*
+import com.nll.helper.util.AppSettings
+import com.nll.helper.util.Util
+import com.nll.helper.util.extOpenAppDetailsSettings
+import com.nll.helper.util.extPowerManager
+import com.nll.helper.util.extSetCompoundDrawablesWithIntrinsicBoundsToRightOrLeft
 import kotlinx.coroutines.launch
 
 
@@ -294,7 +298,11 @@ class MainActivity : AppCompatActivity() {
     private fun showUpdateMessage(updateResult: UpdateResult.Required) {
 
         val message = updateResult.remoteAppVersion.whatsNewMessage.ifEmpty { getString(R.string.forced_update_message_generic) }
-        with(MaterialAlertDialogBuilder(this))
+        /**
+         * Re: this@MainActivity
+         * Just using this causes crash on Android 14 custom lineage rom on Redmi
+         */
+        with(MaterialAlertDialogBuilder(this@MainActivity))
         {
             setTitle(R.string.new_version_found)
             setIcon(R.drawable.ic_warning_24)
