@@ -1,24 +1,23 @@
 package com.nll.helper.bridge
 
 import android.Manifest
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.MediaRecorder
-import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.nll.helper.App
-import com.nll.helper.Constants
-import com.nll.helper.R
-import com.nll.helper.recorder.*
+import com.nll.helper.recorder.AndroidMediaAudioRecorder
+import com.nll.helper.recorder.AudioRecordPermissionNotification
+import com.nll.helper.recorder.CLog
+import com.nll.helper.recorder.CacheFileProvider
+import com.nll.helper.recorder.Encoder
+import com.nll.helper.recorder.MediaCodecAudioRecorder2
+import com.nll.helper.recorder.Recorder
+import com.nll.helper.recorder.RecorderConfig
 import com.nll.helper.server.IRecorderBridge
 import com.nll.helper.server.RemoteResponseCodes
 import com.nll.helper.server.ServerRecorderListener
 import com.nll.helper.server.ServerRecordingState
-import com.nll.helper.ui.MainActivity
-import io.karn.notify.Notify
-import io.karn.notify.entities.Payload
 
 
 class RecorderBridge : IRecorderBridge {
@@ -63,6 +62,7 @@ class RecorderBridge : IRecorderBridge {
                     }
                     AndroidMediaAudioRecorder(recorderConfig)
                 }
+
                 Encoder.MediaCodec -> {
                     if (CLog.isDebug()) {
                         CLog.log(logTag, "startRecording() -> This is an a normal call and encoder is MediaCodec. Returning MediaCodecAudioRecorder2")
@@ -94,41 +94,8 @@ class RecorderBridge : IRecorderBridge {
 
     override fun showNeedsAudioRecordPermissionNotification(context: Context) {
         CLog.log(logTag, "showNeedsAudioRecordPermissionNotification()")
-        val launchIntent = Intent(context, MainActivity::class.java)
-        val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-        val alertPayload = getChannel(context)
-
-        Notify.with(context)
-            .alerting(alertPayload.channelKey) {
-                lockScreenVisibility = alertPayload.lockScreenVisibility
-                channelName = alertPayload.channelName
-                channelDescription = alertPayload.channelDescription
-                channelImportance = alertPayload.channelImportance
-            }
-            .header {
-                icon = R.drawable.ic_warning_24
-                showTimestamp = true
-            }
-            .meta {
-                group = "helper_permission_notification"
-                sticky = true
-                cancelOnClick = true
-                clickIntent = pendingOpenIntent
-            }
-            .content {
-                title = context.getString(R.string.audio_record_permission)
-                text = context.getString(R.string.call_rec_permissions_message)
-            }.show(Constants.permissionNotificationId)
+        AudioRecordPermissionNotification.show(context)
     }
 
-    private fun getChannel(context: Context) = Payload.Alerts(
-        channelKey = "helper_permission_notification",
-        lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
-        channelName = context.getString(R.string.permissions_title),
-        channelDescription = context.getString(R.string.permissions_title),
-        channelImportance = Notify.IMPORTANCE_HIGH,
-        showBadge = false
-
-    )
 
 }

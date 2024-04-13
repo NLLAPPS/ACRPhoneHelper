@@ -1,5 +1,6 @@
 package com.nll.helper.support
 
+import android.Manifest
 import android.accessibilityservice.AccessibilityService
 import android.app.Notification
 import android.app.PendingIntent
@@ -7,6 +8,7 @@ import android.app.Service
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -16,8 +18,10 @@ import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
 import android.widget.Toast
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
 import com.nll.helper.*
+import com.nll.helper.recorder.AudioRecordPermissionNotification
 import com.nll.helper.recorder.CLog
 import com.nll.helper.ui.MainActivity
 import com.nll.helper.update.DownloadUrlOpenerImpl
@@ -49,7 +53,6 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     )
 
     private fun startAsForegroundServiceWithNotification(context: Context) {
-
         val launchIntent = Intent(context, MainActivity::class.java)
         val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         val alertPayload = getChannel(context)
@@ -168,10 +171,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
              * However, it should not be an issue as this process does not happen often.
              *
              */
-            CLog.log(
-                logTag,
-                "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)"
-            )
+            CLog.log(logTag, "onServiceConnected() -> Call sendAccessibilityServicesChangedEvent(true)")
             sendAccessibilityServicesChangedEvent(true)
         }
     }
@@ -188,7 +188,13 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
          *
          */
         if (AppSettings.actAsForegroundService || App.hasCaptureAudioOutputPermission()) {
-            startAsForegroundServiceWithNotification(applicationContext)
+            val hasAudioRecordPermission = ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
+            CLog.log(logTag, "toggleNotification() -> hasAudioRecordPermission: $hasAudioRecordPermission")
+            if (hasAudioRecordPermission) {
+                startAsForegroundServiceWithNotification(applicationContext)
+            } else {
+                AudioRecordPermissionNotification.show(applicationContext)
+            }
         } else {
             stopForeground(Service.STOP_FOREGROUND_REMOVE)
         }
