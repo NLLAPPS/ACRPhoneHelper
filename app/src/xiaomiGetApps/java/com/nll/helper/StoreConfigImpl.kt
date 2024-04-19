@@ -29,8 +29,8 @@ object StoreConfigImpl : IStoreConfig {
     }
 
     override fun canLinkToWebSite() = false
-    override fun canLinkToGooglePlayStore() = true
-    override fun getUpdateCheckUrl() = "https://acr.app/version-app-gallery.json"
+    override fun canLinkToGooglePlayStore() = false
+    override fun getUpdateCheckUrl() = "https://acr.app/version-xiaomi-get-apps.json"
     override fun requiresProminentPrivacyPolicyDisplay() = true
     override fun getPrivacyPolicyUrl()= "https://acr.app/policy.htm"
 }

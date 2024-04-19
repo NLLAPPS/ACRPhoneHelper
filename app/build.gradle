@@ -87,6 +87,7 @@ android {
             //versionCode versions.versionCode + 10000 Make self updating version bigger may be?
             dimension = "marketPlace"
             versionNameSuffix = "-nllStore"
+            isDefault true
         }
         galaxyStore {
             dimension = "marketPlace"
