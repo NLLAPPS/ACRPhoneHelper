@@ -12,6 +12,19 @@ ACR Phone can be downloaded from [https://play.google.com/store/apps/details?id=
 
 ---
 
+**Android 15 Update (24/April/2024)**
+&nbsp;
+
+As we have susspected before, Google might be preparing to put the final nail on the coffin of call recording and end the cat and mouse game for good.
+&nbsp;
+I have just read a [dooming article](https://www.androidauthority.com/android-15-enhanced-confirmation-mode-3436697/) about improvements to the “Enhanced Confirmation Mode”
+I can confirm that **there will be no call recording possibility with Accessibility Service on Android 15**, if Google releases improved “Enhanced Confirmation Mode”.
+&nbsp;
+
+Improvements to “Enhanced Confirmation Mode” will prevent enabling Accessibility Service of any app that is not installed by a “Trusted Store” essentially ending possibility of call recording on Android 15+
+
+---
+
 Note to other developers.
 - It is not possible to provide reproducible builds as APH needs to be signed with the same key ACR Phone is signed with.
 - APH put together in around a week. Do not expect trendy architectural implementations.
@@ -21,6 +34,7 @@ Note to other developers.
 - Might accept pull requests.
 ---
 Further details about Google's never-ending war against call recording
+- [Possibly end of call recording for good on Android 15+](https://www.androidauthority.com/android-15-enhanced-confirmation-mode-3436697/)
 - [https://nllapps.com/no](https://nllapps.com/no)
 - [https://nllapps.com/android9](https://nllapps.com/android9) (Related to legacy ACR Call Recorder)
 - [https://nllapps.com/android11](https://nllapps.com/android11) (Related to once in a lifetime opportunity that was missed)
