@@ -15,7 +15,7 @@ ACR Phone can be downloaded from [https://play.google.com/store/apps/details?id=
 **Android 15 Update (24/April/2024)**
 &nbsp;
 
-As we have susspected before, Google might be preparing to put the final nail on the coffin of call recording and end the cat and mouse game for good.
+As we have suspected before, Google might be preparing to put the final nail on the coffin of call recording and end the cat and mouse game for good.
 &nbsp;
 I have just read a [dooming article](https://www.androidauthority.com/android-15-enhanced-confirmation-mode-3436697/) about improvements to the “Enhanced Confirmation Mode”
 I can confirm that **there will be no call recording possibility with Accessibility Service on Android 15**, if Google releases improved “Enhanced Confirmation Mode”.
