@@ -1,7 +1,12 @@
 package com.nll.helper.ui
 
 import android.app.Application
-import androidx.lifecycle.*
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.nll.helper.recorder.CLog
 import com.nll.helper.server.RemoteService
 import com.nll.helper.support.AccessibilityCallRecordingService
@@ -30,7 +35,7 @@ class MainActivityViewModel(app: Application) : AndroidViewModel(app) {
 
         AccessibilityCallRecordingService.observeAccessibilityServicesChangesLiveData().observeForever { isEnabled ->
             CLog.log(logTag, "observeAccessibilityServicesChangesLiveData() -> isEnabled: $isEnabled")
-            _accessibilityServicesChanged.postValue(isEnabled)
+            _accessibilityServicesChanged.postValue(isEnabled!!)
         }
 
         RemoteService.observeClientConnectionCount().onEach { connectionCount ->

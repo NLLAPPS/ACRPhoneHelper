@@ -9,11 +9,6 @@ apply plugin: libs.plugins.kotlin.parcelize.get().pluginId
 
 def javaVersionEnum = JavaVersion.toVersion(libs.versions.javaVersion.get().toString())
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(javaVersionEnum.toString().toInteger()))
-    }
-}
 
 android {
     namespace commonValues.appBaseNameSpace
@@ -100,6 +95,10 @@ android {
         xiaomiGetApps {
             dimension = "marketPlace"
             versionNameSuffix = "-xiaomiGetApps"
+        }
+        oppoAppMarket {
+            dimension = "marketPlace"
+            versionNameSuffix = "-oppoAppMarket"
         }
         magiskStore {
             dimension = "marketPlace"
