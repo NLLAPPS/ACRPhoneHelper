@@ -52,6 +52,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
     )
 
+
     private fun startAsForegroundServiceWithNotification(context: Context) {
         val launchIntent = Intent(context, MainActivity::class.java)
         val pendingOpenIntent = PendingIntent.getActivity(context, 0, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
@@ -77,6 +78,21 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             }
             .content {
                 text = context.getString(R.string.helper_service_notification)
+            }.actions {
+                if (isHelperServiceEnabled(this@AccessibilityCallRecordingService)) {
+                    val intent = Intent(context, AccessibilityCallRecordingService::class.java).apply {
+                        action = ACTION_STOP_ACCESSIBILITY_SERVICE
+                    }
+
+                    val stopPendingIntent = PendingIntent.getService(context, ACTION_STOP_ACCESSIBILITY_SERVICE.hashCode(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+                    add(
+                        NotificationCompat.Action(
+                            R.drawable.baseline_cancel_24,
+                            context.getString(R.string.stop),
+                            stopPendingIntent
+                        )
+                    )
+                }
             }.asBuilder()
 
         startForeground(Constants.foregroundNotificationId, notification.build())
@@ -158,6 +174,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     override fun onServiceConnected() {
         CLog.log(logTag, "onServiceConnected()")
 
+        isSelfStopped = false
         isRunning = true
 
         toggleNotification()
@@ -202,17 +219,25 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        CLog.log(logTag, "onStartCommand()")
+        CLog.log(logTag, "onStartCommand() -> intent: $intent")
 
-        isRunning = true
-        /**
-         *
-         * Important to make sure isHelperServiceEnabled because we might be starting this service before system binds to it.
-         * For example when actAsForegroundService is true
-         *
-         */
-        sendAccessibilityServicesChangedEvent(isHelperServiceEnabled(applicationContext))
-        toggleNotification()
+        if (intent?.action == ACTION_STOP_ACCESSIBILITY_SERVICE && isRunning) {
+            CLog.log(logTag, "onStartCommand() -> Stop requested by user.")
+            isSelfStopped = true
+            disableSelf()
+            stopForeground(Service.STOP_FOREGROUND_REMOVE)
+        } else {
+            isSelfStopped = false
+            isRunning = true
+            /**
+             *
+             * Important to make sure isHelperServiceEnabled because we might be starting this service before system binds to it.
+             * For example when actAsForegroundService is true
+             *
+             */
+            sendAccessibilityServicesChangedEvent(isHelperServiceEnabled(applicationContext))
+            toggleNotification()
+        }
         return super.onStartCommand(intent, flags, startId)
     }
 
@@ -241,6 +266,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     companion object {
         private const val logTag: String = "CR_AccessibilityCallRecordingService"
         private const val ACCESSIBILITY_SERVICE_NOT_ENABLED_NOTIFICATION_ID = 999
+        private const val ACTION_STOP_ACCESSIBILITY_SERVICE = "stop-self"
         fun start(context: Context) {
             context.startService(Intent(context.applicationContext, AccessibilityCallRecordingService::class.java))
         }
@@ -248,6 +274,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
 
         // Do not integrate to isHelperServiceEnabled() as running service might not be stopped instantly when user switches it off in Accessibility settings
         private var isRunning = false
+        private var isSelfStopped = false
 
         //https://stackoverflow.com/a/63214655
         private fun addHighlightInTheList(context: Context, intent: Intent): Intent {
@@ -368,21 +395,39 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             accessibilityServicesChangedEventLiveData.postValue(value)
         }
 
-        fun observeAccessibilityServicesChangesLiveData(): LiveData<Boolean> =
-            accessibilityServicesChangedEventLiveData
+        fun observeAccessibilityServicesChangesLiveData(): LiveData<Boolean> = accessibilityServicesChangedEventLiveData
+
+
+        private fun getWarningChannel(context: Context) = Payload.Alerts(
+            channelKey = "aph_enable_call_recording_helper",
+            lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
+            channelName = context.getString(R.string.accessibility_service_name),
+            channelImportance = Notify.IMPORTANCE_HIGH,
+            showBadge = false
+        )
+
+        private fun getLowWarningChannel(context: Context) = Payload.Alerts(
+            channelKey = "aph_enable_call_recording_helper_low",
+            lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
+            channelName = context.getString(R.string.accessibility_service_name),
+            channelImportance = Notify.IMPORTANCE_NORMAL,
+            showBadge = false
+        )
 
         private fun showHelperServiceNotEnabledNotification(context: Context) {
-            val notificationChannel = Payload.Alerts(
-                channelKey = "aph_enable_call_recording_helper",
-                lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
-                channelName = context.getString(R.string.accessibility_service_name),
-                channelImportance = Notify.IMPORTANCE_HIGH,
-                showBadge = false
-            )
-
-            val launchIntent = Intent(context, MainActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            val notificationChannel = if (isSelfStopped) {
+                getLowWarningChannel(context)
+            } else {
+                getWarningChannel(context)
             }
+            val launchIntent = if (isSelfStopped) {
+                getDefaultOpenAccessibilitySettingsIntent(context)
+            } else {
+                Intent(context, MainActivity::class.java).apply {
+                    flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                }
+            }
+
             val pendingOpenIntent = PendingIntent.getActivity(
                 context,
                 0,
