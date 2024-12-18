@@ -12,9 +12,13 @@ object AccessibilityChangeObserver {
 
         context.contentResolver.registerContentObserver(Settings.Secure.getUriFor(Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES), false, object : ContentObserver(null) {
             override fun onChange(self: Boolean) {
+
                 val isAccessibilityServiceEnabledNow = AccessibilityCallRecordingService.isHelperServiceEnabled(context)
+
+                CLog.log(logTag, "onChange() -> self: $self, isAccessibilityServiceEnabledNow: $isAccessibilityServiceEnabledNow")
+
                 if (!isAccessibilityServiceEnabledNow) {
-                    CLog.log(logTag, "onChange -> Warn user that AccessibilityService is not enabled on CallRecordingSupportType that needs it")
+                    CLog.log(logTag, "onChange() -> Warn user that AccessibilityService is not enabled on CallRecordingSupportType that needs it")
                     AccessibilityCallRecordingService.postEnableHelperServiceNotificationAndToast(context, false)
                 }
                 if(isAccessibilityServiceEnabledNow){

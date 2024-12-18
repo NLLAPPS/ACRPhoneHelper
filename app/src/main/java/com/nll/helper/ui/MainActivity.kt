@@ -377,10 +377,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             false
         }
-        CLog.log(
-            logTag,
-            "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating"
-        )
+        CLog.log(logTag, "checkMainApp() -> clientVersionData: $clientVersionData, clientNeedsUpdating: $clientNeedsUpdating")
 
         binding.installAcrPhone.isVisible = !isAcrPhoneInstalled
         if (isAcrPhoneInstalled && !askedClientToConnect) {
@@ -401,7 +398,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun checkForAudioRecordPermission() {
         val hasAudioRecordPermission = ContextCompat.checkSelfPermission(applicationContext, Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED
-
+        CLog.log(logTag, "checkForAudioRecordPermission() -> hasAudioRecordPermission: $hasAudioRecordPermission")
 
         if (!hasAudioRecordPermission) {
             recordAudioPermission.launch(Manifest.permission.RECORD_AUDIO)

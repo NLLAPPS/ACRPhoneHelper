@@ -10,7 +10,6 @@ object Util {
         return dp * context.resources.displayMetrics.density
     }
 
-    @Suppress("DEPRECATION")
     fun getVersionCode(context: Context): Long {
         return try {
             context.applicationContext.packageManager.getPackageInfo(context.applicationContext.packageName, 0).longVersionCode
@@ -19,7 +18,6 @@ object Util {
             0L
         }
     }
-    @Suppress("DEPRECATION")
     fun isAppInstalled(context: Context, packageName: String): Boolean {
         return try {
             context.applicationContext.packageManager.getPackageInfo(packageName, 0)!=null
@@ -31,7 +29,7 @@ object Util {
 
     fun getVersionName(context: Context): String {
         return try {
-            context.applicationContext.packageManager.getPackageInfo(context.applicationContext.packageName, 0).versionName
+            context.applicationContext.packageManager.getPackageInfo(context.applicationContext.packageName, 0).versionName ?: "Cannot get version name!"
         } catch (e: Exception) {
             CLog.logPrintStackTrace(e)
             "Cannot get version name!"

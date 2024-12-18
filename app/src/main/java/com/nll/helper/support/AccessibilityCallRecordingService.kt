@@ -135,8 +135,10 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
     private fun showUpdateNotification(context: Context, updateResult: UpdateResult.Required) {
-        val launchIntent =
-            DownloadUrlOpenerImpl.getOpenDownloadUrlIntent(context, updateResult.remoteAppVersion)
+
+        CLog.log(logTag, "showUpdateNotification()")
+
+        val launchIntent = DownloadUrlOpenerImpl.getOpenDownloadUrlIntent(context, updateResult.remoteAppVersion)
 
         val pendingOpenIntent = PendingIntent.getActivity(
             context,
@@ -194,6 +196,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
     }
 
     private fun toggleNotification() {
+        CLog.log(logTag, "toggleNotification()")
         /**
          *
          * We have just discovered that Android requires apps to have an ongoing foreground notification in order to record audio!
@@ -346,6 +349,7 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
          * @see [AccessibilityUtils](https://github.com/android/platform_frameworks_base/blob/d48e0d44f6676de6fd54fd8a017332edd6a9f096/packages/SettingsLib/src/com/android/settingslib/accessibility/AccessibilityUtils.java.L55)
          */
         fun isHelperServiceEnabled(context: Context): Boolean {
+            CLog.log(logTag, "isHelperServiceEnabled()")
             /*
                 Rather than altering everything, we simply check if we have CaptureAudioOutput permission (meaning app is installed with Magisk module) and pretend that accessibility service is running
                 This saves us a lot of time we may spend changing whole structure of APH.

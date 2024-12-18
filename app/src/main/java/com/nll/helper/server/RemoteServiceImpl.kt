@@ -153,6 +153,7 @@ class RemoteServiceImpl(private val context: Context) : IRemoteService {
 
     private val listeners = mutableListOf<IRemoteServiceListener>()
     override fun registerListener(listener: IRemoteServiceListener) {
+        CLog.log(logTag, "registerListener() -> listener: $listener")
         if (!listeners.contains(listener)) {
             listeners.add(listener)
         }
