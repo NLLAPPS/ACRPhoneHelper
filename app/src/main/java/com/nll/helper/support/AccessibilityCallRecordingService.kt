@@ -79,7 +79,11 @@ class AccessibilityCallRecordingService : AccessibilityService(), CoroutineScope
             .content {
                 text = context.getString(R.string.helper_service_notification)
             }.actions {
-                if (isHelperServiceEnabled(this@AccessibilityCallRecordingService)) {
+                /**
+                 * Show stop button only if we do not have CAPTURE_AUDIO_OUTPUT permission
+                 * Some banking apps require disabling AccessibilityService to work properly
+                 */
+                if (App.hasCaptureAudioOutputPermission().not() && isHelperServiceEnabled(this@AccessibilityCallRecordingService)) {
                     val intent = Intent(context, AccessibilityCallRecordingService::class.java).apply {
                         action = ACTION_STOP_ACCESSIBILITY_SERVICE
                     }
