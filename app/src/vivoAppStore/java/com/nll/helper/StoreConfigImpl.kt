@@ -28,7 +28,7 @@ object StoreConfigImpl : IStoreConfig {
         }
     }
 
-    override fun canLinkToWebSite() = false
+    override fun canLinkToWebSite() = true
     override fun canLinkToGooglePlayStore() = false
     override fun getUpdateCheckUrl() = "https://acr.app/version-vivo-app-store.json"
     override fun requiresProminentPrivacyPolicyDisplay() = true
