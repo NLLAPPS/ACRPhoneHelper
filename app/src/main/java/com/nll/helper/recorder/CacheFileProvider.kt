@@ -8,8 +8,7 @@ object CacheFileProvider {
 
     fun getExternalCacheDirectory(context: Context): File {
         /**
-         * Use getExternalFilesDir instead of externalCacheDir.
-         * There have been instances where Android cleared cache dir while we are downloading the apk
+         * We used to use externalCacheDir but noticed that Android randomly deletes our cache files if recording time is long
          */
         return File(context.getExternalFilesDir(null), "recordings").also { folder ->
             if (folder.exists().not()) {
