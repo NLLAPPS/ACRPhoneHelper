@@ -7,7 +7,7 @@ import com.nll.helper.R
 import com.nll.helper.util.extGetThemeAttrColor
 import io.karn.notify.Notify
 import io.karn.notify.entities.Payload
-import com.google.android.material.R as MaterialResources
+import androidx.appcompat.R as AppCompatResources
 
 
 object DebugNotification {
@@ -39,7 +39,7 @@ object DebugNotification {
             }
             .header {
                 icon = R.drawable.notification_debug
-                color = context.extGetThemeAttrColor(MaterialResources.attr.colorPrimary)
+                color = context.extGetThemeAttrColor(AppCompatResources.attr.colorPrimary)
                 showTimestamp = true
             }
             .content {

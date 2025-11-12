@@ -11,9 +11,8 @@ def javaVersionEnum = JavaVersion.toVersion(libs.versions.javaVersion.get().toSt
 
 
 android {
-    namespace commonValues.appBaseNameSpace
-    //compileSdkPreview "VanillaIceCream"
-    compileSdk libs.versions.compileSdkVersion.get().toInteger()
+    namespace = commonValues.appBaseNameSpace
+    compileSdk = libs.versions.compileSdkVersion.get().toInteger()
     buildFeatures {
         viewBinding = true
         buildConfig = true
@@ -22,7 +21,6 @@ android {
         applicationId commonValues.appBaseNameSpace
         minSdk(libs.versions.minSdkVersion.get().toInteger())
         targetSdk(libs.versions.targetSdkVersion.get().toInteger())
-        //targetSdkPreview "VanillaIceCream"
         versionName(libs.versions.appVersionName.get())
         versionCode(libs.versions.appVersionCode.get().toInteger())
         vectorDrawables.useSupportLibrary = true
@@ -82,7 +80,7 @@ android {
             //versionCode versions.versionCode + 10000 Make self updating version bigger may be?
             dimension = "marketPlace"
             versionNameSuffix = "-nllStore"
-            isDefault true
+            isDefault = true
         }
         galaxyStore {
             dimension = "marketPlace"

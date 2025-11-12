@@ -11,10 +11,14 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -74,12 +78,28 @@ class MainActivity : AppCompatActivity() {
 
         setupNotification(hasNotificationPermission)
     }
-
+    private val onBackPressedCallback: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            CLog.log(logTag, "handleOnBackPressed()")
+            moveTaskToBack(true)
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        WindowCompat.enableEdgeToEdge(window)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(bars.left, bars.top, bars.right, bars.bottom)
+            insets
+        }
+
+
+
         setTitle(R.string.app_name_helper_long)
+
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
         /**
          * We currently hide install main ACR Phone app from Google Play is store it is installed does not allow links to Google Play.
@@ -436,9 +456,4 @@ class MainActivity : AppCompatActivity() {
         onAccessibilityChanged(AccessibilityCallRecordingService.isHelperServiceEnabled(this))
     }
 
-    //Prevent close on back
-    override fun onBackPressed() {
-        CLog.log(logTag, "onBackPressed()")
-        moveTaskToBack(true)
-    }
 }
